@@ -1,0 +1,50 @@
+/* ######### Drop Down ULs CSS ######### */
+
+
+.ddsubmenustyle, .ddsubmenustyle ul { /*topmost and sub ULs, respectively*/
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	visibility: hidden;
+	z-index: 100;
+	top:55px;
+	white-space:nowrap;
+	width:280px;
+	
+	font-size: 11px;
+	background:url(../images/nav_ul_bg.png) repeat-y;
+	
+	height:auto;
+	border-bottom:#fdca17 6px solid;
+} 
+
+.ddsubmenustyle li {
+	width:280px;
+	background:none;
+	height:40px;
+	
+}
+
+.ddsubmenustyle li:hover {
+	background:url(../images/nav_ul_ho_bg1.png) repeat-y;
+	text-decoration:underline;
+
+	
+}
+.ddsubmenustyle li a {
+	color:#525252;
+	font-size:13px;
+	text-decoration:none;
+	font-family: "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+	text-transform:none;
+	padding:19px 0 5px 11px;
+	background:url(../images/green_drop_arrow.png) 1px 22px no-repeat;
+	display:block;
+	margin:0 0 0 10px;
+	width:280px;
+	font-weight:bold;
+}
+
+
+

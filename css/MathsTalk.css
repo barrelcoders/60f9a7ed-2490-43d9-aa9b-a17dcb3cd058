@@ -1,0 +1,300 @@
+/* CSS Document */
+
+
+
+body
+
+{
+background-color:black;
+background:url('/Admin/images/BgImage.jpg');
+
+}
+
+
+
+#container{width:980px;  margin:0 auto;}
+
+
+
+ 
+
+
+#text{width:500px; margin-top:500px; }
+
+
+
+#header{width:980px;}
+
+#logo{width:400px; margin:0 auto; }
+
+#logo img{width:400px;}
+
+
+
+#heading{width:960px;   text-align:center;  }
+
+#heading h1{ text-align:center; color:white; text-transform:capitalize; margin:0px; }
+
+#heading h2{ text-align:center; color:white; text-transform:capitalize; margin:0px;}
+
+
+#drpo{width:500px; float:left;  margin-left:10px; margin-top:22px;  height:600px; background-image: url('/Admin/images/BannerSpring2016.png'); }
+
+
+
+
+
+
+#next{width:1100px; background-color:#eaeffa;  margin:0 auto; margin-top:50px; border-radius: 15px;}
+
+
+
+#frst{width:480px;  float:left;   margin-left:20px;}
+
+
+
+
+
+input, textarea { 
+
+	background: none repeat scroll 0 0 #FFFFFF; 
+
+	border: 1px solid #C9C9C9; 
+
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset, -5px -5px 0 0 #F5F5F6, 5px 5px 0 0 #F5F5F6, 5px 0 0 0 #F5F5F6, 0 5px 0 0 #F5F5F6, 5px -5px 0 0 #F5F5F6, -5px 5px 0 0 #F5F5F6; 
+
+	color: #545658; 
+
+	padding: 8px; 
+
+	width:250px;
+
+	font-size: 14px; 
+
+	border-radius: 2px 2px 2px 2px; 
+
+}
+
+
+
+input1, textarea { 
+
+	background: none repeat scroll 0 0 #FFFFFF; 
+
+	border: 1px solid #C9C9C9; 
+
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset, -5px -5px 0 0 #F5F5F6, 5px 5px 0 0 #F5F5F6, 5px 0 0 0 #F5F5F6, 0 5px 0 0 #F5F5F6, 5px -5px 0 0 #F5F5F6, -5px 5px 0 0 #F5F5F6; 
+
+	color: #545658; 
+
+	padding: 8px; 
+
+	width:100px;
+
+	font-size: 14px; 
+
+	border-radius: 2px 2px 2px 2px; 
+
+}
+
+
+
+
+
+#submit { 
+
+	background: url("../images/submit_bg.gif") repeat-x scroll 0 0 transparent; 
+
+	border: 1px solid #B7D6DF; 
+
+	border-radius: 2px 2px 2px 2px; 
+
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); 
+
+	color: #437182; 
+
+	cursor: pointer; 
+
+	font-family: "cambria; 
+
+	font-size: 14px;
+
+	font-weight: bold; 
+
+	height: auto; 
+
+	padding: 6px 10px; 
+
+	text-shadow: 0 1px 0 #FFFFFF; 
+
+	width: auto; 
+
+}
+
+#submit:hover { 
+
+	background: url("../images/submit_hover_bg.gif") repeat-x scroll 0 0 transparent; 
+
+	border: 1px solid #9FBAC0; 
+
+	cursor: pointer; 
+
+}
+
+a { 
+
+	color: #88BBC8; 
+
+	text-decoration: none; 
+
+}
+
+a:hover { 
+
+	color: #f26525 
+
+}
+
+#signup-form { 
+
+	width: 400px; 
+
+	margin: 0 auto; 
+
+	 
+
+	margin-bottom: 50px; 
+
+
+
+	padding: 7px; 
+
+	
+
+}
+
+#signup-icon { 
+
+	float: right; 
+
+	width: 48px; 
+
+	height: 48px; 
+
+}
+
+
+
+.clearfix:after { 
+
+	content: "."; 
+
+	display: block; 
+
+	height: 0; 
+
+	clear: both; 
+
+	visibility: hidden; 
+
+}
+
+.clearfix { 
+
+	display: inline-block 
+
+} /* Hide from IE Mac \*/
+
+.clearfix { 
+
+	display: block; 
+
+} /* End hide from IE Mac */
+
+.none { 
+
+	display: none; 
+
+} /* End Clearfix _NO__DOTCOMMA__AFTER__*/
+
+
+
+#header { 
+
+	margin: 0 0 30px 0; 
+
+	border-bottom: 1px solid #efefef; 
+
+}
+
+#send p { 
+
+	margin-bottom: 20px 
+
+}
+
+textarea { 
+
+	width: 95%; 
+
+	margin: 0 0 0 2px; 
+
+}
+
+#required p{
+
+	font-size:10px;
+
+}
+
+#apply { 
+
+	border-top: 1px solid #efefef; 
+
+	margin-top: 30px; 
+
+	padding: 20px 0 0 0; 
+
+}
+
+#apply ul { 
+
+	margin-bottom: 50px 
+
+}
+
+form label { 
+
+	display: block; 
+
+	margin-bottom: 5px; 
+
+	font-weight: bold; 
+
+	font-size: 12px; 
+
+}
+
+
+
+#link{width:400px;  float:left;}
+
+#linked{float:left; width:30px;}
+
+
+
+#linked img{width:30px;}
+
+
+
+
+
+#recomdation{width:20px; border:1px; float:left; height:40px;  }
+
+#recomdation img{width:20px;}
+
+
+
+
+
+#tab{width:400px; border:1px; margin-top:50px; margin-left:60px;}

@@ -1,0 +1,35 @@
+[02-Jan-2017 06:01:44 America/Chicago] PHP Warning:  include(../../Admin/Header/Header3.php): failed to open stream: No such file or directory in /home/dpsrohini/public_html/Gallery/index.php on line 4
+[02-Jan-2017 06:01:44 America/Chicago] PHP Warning:  include(): Failed opening '../../Admin/Header/Header3.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/dpsrohini/public_html/Gallery/index.php on line 4
+[02-Jan-2017 06:05:38 America/Chicago] PHP Warning:  include(connection.php): failed to open stream: No such file or directory in /home/dpsrohini/public_html/Gallery/index.php on line 5
+[02-Jan-2017 06:05:38 America/Chicago] PHP Warning:  include(): Failed opening 'connection.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/dpsrohini/public_html/Gallery/index.php on line 5
+[02-Jan-2017 06:05:38 America/Chicago] PHP Warning:  include(AppConf.php): failed to open stream: No such file or directory in /home/dpsrohini/public_html/Gallery/index.php on line 6
+[02-Jan-2017 06:05:38 America/Chicago] PHP Warning:  include(): Failed opening 'AppConf.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/dpsrohini/public_html/Gallery/index.php on line 6
+[02-Jan-2017 06:14:54 America/Chicago] PHP Warning:  require(../../connection.php): failed to open stream: No such file or directory in /home/dpsrohini/public_html/Admin/Header/Header3.php on line 3
+[02-Jan-2017 06:14:54 America/Chicago] PHP Fatal error:  require(): Failed opening required '../../connection.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/dpsrohini/public_html/Admin/Header/Header3.php on line 3
+[02-Jan-2017 06:15:02 America/Chicago] PHP Warning:  require(../../connection.php): failed to open stream: No such file or directory in /home/dpsrohini/public_html/Admin/Header/Header3.php on line 3
+[02-Jan-2017 06:15:02 America/Chicago] PHP Fatal error:  require(): Failed opening required '../../connection.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/dpsrohini/public_html/Admin/Header/Header3.php on line 3
+[03-Jan-2017 04:41:29 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsrohini/public_html/Gallery/AddPhotoSelect.php:2) in /home/dpsrohini/public_html/Gallery/AddPhotoSelect.php on line 2
+[03-Jan-2017 05:44:52 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home/dpsrohini/public_html/Gallery/AddPhotoSelect.php on line 13
+[03-Jan-2017 06:13:54 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home/dpsrohini/public_html/Gallery/AddPhotoSelect.php on line 23
+[03-Jan-2017 06:17:32 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home/dpsrohini/public_html/Gallery/AddPhotoSelect.php on line 26
+[03-Jan-2017 06:50:26 America/Chicago] PHP Warning:  POST Content-Length of 59829032 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[04-Jan-2017 00:43:48 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsrohini/public_html/Gallery/AlbumListing.php:3) in /home/dpsrohini/public_html/Gallery/AlbumListing.php on line 8
+[04-Jan-2017 00:51:12 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsrohini/public_html/Gallery/AlbumListing.php:3) in /home/dpsrohini/public_html/Gallery/AlbumListing.php on line 8
+[04-Jan-2017 01:09:33 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsrohini/public_html/Gallery/AlbumListing.php:2) in /home/dpsrohini/public_html/Gallery/AlbumListing.php on line 2
+[04-Jan-2017 01:12:12 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsrohini/public_html/Gallery/AlbumListing.php:2) in /home/dpsrohini/public_html/Gallery/AlbumListing.php on line 2
+[04-Jan-2017 06:48:04 America/Chicago] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/dpsrohini/public_html/Gallery/AddPhotoSelect.php on line 52
+[04-Jan-2017 07:05:42 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/dpsrohini/public_html/Gallery/AddPhotoSelect.php on line 33
+[04-Jan-2017 07:06:16 America/Chicago] PHP Parse error:  syntax error, unexpected '}' in /home/dpsrohini/public_html/Gallery/AddPhotoSelect.php on line 33
+[05-Jan-2017 00:19:12 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/dpsrohini/public_html/Gallery/AlbumListing.php on line 59
+[05-Jan-2017 01:21:17 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/dpsrohini/public_html/Gallery/GalleryImages.php on line 165
+[05-Jan-2017 01:23:00 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home/dpsrohini/public_html/Gallery/GalleryImages.php on line 165
+[05-Jan-2017 03:21:48 America/Chicago] PHP Warning:  POST Content-Length of 59828886 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[05-Jan-2017 03:25:16 America/Chicago] PHP Warning:  POST Content-Length of 15914092 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[05-Jan-2017 05:12:25 America/Chicago] PHP Warning:  POST Content-Length of 12333199 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[05-Jan-2017 05:13:58 America/Chicago] PHP Warning:  POST Content-Length of 22507283 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[05-Jan-2017 05:14:36 America/Chicago] PHP Warning:  POST Content-Length of 9322616 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[05-Jan-2017 06:15:28 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsrohini/public_html/Gallery/AlbumListing.php:3) in /home/dpsrohini/public_html/Gallery/GallerySideMenu.php on line 2
+[05-Jan-2017 06:15:34 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsrohini/public_html/Gallery/AlbumListing.php:3) in /home/dpsrohini/public_html/Gallery/GallerySideMenu.php on line 2
+[07-Jan-2017 05:20:06 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsrohini/public_html/Gallery/AlbumListing.php:2) in /home/dpsrohini/public_html/Gallery/AlbumListing.php on line 3
+[07-Jan-2017 05:20:51 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsrohini/public_html/Gallery/AlbumListing.php:2) in /home/dpsrohini/public_html/Gallery/AlbumListing.php on line 16
+[09-Jan-2017 04:03:25 America/Chicago] PHP Warning:  POST Content-Length of 12183920 bytes exceeds the limit of 8388608 bytes in Unknown on line 0

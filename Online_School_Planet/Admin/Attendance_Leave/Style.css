@@ -1,0 +1,136 @@
+/* CSS Document */
+
+body{ font-family:Arial!important;}
+.row{margin:0; padding:0; font-family:Arial!important;}
+ul li{ list-style:none;}
+/*-------------------*/
+.col-md-9 h4{margin-top:20px;}
+.col-md-6 p{ margin-right:3%;  }
+hr{ border:1px dotted #0b462d; margin:5px 0 ;}
+@media only screen and ( max-width: 40em ) /* 640 */
+{
+.col-md-6 {   width:auto; }
+.task{ padding:18px 14px; }
+}
+.hr{border:1px solid #0b462d;}
+/*-------------------*/
+#container, body{overflow:hidden;}
+/*---------MANU---------*/
+a:hover{ text-decoration:none ;}
+#nav{   background:#0b462d ; font-size:12px; font-weight:700; font-family:Arial, Helvetica, sans-serif; /* container */}
+#nav > a   {        display: none; color:#FFFFFF ; text-transform:uppercase;    }
+#nav li    {        position: relative; text-transform:uppercase;   } #nav li a{text-transform:uppercase; }
+    /* first level */
+#nav > ul   {        height: 2.5em; margin-bottom:0px ; margin-left:-3% ;    }
+#nav > ul > li  { width: 8%; height: 100%; background:#0b462d ; float: left;	padding-top:0px; text-align:center; list-style:none; z-index:1;   }
+#nav ul li button:hover{ background:#ffffff; text-decoration:none; color:#0b462d; }
+#nav ul li:hover a{color:#0b462d;}
+#nav ul li button{border:none; background:#0b462d; width:100%; height:30px;}
+    /* second level */
+#nav li ul {display: none; position: absolute; top: 100%; background:#f99b1c ;   }
+li a{color:#FFFFFF ;}
+#nav li:hover ul {display: block; text-decoration:none; color:#0b462d;      }
+#nav ul .active button{ background:#097b4b ; }
+.r{background:rgba(231,231,232,0.3);}
+#nav ul li .submanu{width:170%; background:#0b462d;}
+#nav ul li .submanu li button a{font-size:12px; color:#fff; } #nav ul li .submanu li:hover button a{color:#0b462d;}
+#nav ul li .submanu li{ padding:8% 5%; width: 128%; margin-left: -28%; text-align:left; }
+/*---------------------------------------*/
+input:focus, textarea:focus, select:focus {  outline: none; }
+/*Header*/ .t .col-md-5 .img-responsive { width: 53%;} 
+.t .col-md-1{ text-align:right; margin-top:1%; }
+.t .col-md-1{ margin-top:1%;} .t .col-md-1 .name{margin:8% 5% 0 0;}  .t .col-md-1 span{float:left;}
+.t .col-md-1 .imghover .submanu li{display:none;} 
+.t .col-md-1 .imghover:hover .submanu {position:absolute;  z-index:1000000; margin-left:-97%; margin-top:8%;}
+.t .col-md-1 .imghover:hover .submanu li{display:block;  margin-left:-10%; padding:1% 1%;} 
+.t .col-md-1 .imghover .submanu li{background:#0b462d; color:#fff; list-style:none; text-align:left;} 
+.t .col-md-1 .imghover .submanu li .btnmanu{border:none; background:#0b462d; width:100%;text-align:left!important; padding:5% 1%;}
+.t .col-md-1 .imghover .submanu li .btnmanu:hover {background:#097b4b;}
+.t .col-md-1 .imghover .submanu li a .btnmanu:hover{color:#fff;}
+.t .col-md-1 .imghover .submanu li.te{border-bottom: 10px solid #0b462d; border-left: 10px solid transparent; border-right: 10px solid transparent;	background:none; position: absolute; right: 8px; top: -12px;}
+/*------------------Side Manu for All Pages----------------------*/
+button:focus{outline:none; border:none;}
+.c div.hris1 ul{margin-left:-27%; margin-top:10%;} 
+.hris1 ul li a{color:#000!important; margin-left:0%;} .c div.hris1 ul li{border-bottom:1px dotted #0b462d;}
+.hris1 .dropmanu .btnmanu1{border:none; background:#7ef5c3; width:185px; text-align:left; height:40px; font-weight:500; font-size:15px; width:100%; color:#b462d; } .hris1 .dropmanu a:active .btnmanu1{background:#0b462d!important;}
+.hris1 .dropmanu .btnmanu1:hover{background:#097b4d; color:#fff;}
+.hris1 .dropmanu .collapse ul li a .btnmanu{border:none; background:none; width:185px; text-align:left; }
+.hris1 .dropmanu .collapse ul li{}
+.hris1 .dropmanu .collapse ul li:hover{background:#097b4d; width:99%; margin-left:1%;} 
+.hris1 .dropmanu .collapse ul li:hover a .btnmanu{color:#fff;}
+/*.c div.hris1 ul li:hover{ background:#0b462d;} .hris1 ul li a .btnmanu{background:none; width:100%; border:none; text-align:left;}
+.c div.hris1 ul li:hover a, .c div.hris1 ul li.active a{color:#fff!important;} .c div.hris1 ul li.active{background:#0b462d;} 
+.c div.hris1 ul li.active:hover{background:#097b4b;} .c div.hris1 ul li.active:hover a{color:#000!important;}
+button:focus{outline:none; border:none;} .c div.hris1 ul li.active:hover a button{color:#fff;}*/
+/*----------------------------------------------------------*/
+.btn{background:#0b462d; height:33px; color:#fff;} .btn:hover{background:#097b4b; color:#fff;} .btn:focus{background:#097b4b; color:#fff; outline:none;}
+.col-md-2{padding-top:1%; overflow:auto;} .col-md-10{padding-top:1%; overflow-y:scroll; height:560px;}
+option:hover{background-color:#0b462d!important;}
+/*----------------------------------Attendance--------------------------------------*/
+/*Student Attendance*/
+.classattendance .classattendance_top{font-size:16px; font-weight:600; padding:0.5% 0; border-bottom:1px solid #0b462d;}
+.classattendance .classattendance_bottom{margin:1% 0;}
+.classattendance .classattendance_bottom .col-xs-3{margin-top:1%;} .classattendance .classattendance_bottom .col-xs-3:nth-child(odd){font-weight:600;}
+.classattendance .classattendance_bottom .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px; width:90%;}
+.classattendance .classattendance_bottom .col-xs-12{margin:1%; }
+.classattendance .attandance_table{width:100%; margin:1%; border-top:2px solid #097b4d; margin-top:5%; padding:1% 0;}
+.classattendance .attandance_table table{width:100%;}
+.classattendance .attandance_table table .col td{background:#0b462d; color:#fff; font-size:15px;}
+.classattendance .attandance_table table td{padding:1% 1%; font-size:14px;}
+.classattendance .attandance_table table td .text-box{width:50%; border:1px solid #ccc; height:25px; padding:0.5% 1%; border-radius:3px;}
+/*bulk*/.classattendance .attandance_table1{width:100%; margin:0%; border-top:2px solid #097b4d; margin-top:2%; padding:1% 0;}
+.classattendance .attandance_table1 table{width:100%;} .classattendance .attandance_table1 table td .btn1:hover{background:#0b462d;}
+.classattendance .attandance_table1 table td .btn1{background:#097b4d; color:#fff; border:1px solid #097b4d; border-radius:3px; height:25px;}
+.classattendance .attandance_table1 table td{padding:1% 1%; font-size:14px;}
+.classattendance .attandance_table1 table td .text-box{width:50%; border:1px solid #ccc; height:25px; padding:0.5% 1%; border-radius:3px;}
+/*Employee Attendance*/
+.classattendance .classattendance_bottom1 .text-box{width:70%; height:25px; border:1px solid #ccc;}
+.classattendance .classattendance_bottom1 table{width:100%;} .classattendance .classattendance_bottom1{margin-top:2%;}
+.classattendance .classattendance_bottom1 table .col td{background:#0b462d; color:#fff; font-size:16px;}
+.classattendance .classattendance_bottom1 table td{width:20%; padding:0.5% 1%; font-size:14px;}
+.classattendance .classattendance_bottom1 .tb1{border:none !important; background:transparent;}
+/*Employee Leave*/
+.employeeleave .employeeleave_top{font-size:16px; font-weight:600; border-bottom:1px solid #0b462d; padding:0.5% 0;}
+.employeeleave .employeeleave_bottom{margin:1% 0; border:1px solid #097b4d; border-radius:5px;} .employeeleave .employeeleave_bottom table{width:100%;}
+.employeeleave .employeeleave_bottom table .col td{background:#0b462d; color:#fff; font-size:14px;}
+.employeeleave .employeeleave_bottom table td{padding:0.5% 0.5%; font-size:14px;}
+.employeeleave .employeeleave_bottom table td .text-box{width:90%; border:1px solid #ccc; border-radius:3px;}
+.employeeleave .employeeleave_bottom table tr{border-bottom:1px solid #ccc;}
+.employeeleave .employeeleave_bottom table td{border-right:1px solid #ccc;} .employeeleave .employeeleave_bottom table td:last-child{border:none;}
+.employeeleave .employeeleave_bottom table tr:last-child{border:none;}
+/*Employee Approve History*/ .employeeleave .employeeleave_history .col-xs-3{margin:0.5% 0;}
+.employeeleave .employeeleave_history .col-xs-3:nth-child(odd){font-weight:600;}
+.employeeleave .employeeleave_history .col-xs-3 .text-box{width:80%; height:27px; padding:0.5% 1%; border:1px solid #999; border-radius:3px;}
+.employeeleave .employeeleave_history{border-bottom:1px solid #0b462d; padding:1% 5%;}
+.employeeleave .emlb table{width:130%;}
+.employeeleave .emlb{overflow:auto; height:340px; border-radius:3px;}
+.employeeleave .emlb1 table{width:120%;}
+.employeeleave .emlb1{overflow:auto; height:480px; border-radius:3px;}
+/*Student Attendance*/
+.attendancereport .attendancereport_top{font-size:16px; font-weight:600; padding:0.5% 0; border-bottom:1px solid #0b462d;}
+.attendancereport .attendancereport_bottom{margin:1% 0;}
+.attendancereport .attendancereport_bottom .col-xs-3{margin-top:1%;} .attendancereport .attendancereport_bottom .col-xs-3:nth-child(odd){font-weight:600;}
+.attendancereport .attendancereport_bottom .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px; width:90%;}
+.attendancereport .attendancereport_bottom .col-xs-12{margin:1%; }
+.attendancereport .attendancereport_table{width:100%; margin:1%; border-top:2px solid #097b4d; margin-top:5%; padding:1% 0;}
+.attendancereport .attendancereport_table table{width:100%;}
+.attendancereport .attendancereport_table table .col td{background:#0b462d; color:#fff; font-size:15px;}
+.attendancereport .attendancereport_table table td{padding:0.5% 1%; font-size:14px; border:1px solid #ccc;}
+.attendancereport .attendancereport_table table td .text-box{width:50%; border:1px solid #ccc; height:25px; padding:0.5% 1%; border-radius:3px;}
+.attendancereport .attendancereport_table table td:first-child{width:10px;}
+.at1{overflow:auto; height:393px; margin:0 !important;}
+.at1 table{width:200%!important; height:auto;} .at1 table .col td input{width:100%; color:#fff; border:none; background:transparent;}
+.at1 table tr td{padding:3px 8px!Important;} .at1 table tr td input{width:80%; color:#000; border:none; background:transparent;}
+/*Setup*/
+.setup .setup_top{font-size:16px; font-weight:600; padding:0.5% 0; border-bottom:1px solid #0b462d;}
+.setup .setup_bottom{margin:1% 0;} .setup .setup_bottom .row{padding:0 25% !important;}
+.setup .setup_bottom .col-xs-6{margin-top:1%;} .setup .setup_bottom .col-xs-6:nth-child(odd){font-weight:600;}
+.setup .setup_bottom .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px; width:90%;}
+.setup .setup_bottom .col-xs-12{margin:1%; }
+.setup .setup_table{width:100%; margin:1%; border-top:2px solid #097b4d; margin-top:5%; padding:1% 0;}
+.setup .setup_table table{width:100%;}
+.setup .setup_table table .col td{background:#0b462d; color:#fff; font-size:15px;}
+.setup .setup_table table td{padding:0.5% 1%; font-size:14px; border:1px solid #ccc;}
+.setup .setup_table table td .text-box{width:50%; border:1px solid #ccc; height:25px; padding:0.5% 1%; border-radius:3px;}
+.setup .setup_table table td:first-child{width:10px;}
+/*-------------------------------End Attendance-------------------------------------*/

@@ -1,0 +1,131 @@
+/*
+
+Pure CSS Drop Down Menu
+
+Ver: 1.0.0
+
+Tested Browser: IE6, IE7, Firefox 3.0.5, Opera 9.62, Safari 3.1.2, Google Chrome 1.0.154.36
+
+*/
+
+
+#menu {
+	padding: 0;
+	list-style: none;
+	position: relative;
+	height:53px;
+}
+#menu li {
+	float:left;
+	list-style-type:none;
+	line-height:53px;
+	background:url(../images/nav_divider.png) no-repeat left;
+	margin: 0px;
+	padding: 0px;
+}
+/*new header links css*/
+
+
+
+#menu li a {
+	color:#FFFFFF;
+	font-size:14px;
+	font-family:Arial, Helvetica, sans-serif;
+	display:block;
+	padding-right: 12px;
+	padding-left: 12px;
+}
+#menu li a:hover {
+	background:url(../images/nav_hover.jpg) top left;
+}
+/* Default link styling */
+
+
+
+/* Style the list OR link hover. Depends on which browser is used */
+
+
+
+#menu a:hover {
+	visibility:visible;
+	text-decoration:none;
+}
+#menu li:hover {
+	position:relative;
+	z-index:200;
+}
+/* keep the 'next' level invisible by placing it off screen. */
+
+
+
+#menu ul, #menu :hover ul ul, #menu :hover ul :hover ul ul, #menu :hover ul :hover ul :hover ul ul, #menu :hover ul :hover ul :hover ul :hover ul ul {
+	position:absolute;
+	left:-9999px;
+	top:-9999px;
+	width:0;
+	height:0;
+	margin:-2px 0 0 0;
+	padding:0;
+	list-style:none;
+}
+/*container dropdown*/
+
+#menu :hover ul.sub {
+	left:-130px;
+	top:49px;
+	white-space:nowrap;
+	width:240px;
+	text-align:left;
+	font-size: 11px;
+	background:url(../images/sub_ul_bg.png) top left repeat-y;
+	height:auto;
+	padding:0 10px 0 10px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	-html-border-radius:6px;
+	border-radius:6px;
+}
+.clear {
+	clear:both;
+}
+#menu :hover ul.sub li {
+	position:relative;
+	float:left;
+	width:220px;
+	background:none;
+	line-height:0;
+}
+#menu :hover ul.sub li:hover {
+	background:url(../images/nav_ul_ho_bg.png) repeat-y;
+}
+#menu :hover ul.sub li a {
+	color:#fff;
+	font-size:12px;
+	text-decoration:none;
+	font-family:Arial, Helvetica, sans-serif;
+	text-transform:none;
+	padding:15px 10px 15px 10px;
+	background:url(../images/blue_square.jpg) left center no-repeat;
+	display:block;
+	width:200px;
+	margin-top:4px;
+	border-bottom:1px dashed #93d3ee;
+}
+#menu :hover ul.sub li.act {
+	color:#fff;
+	font-size:14px;
+	text-decoration:none;
+	font-family:Arial, Helvetica, sans-serif;
+	text-transform:none;
+	padding:15px 10px 15px 10px;
+	background:#0081b9;
+	display:block;
+	width:200px;
+	margin-top:4px;
+}
+#menu :hover ul.sub li a:hover {
+	text-decoration:none;
+}
+.liseprate {
+	margin:0 0 0 25px;
+}

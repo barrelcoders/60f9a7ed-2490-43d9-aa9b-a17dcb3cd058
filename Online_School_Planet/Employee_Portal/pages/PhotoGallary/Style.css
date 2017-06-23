@@ -1,0 +1,105 @@
+@charset "utf-8";
+body{ font-family:Arial!important;}
+.row{margin:0; padding:0; font-family:Arial!important;}
+ul li{ list-style:none;}
+/*-------------------*/
+.col-md-9 h4{margin-top:20px;}
+.col-md-6 p{ margin-right:3%;  }
+hr{ border:1px dotted #0b462d; margin:5px 0 ;}
+@media only screen and ( max-width: 40em ) /* 640 */
+{
+.col-md-6 {   width:auto; }
+.task{ padding:18px 14px; }
+}
+.hr{border:1px solid #0b462d;}
+/*-------------------*/
+#container, body{overflow:hidden;}
+/*---------MANU---------*/
+a:hover{ text-decoration:none ;}
+#nav{   background:#0b462d ; font-size:12px; font-weight:700; font-family:Arial, Helvetica, sans-serif; /* container */}
+#nav > a   {        display: none; color:#FFFFFF ; text-transform:uppercase;    }
+#nav li    {        position: relative; text-transform:uppercase;   } #nav li a{text-transform:uppercase; }
+    /* first level */
+#nav > ul   {        height: 2.5em; margin-bottom:0px ; margin-left:-3% ;    }
+#nav > ul > li  { width: 8%; height: 100%; background:#0b462d ; float: left;	padding-top:0px; text-align:center; list-style:none; z-index:1;   }
+#nav ul li button:hover{ background:#ffffff; text-decoration:none; color:#0b462d; }
+#nav ul li:hover a{color:#0b462d;}
+#nav ul li button{border:none; background:#0b462d; width:100%; height:30px;}
+    /* second level */
+#nav li ul {display: none; position: absolute; top: 100%; background:#f99b1c ;   }
+li a{color:#FFFFFF ;}
+#nav li:hover ul {display: block; text-decoration:none; color:#0b462d;      }
+#nav ul .active button{ background:#097b4b ; }
+.r{background:rgba(231,231,232,0.3);}
+#nav ul li .submanu{width:170%; background:#0b462d;}
+#nav ul li .submanu li button a{font-size:12px; color:#fff; } #nav ul li .submanu li:hover button a{color:#0b462d;}
+#nav ul li .submanu li{ padding:8% 5%; width: 128%; margin-left: -28%; text-align:left; }
+/*---------------------------------------*/
+input:focus, textarea:focus, select:focus {  outline: none; }
+/*Header*/ .t .col-md-5 .img-responsive { width: 53%;} 
+.t .col-md-1{ text-align:right; margin-top:1%; }
+.t .col-md-1{ margin-top:1%;} .t .col-md-1 .name{margin:8% 5% 0 0;}  .t .col-md-1 span{float:left;}
+.t .col-md-1 .imghover .submanu li{display:none;} 
+.t .col-md-1 .imghover:hover .submanu {position:absolute;  z-index:1000000; margin-left:-97%; margin-top:8%;}
+.t .col-md-1 .imghover:hover .submanu li{display:block;  margin-left:-10%; padding:1% 1%;} 
+.t .col-md-1 .imghover .submanu li{background:#0b462d; color:#fff; list-style:none; text-align:left;} 
+.t .col-md-1 .imghover .submanu li .btnmanu{border:none; background:#0b462d; width:100%;text-align:left!important; padding:5% 1%;}
+.t .col-md-1 .imghover .submanu li .btnmanu:hover {background:#097b4b;}
+.t .col-md-1 .imghover .submanu li a .btnmanu:hover{color:#fff;}
+.t .col-md-1 .imghover .submanu li.te{border-bottom: 10px solid #0b462d; border-left: 10px solid transparent; border-right: 10px solid transparent;	background:none; position: absolute; right: 8px; top: -12px;}
+/*------------------Side Manu for All Pages----------------------*/
+.c div.hris1 ul{margin-left:-27%; margin-top:0%;} .c div.hris1 ul li .btnmanu{ list-style: none; padding:5% 0; } 
+.hris1 ul li a{color:#000!important; margin-left:3%;} .c div.hris1 ul li{border-bottom:1px dotted #0b462d;}
+.c div.hris1 ul li:hover{ background:#0b462d;} .hris1 ul li a .btnmanu{background:none; width:100%; border:none; text-align:left;}
+.c div.hris1 ul li:hover a, .c div.hris1 ul li.active a{color:#fff!important;} .c div.hris1 ul li.active{background:#0b462d;} 
+.c div.hris1 ul li.active:hover{background:#097b4b;} .c div.hris1 ul li.active:hover a{color:#000!important;}
+button:focus{outline:none; border:none;} .c div.hris1 ul li.active:hover a button{color:#fff;}
+/*----------------------------------------------------------*/
+.btn{background:#0b462d; height:33px; color:#fff;} .btn:hover{background:#097b4b; color:#fff;} .btn:focus{background:#097b4b; color:#fff; outline:none;}
+.col-md-2{padding-top:1%; overflow:auto;} .col-md-10{padding-top:1%; overflow-y:scroll; height:540px !important;}
+option:hover{background-color:#0b462d!important;}
+/*---------------------------------------------Photo Gallary-------------------------------------*/
+.photogallery .photogallery_outer .photogallery_head{height: 7%; width: 100%; background:#0b462d; color: #FFF; padding:1%; margin: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+.photogallery .photogallery_outer .photogallery_inner{width:100%; margin:1% 0;}
+.photogallery .photogallery_outer .photogallery_inner .row{margin:0; padding:0;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4{margin:1% 1%; width:31.3%; float:left; }
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_inner{padding:8% 1% 8% 1%; border:2px solid transparent; }
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo{padding:0 5%;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo a img{width:250px; height:250px;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo font{font-size:18px; font-weight:bold; color:#097b4d; text-transform:capitalize;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_inner:hover{border:2px solid #097b4d; border-radius:5px;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu a .edit{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: -86px 38px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu a .editalbum{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: 49px -5px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu a .addphoto{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: 171px -5px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu a .addalbum{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: 131px -5px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu a .organizealbum{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: 256px -5px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu a .deletealbum{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: -2px -5px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu{margin-top:-270px; margin-left:230px; z-index:10; position:absolute; display:none; background:#fff;} 
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu a:hover .name{display:block;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu a .name{display:none; color:#000; background:#CCC; width:auto; margin-left:-50px; padding:0.5% 10%; border:1px solid transparent; border-radius:5px; margin-top:-26px; position:absolute; text-align:right;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_inner:hover .photo_manu{display:block;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu .photo_submanu{display:none;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu:hover .photo_submanu{display:block;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_submanu a .name{display:none; color:#000; background:#CCC; width:auto; margin-left:-70px; padding:0.5% 1%; margin-top:-26px; position:absolute; text-align:right;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_submanu a .n1{margin-left:-104px;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_submanu a .n2{margin-left:-88px;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu a:hover .name{display:block;}
+.photogallery .photogallery_outer .photogallery_inner .col-xs-4 .photo_manu .photo_submanu a.button{background:none; padding:0;}
+/*Add Photo */
+.photogallery .photogallery_outer .addphotogallery_inner .addphoto_gallary .addphoto_add{width:100%; padding:1%; margin:1% 0 0 0;}
+.photogallery .photogallery_outer .addphotogallery_inner .addphoto_gallary .addphoto_add .col-xs-3:first-child{font-size:16px; font-weight:bold;}
+.photogallery .photogallery_outer .addphotogallery_inner .addphoto_gallary .addphoto_add .col-xs-3 .text-box{width:100%; border:1px solid #097b4d; border-radius:3px; height:30px; padding:1%;}
+.photogallery .photogallery_outer .addphotogallery_inner .addphoto_gallary .addphoto_add .addphoto_area{width:100%; margin:2% 0; height:270px; border:2px solid #097b4d; border-radius:5px; padding:1%; overflow-y:auto;}
+.photogallery .photogallery_outer .addphotogallery_inner .addphoto_gallary .addphoto_add .addphoto_area article{width:100%; text-align:center;}
+.photogallery .photogallery_outer .addphotogallery_inner .addphoto_gallary .addphoto_add .addphoto_area article label{font-size:17px; font-weight:bold; text-align:center;}
+.photogallery .photogallery_outer .addphotogallery_inner .addphoto_gallary .addphoto_add .addphoto_area1{width:100%; margin:1% 0;}
+.photogallery .photogallery_outer .addphotogallery_inner .addphoto_gallary .addphoto_add .addphoto_area1 .text-box{width:100%; border:1px solid #097b4d; padding:1%; height:30px; border-radius:3px;}
+.photogallery .photogallery_outer .addphotogallery_inner .addphoto_gallary .addphoto_add .addphoto_area #result div{width:23%; float:left; height:150px; margin:1%;}
+.photogallery .photogallery_outer .addphotogallery_inner .addphoto_gallary .addphoto_add .addphoto_area #result div img{width:100%; height:150px;}
+/*-------------------------------------------End Photo Gallary-----------------------------------*/
+/*-----------------------------------New Image Slider---------------------------------------------*/
+.col-md-10 .photogallery_outer .photogallery_inner .nav-pills li{width:23%;}
+.col-md-10 .photogallery_outer .photogallery_inner .nav-pills li img{width:80%;}
+/*.col-md-10 .photogallery_outer .photogallery_inner .nav-pills{margin-top:500px; position:absolute;}
+.col-md-10 .photogallery_outer .photogallery_inner .tab-content{margin-top:-00px;}*/

@@ -1,0 +1,2 @@
+[15-Mar-2017 06:44:45 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsfbd/public_html/Admin/index.php:18) in /home/dpsfbd/public_html/Admin/header1.php on line 2
+[15-Mar-2017 06:44:45 America/Chicago] PHP Fatal error:  Class 'mysqli' not found in /home/dpsfbd/public_html/Admin/connection.php on line 8

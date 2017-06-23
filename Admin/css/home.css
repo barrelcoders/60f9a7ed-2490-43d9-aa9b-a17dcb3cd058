@@ -1,0 +1,188 @@
+.container
+{
+	width:990px;
+	height:1000px;
+	
+	margin:auto;
+}
+.head
+{
+	width:990px;
+	
+	height:500px;
+	background:url(image/country_road_2-wallpaper-1280x800.jpg);
+}
+.box
+{
+	height:200px;
+	width:240px;
+	background-color:#E4AF10;
+   margin-top:-100px;
+   margin-left:67.70px;
+
+}
+.box1
+{
+	height:200px;
+	width:240px;
+	background-color:#03C;
+  margin-top:-200px;
+   margin-left:375.40px;
+
+}
+.box2
+{
+	height:200px;
+	width:240px;
+	background-color:#F422EF;
+   margin-top:-200px;
+   margin-left:683.10px;
+
+}
+.menucontainer
+{
+	width:990px;
+	height:80px;
+	background-color:#03C;
+	border:solid;
+	border-width:1px;
+}
+.ac
+{
+	color:white;
+	font-family:Copperplate Gothic Light;
+	font-size:17px;
+	font-weight:900;	
+	
+	
+}
+.text
+{
+	
+	
+	height:100px;
+		
+	width:230px;
+	margin-top:-10px;
+	margin-left:10px;
+}
+.ac1
+{
+	color:white;
+	font-family:Copperplate Gothic Light;
+	position:absolute;
+	margin-top:-20px;
+	margin-left:48px;
+	
+	font-size:30px;
+
+}
+
+
+
+ul
+{
+	height:50px;
+	
+	width:550px;
+	margin-top:-90px;
+	margin-left:200px;
+}
+ul li
+{
+	float:left;
+	display:block;
+	width:89px;
+	height:35px;
+	
+	margin:5px;
+	position:relative;
+	text-align:center;
+	text-decoration:none;
+	font-size:18px;
+	color:white;
+	
+	
+}
+ 
+ul li:hover li
+{
+	background-color:#3B3B3B;
+}
+ul li:hover
+ {
+	background-color:#D50000; 
+ }
+ .cen
+ {
+	 margin-top:5px;
+ }
+ a:active
+ {
+	background-color:#D50000; 
+ }
+ a
+ {
+	 color:white;
+	 text-decoration:none;
+ }
+ .consign
+ {
+	 
+	 width:150px;
+	 height:50px;
+	 
+	 margin-top:-560px;
+	 margin-left:830px;
+ }
+ .sig
+ {
+	 color:white;
+ }
+ .sig1
+ {
+	 color:white;
+	 margin-top:-37px;
+	 margin-left:60px;
+	
+ }
+ .sig2
+ {
+	 color:white;
+	 margin-top:-32px;
+	 margin-left:80px;
+ }
+ .dem
+ {
+	 
+	 background-image:url(image/Untitled..png);
+	 height:250px;
+	 width:350px;
+	 margin-left:558px;
+	 margin-top:-23px;
+	 display:none;
+	 border-top-right-radius:20px;
+ }
+  .dem1
+ {
+	 
+	 background-image:url(image/Untitled..png);
+	 height:250px;
+	 width:350px;
+	 margin-left:630px;
+	 margin-top:-23px;
+	 display:none;
+	 border-top-right-radius:20px;
+ }
+ .tab
+ {
+	 width:250px;
+	 height:20px;
+	 border-radius:20px;
+ }
+ .tab1
+ {
+	 width:80px;
+	 height:20px;
+	 border-radius:20px;
+ }

@@ -1,0 +1,17 @@
+﻿body{ margin:0px; padding:0px}
+
+#container
+{
+  width:  100%; /*or 70%, or what you want*/
+  height:auto;
+  background:url(images/bg1.png);
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+.header-text { font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:14px; padding:2px; color:#900;}
+
+
+h1{ font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:20px; color:#900;}
+
+
+input { background:#900; border:0px; padding:3px 7px; color:#fff;}

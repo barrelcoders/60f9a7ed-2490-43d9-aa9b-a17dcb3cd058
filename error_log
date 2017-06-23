@@ -1,0 +1,7 @@
+[15-Mar-2017 06:30:03 America/Chicago] PHP Fatal error:  Class 'mysqli' not found in /home/dpsfbd/public_html/connection.php on line 8
+[15-Mar-2017 06:31:04 America/Chicago] PHP Fatal error:  Class 'mysqli' not found in /home/dpsfbd/public_html/connection.php on line 8
+[15-Mar-2017 06:33:51 America/Chicago] PHP Fatal error:  Class 'mysql' not found in /home/dpsfbd/public_html/connection.php on line 8
+[16-Mar-2017 06:22:59 America/Chicago] PHP Warning:  include(../connection.php): failed to open stream: No such file or directory in /home/dpsfbd/public_html/studentlogin.php on line 2
+[16-Mar-2017 06:22:59 America/Chicago] PHP Warning:  include(): Failed opening '../connection.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/dpsfbd/public_html/studentlogin.php on line 2
+[16-Mar-2017 06:22:59 America/Chicago] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/dpsfbd/public_html/studentlogin.php on line 6
+[16-Mar-2017 06:22:59 America/Chicago] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/dpsfbd/public_html/studentlogin.php:2) in /home/dpsfbd/public_html/studentlogin.php on line 8

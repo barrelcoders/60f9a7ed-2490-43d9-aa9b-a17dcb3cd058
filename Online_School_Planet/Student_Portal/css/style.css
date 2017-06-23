@@ -1,0 +1,399 @@
+/* CSS Document */
+
+body{ font-family:Arial!important; cursor:default;}
+.row{margin:0; padding:0; font-family:Arial!important;}
+ul li{ list-style:none;}
+/*-------------------*/
+.col-md-9 h4{margin-top:20px;}
+.col-md-6 p{ margin-right:3%;  }
+hr{ border:1px dotted #0b462d; margin:5px 0 ;}
+@media only screen and ( max-width: 40em ) /* 640 */
+{
+.col-md-6 {   width:auto; }
+.task{ padding:18px 14px; }
+}
+.hr{border:1px solid #0b462d;}
+buttom:focus{outline:none; border:none;}
+buttom:action{outline:none; border:none;}
+/*-------------------*/
+/*------------------------For Scroll----------------------*/
+/*body*/
+body::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color:rgba(11,70,45,0.7);
+  outline: 1px solid #097b4d;
+}
+/**/
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #097b4d; 
+    border-radius: 5px;
+}
+ 
+::-webkit-scrollbar-thumb {
+	background-color:#097b4d;
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px #097b4d; 
+}
+/*-----------------------End Scroll------------------------*/
+/*-----------------------------------------------------------Header-------------------------------------------------------------*/
+.navbar-inverse, .container-fluid{margin-left:-1%; height:30px; }
+#myNavbar{ border:none; height:30px !important; margin-left:-0.4%; } 
+#myNavbar .nav{ border:none; height:30px;} #myNavbar .nav li{height:30px;}
+#myNavbar .nav li.active a{background:none !important;} #myNavbar .nav li.active{background:#097b4d;}
+#myNavbar .nav li a{color:#fff; height:30px; margin-top:0px; font-size:12px;} .navbar{min-height:30px!important;}
+#myNavbar .nav>li>a{padding:6px 15px; }
+#myNavbar .nav li a:hover{background:none;} #myNavbar .nav li:hover{background:#097b4d;}
+.navbar-inverse, .container-fluid{border:none; background: #0b462d; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(bottom,#156946, #0b462d)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(top,#156946, #0b462d); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(top,#156946, #0c5637); /*Fx 3.6-15*/
+  background: linear-gradient(to top,#156946, #0b462d);
+}
+/*---------------------------------------*/
+input:focus, textarea:focus, select:focus, button:focus{  outline: none; }
+.btnmanu{background:transparent; border:none;} .top_header{border-top:1px solid #0b462d;}
+.top_header .top_header1{margin-top:0; background:#0b462d; width:100%; height:33px; border:5px solid #0b462d; border-radius:0 0 20px 20px; padding:0 5%;}
+.top_header .top_header1 ul li{float:left; width:auto; padding:0% 2%; margin-top:-0.4%;  }
+.top_header .col-md-4 img{margin:3% 0 0 5%; width:100%;}
+.top_header .top_header1 ul li a .btnmanu{color:#fff; font-size:14px; height:30px;  }
+.top_header .top_header2{padding:0 10% 0 40%;}
+.top_header .top_header2 div{float:left;} .top_header .top_header2 .s_img{width:20%;}
+.top_header .top_header2 .s_name{padding:2% 0 1% 0; font-size:14px; width:79%;}
+.top_header .top_header2 .s_img .hover_s_img .s_submanu{display:none; position:absolute; z-index:1000000; margin-left:-7%; margin-top:-0.5%;}
+.top_header .top_header2 .s_img .hover_s_img .s_submanu li{background:#0b462d; }
+.top_header .top_header2 .s_img .hover_s_img .s_submanu li a .btnmanu, 
+.top_header .top_header2 .s_img .hover_s_img .s_submanu li:hover a .btnmanu{color:#fff;  height:35px; width:100%; text-align:left;}
+.top_header .top_header2 .s_img .hover_s_img .s_submanu li:hover a .btnmanu{background:#097b4d;}
+.top_header .top_header2 .s_img .hover_s_img:hover .s_submanu{display:block;  }
+.top_header .top_header2 .s_img .hover_s_img .s_submanu li.te{width:100%;}
+.top_header .top_header2 .s_img .hover_s_img .s_submanu li.te span{border-bottom: 10px solid #0b462d; border-left: 10px solid transparent; border-right: 10px solid transparent;	background:none; position: absolute; right: 54px; top: -10px;}
+.top_header1 span{display:none;} .top_header .top_header1 ul li a .btnmanu:hover{background:#097b4d;}
+@media only screen and (min-width:800px) and (max-width: 1225px){.top_header .top_header1{ padding:0;}                 }
+@media only screen and (min-width:900px) and (max-width: 1100px){.top_header .top_header1 ul li{ padding:0 1%;} .top_header .top_header2{padding:0 10% 0 20%;}        }
+@media only screen and (min-width:800px) and (max-width: 992px){.top_header .row div{float:left;} .top_header .row .col-md-4{width:30%;} .top_header .row .col-md-8{width:70%;} .top_header .top_header2{padding:0 10% 0 10%;} .top_header .top_header1 ul li{ padding:0 0.5%;} }
+@media only screen and (min-width:640px) and (max-width: 800px){ 
+.top_header .col-md-4 img{margin:1% 0 1% 25%; width:50%;} .top_header .top_header1 ul li{ padding:0 1%;} .top_header .top_header1{padding:0 3%;} .top_header .row .col-md-8{border-top:1px solid #0b462d;} .top_header .top_header2{padding:0 0% 0 8%;} .nav>li{margin-left:2%}
+.navbar-inverse, .container-fluid{height:auto; } #myNavbar{height:auto !important; } #myNavbar .nav{height:auto;} 
+#myNavbar .nav li{margin:2% 0; height:36px}
+}
+@media only screen and (min-width:450px) and (max-width: 640px){.top_header .top_header2{padding:0 0% 0 3%;} .top_header .top_header1 ul li{ padding:0 0.5%;} .top_header .top_header1{padding:0 0%;} .top_header .top_header1 ul{margin-left:-4%;} .navbar-inverse, .container-fluid{height:auto; }
+#myNavbar{height:auto !important; } #myNavbar .nav{height:auto;} #myNavbar .nav li{margin:2% 0; height:36px}
+}
+@media only screen and (min-width:200px) and (max-width: 450px){
+.top_header .col-md-4 img{margin:1% 0 1% 2%; width:90%;}	 
+.navbar-inverse, .container-fluid{height:auto;} #myNavbar{height:auto !important;} #myNavbar .nav{height:auto;}
+.top_header .top_header1 ul li{ padding:0 0.2%; border-bottom:1px solid #ccc;} .top_header .top_header1{padding:0 0%;} 
+.top_header .row .col-md-8{border-top:1px solid #0b462d;} .top_header .top_header2{padding:0 0% 0 0%;} 
+.top_header .top_header1 ul{margin-left:-10%;} #myNavbar .nav li{margin:2% 0; height:36px}
+.top_header .top_header1 ul li a .btnmanu{font-size:14px; width:200px; text-align:left; margin-left:0%;}
+.top_header .top_header2 .s_img .hover_s_img a img{width:100%;} 
+.top_header .top_header2 .s_img .hover_s_img .s_submanu{margin-left:-22%; margin-top:0%;}
+.top_header .top_header2 .s_img .hover_s_img .s_submanu li.te span{right: 22px;}
+.top_header .top_header2 .s_name{font-size:14px;}
+.top_header1 span{display:block; color:#fff;}
+.top_header .top_header1:hover{height:160px;} .top_header .top_header1{padding-left:15%;}
+.top_header .top_header1 ul{display:none;}
+.top_header .top_header1:hover ul{display:block; } .top_header .top_header1:hover span{display:none;}
+}
+@media only screen and (width:414px){.top_header .top_header2 .s_img .hover_s_img .s_submanu{ margin-left:-23%; margin-top:1%}}
+@media only screen and (width:412px){.top_header .top_header2 .s_img .hover_s_img .s_submanu{ margin-left:-23%;margin-top:1%}}
+@media only screen and (width:375px){.top_header .top_header2 .s_img .hover_s_img .s_submanu{ margin-left:-27%;}}
+@media only screen and (width:360px){.top_header .top_header2 .s_img .hover_s_img .s_submanu{ margin-left:-28%;}}
+@media only screen and (width:320px){.top_header .top_header2 .s_img .hover_s_img .s_submanu{ margin-left:-34%;}.top_header .top_header2 .s_name{fon-size:13px !important;}}
+/*----------------------------------------------------End Header-----------------------------------------------------*/
+/*----------------------------------------------------Landing Page-----------------------------------------------------*/
+.container{padding:0; margin:0; width:100%;} .container .row{margin-bottom:2%;}
+/*Today*/.container .col-md-6 .taday_top{width:60%; height:30px; background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);
+  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.6% 1%;
+  background: linear-gradient(#156946, #0b462d,#156946); border:4px solid none; border-radius:0 35px 0 0; color:#fff; font-size:15px; font-weight:600;}
+.container .col-md-6 .taday_bottom{border:2px solid #fff; border-radius:0 0 3px 3px; background:#fff; height:auto; padding:1% 0;
+box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.container .col-md-6 .taday_bottom .col-md-4 .taday_bottom1{border:1px solid #156946;border-radius:4px 4px 0 0;padding:0;border-bottom:5px solid #0b462d;}
+.container .col-md-6 .taday_bottom .today_bottom_top{font-size:14px; font-weight:500; color:#fff; background:#0b462d; padding:3% 0%;
+background: -webkit-linear-gradient(#156946, #0b462d,#156946); background: -o-linear-gradient(#156946, #0b462d,#156946); text-align:center;
+background: -moz-linear-gradient(#156946, #0b462d,#156946); background: linear-gradient(#156946, #0b462d,#156946); text-transform:uppercase; }
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul{margin:2% 0 0.5% -20%;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul li .text-box{border:none; width:72%; font-size:16px; font-weight:600; color:#063; 
+background:#fff; margin-left:25%;} .container .col-md-6 .taday_bottom .col-md-4{padding:0 1%;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul li{margin:2% 0;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul li span.t_name{font-size:15px; font-weight:600; color:#0b462d; margin-right:2%; 
+margin-left:10%;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul li span.t_img{font-size:20px; font-weight:600; background:#097b4d; color:#fff; margin-left:35%;
+padding:4% 8%; border:1px solid #097b4d; border-radius:3px; }
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.more li{text-align:center; margin:7% 0 2% -8%; padding-top:5%;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.more li a{font-size:15px; color:#097b4d; text-decoration:none;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.more li a:hover{color:#0b462d; text-decoration:underline;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1, .container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail{height:125px;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li{padding:0; margin:0; text-align:center; font-size:15px; color:#097b4d;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li.t_name2{text-align:left; margin-left:10%; margin-bottom:15%;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li.t_name2 span.t_img1{margin-left:30%;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li.t_message1{margin:7% 0 5% 0;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li span.t_message{background-image:url('../images/cb.png'); width:100%; background-size:40px; padding:6% 7%; background-repeat:no-repeat;}
+/*Quotes*/
+.container .col-md-6 .quotes_bottom .col-xs-2 span.left{display: block; width: 57px; height: 50px; text-indent: -9999px;   background-image: url('../images/quotes.png'); background-position: -3px 2px; background-size:150px;}
+.container .col-md-6 .quotes_bottom .col-xs-2 span.right{display: block; width: 57px; height: 50px; text-indent: -9999px;   background-image: url('../images/quotes.png'); background-position: 60px 2px; background-size:150px; margin-top:150%;}
+.container .col-md-6 .quotes_bottom .col-xs-8{font-size:25px; font-weight:bold;}
+.container .col-md-6 .quotes_top .quotes_top1{width:60%; height:30px; background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);
+  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.6% 1%;
+  background: linear-gradient(#156946, #0b462d,#156946); border:4px solid none; border-radius:0 35px 0 0; color:#fff; font-size:15px; font-weight:600;}
+.container .col-md-6 .quotes_bottom{border:2px solid #fff; border-radius:0 0 3px 3px; background:#fff; height:245px; padding:4% 0;
+box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+/*Late Coming*/
+.container .col-md-6 .latecoming_top .latecoming_top1{width:60%; height:30px; background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); 
+padding:0.6% 1%; background: linear-gradient(#156946, #0b462d,#156946); border:4px solid none; border-radius:0 35px 0 0; color:#fff; font-size:15px; font-weight:600;}
+.container .col-md-6 .latecoming_bottom{border:2px solid #fff; border-radius:0 0 3px 3px; background:#fff; height:245px; padding:1% 0;
+box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.container .col-md-6 .latecoming_bottom .table{width:100%; height:200px; overflow-y:scroll;}
+.container .col-md-6 .latecoming_bottom .table1 table, .container .col-md-6 .latecoming_bottom .table table{width:100%;}
+.container .col-md-6 .latecoming_bottom .table1 table .col td{font-size:16px; font-weight:bold; color:#fff; background:#097b4d; padding:0.5%; border:1px solid #ccc;}
+.container .col-md-6 .latecoming_bottom .table table td{padding:0.5%; font-size:14px; border:1px solid #ccc;}
+.container .col-md-6 .latecoming_bottom table td{width:25%;}
+
+/*Happenings*/.container .col-md-6 .happening_top div{float:left;}
+.container .col-md-6 .happening_top .happening_top1{width:60%; height:30px; background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.6% 1%;
+  background: linear-gradient(#156946, #0b462d,#156946); border:4px solid none; border-radius:0 35px 0 0; color:#fff; font-size:15px; font-weight:600;}
+.container .col-md-6 .happening_top .happening_top2{width:40%; text-align:right; padding:1% 0;}
+.container .col-md-6 .happening_top .happening_top2 a{color:#097b4d; font-size:15px; text-decoration:none;}
+.container .col-md-6 .happening_bottom{border:2px solid #fff; border-radius:0 0 3px 3px; background:#fff; height:280px; padding:1% 0;
+box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19); margin-top:5%;}
+.container .col-md-6 .happening_bottom ul.heppaning_bottom_detail{padding:0;}
+.container .col-md-6 .happening_bottom ul.heppaning_bottom_detail li{padding:0.5% 6% 0.5% 13%; border-bottom:1px solid #0b462d;}
+.container .col-md-6 .happening_bottom ul.heppaning_bottom_detail li:last-child{border:none;}
+.container .col-md-6 .happening_bottom ul.heppaning_bottom_detail li p a{text-decoration:none;}
+.container .col-md-6 .happening_bottom ul.heppaning_bottom_detail li .hr{border:1px dotted #0b462d;}
+.container .col-md-6 .happening_bottom ul.heppaning_bottom_detail li a.read{color:#097b4d; font-size:15px; text-decoration:none;}
+.container .col-md-6 .happening_bottom ul.heppaning_bottom_detail li span.date{margin-left:27%; font-size:15px; color:#097b4d; margin-top:1%;}
+/*Upcoming Event*/
+.container .col-md-6 .happening_bottom .upcoming_table{height:auto; }
+.container .col-md-6 .happening_bottom .upcoming_table .col-xs-3{background-image:url('../images/cb1.png'); background-size:120px;  padding:3% 3%; background-repeat:no-repeat; } .container .col-md-6 .happening_bottom .upcoming_table .col-xs-3 span{color:#0b462d;}
+.container .col-md-6 .happening_bottom .upcoming_table .row{border-bottom:1px solid #0b462d; padding-left:3%;}
+.container .col-md-6 .happening_bottom .upcoming_table .row:last-child{border:none;}
+.container .col-md-6 .happening_bottom .upcoming_table .col-xs-9 .hr{border:1px dotted #0b462d;}
+.container .col-md-6 .happening_bottom .upcoming_table .col-xs-9 a{text-decoration:none;}
+.container .col-md-6 .happening_bottom .upcoming_table .col-xs-9 span.date{margin-left:27%; font-size:15px; color:#097b4d; margin-top:1%;}
+.container .col-md-6 .happening_bottom .upcoming_table .col-xs-9 a.read{color:#097b4d; font-size:15px;}
+@media only screen and (min-width:640px) and (max-width: 800px){  
+.container .col-md-6 .taday_bottom .col-md-4{width:33%; float:left;} 
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li span.t_message{background-size:46px;}
+.container .col-md-6 .happening_bottom .upcoming_table{overflow:visible; height:auto;} .container .col-md-6 .happening_bottom{ height:auto;}
+}
+@media only screen and (min-width:450px) and (max-width: 640px){
+.container .col-md-6 .taday_bottom .col-md-4{width:33%; float:left;}  .container .col-md-6 .happening_bottom{ height:auto;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li span.t_message{background-size:46px;}
+.container .col-md-6 .happening_bottom .upcoming_table{overflow:visible; height:auto;}
+.container .col-md-6 .quotes_bottom{height:200px;} .container .col-md-6 .quotes_bottom .col-xs-2 span.right{margin-top:80px;}
+.container .col-md-6 .quotes_bottom .col-xs-8{font-size:18px; padding:1% 0 0 1%; text-align:justify;}
+}
+@media only screen and (min-width:200px) and (max-width: 450px){ 
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li span.t_message{background-size:46px; padding: 4% 5%;}
+.container .col-md-6 .happening_bottom .upcoming_table{overflow:visible; height:auto; margin-top:12%;}
+.container .col-md-6 .happening_bottom .upcoming_table .col-xs-3{width:20%;}.container .col-md-6 .happening_bottom{ height:auto;}
+.container .col-md-6 .happening_bottom .upcoming_table .col-xs-9{width:78%;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li.t_name2{margin-bottom:5%;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail{margin-left:0;}
+.container .col-md-6 .happening_bottom .upcoming_table .col-xs-3{background-size:88px; padding:2% 3%;}
+.container .col-md-6 .quotes_bottom{padding:4% 9% 3% 0;} .container .col-md-6 .quotes_bottom{height:210px;}
+.container .col-md-6 .quotes_bottom .col-xs-8{font-size:16px; padding:1% 0 0 12%; text-align:justify;} 
+.container .col-md-6 .quotes_bottom .col-xs-2 span.right{margin-top:110px;} .container .col-md-6 .happening_bottom{ height:auto;}
+}
+@media only screen and (width:375px){.container .col-md-6 .happening_bottom .upcoming_table .col-xs-3{background-size:79px; padding:1% 2%;} 
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li span.t_message{background-size: 39px; padding: 3% 5%;}}
+@media only screen and (width:360px){.container .col-md-6 .happening_bottom .upcoming_table .col-xs-3{background-size:76px; padding:2% 3%;} 
+.container .col-md-6 .happening_bottom .upcoming_table .col-xs-3 span{font-size:12px;} .container .col-md-6 .quotes_bottom{padding:4% 9% 3% 0;} .container .col-md-6 .quotes_bottom .col-xs-8{font-size:16px; padding:1% 0 0 12%; text-align:justify;} .container .col-md-6 .quotes_bottom .col-xs-2 span.right{margin-top:125px;} .container .col-md-6 .happening_bottom{ height:auto;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li span.t_message{background-size: 42px; padding: 4% 5%;}}
+@media only screen and (width:320px){.container .col-md-6 .happening_bottom .upcoming_table .col-xs-3{background-size:66px; padding:2% 3%;} 
+.container .col-md-6 .happening_bottom .upcoming_table .col-xs-3 span{font-size:11px;}
+.container .col-md-6 .taday_bottom .today_bottom_bottom ul.detail1 li span.t_message{background-size: 36px; padding: 3% 5%;}}
+/*--------------------------------------------------End Landing Page---------------------------------------------------*/
+/*--------------------------------------------------Communication------------------------------------------------------*/
+.communication .communication_inner .communication_inner_send a .btnmanu{color:#fff; width:200px; padding:0.5% 0; height:35px; background:#0b462d;}
+.communication .communication_inner .communication_inner_send a .btnmanu:hover{background:#097b4d;}
+.message .message_name{margin-bottom:8%;} .message{float:none; padding:0 10% 1% 15%; height:468px;}  
+.message .message_inner{border:3px double #097b4d; border-radius:5px; padding:1%; height:400px;}
+.message .message_name .text-box{width:50%; border:1px solid #097b4d; border-radius:3px; padding:0.5% 1%;} .message .message_name .tba{width:100%;}
+.message .message_inner p{font-size:15px;} .message .message_name .row{border:1px solid #0b462d; border-left:none; border-right:none;}
+.message .message_inner .message_name .col-xs-4, .message .message_name .col-xs-6{padding:0.5% 0; font-size:15px; font-weight:600;}
+.message .message_inner .message_name .col-xs-12{padding:0;}
+.message .btn{background:#0b462d; color:#fff; padding:0.5% 2%; margin-top:1%;} .message .btn:hover{background:#097b4d;}
+@media only screen and (min-width:450px) and (max-width: 700px){.message .message_inner{height:400px;} .message{padding:1%;} .message .message_inner .message_name .col-xs-4{font-size:14px; width:25%;} .message .message_inner .message_name .col-xs-4:first-child{width:50%;} }
+@media only screen and (min-width:250px) and (max-width: 450px){.message{height:530px; padding:1%;} .message .message_inner{height:500px;} .message .message_inner .message_name .col-xs-4{width:100%;}}
+@media only screen and (width:732px){.message .message_inner{height:430px;} .message{padding:1%;} .message .message_inner .message_name .col-xs-4{font-size:14px; width:25%;} .message .message_inner .message_name .col-xs-4:first-child{width:50%;}}
+/*-------------------------------------------------End Communication---------------------------------------------------*/
+/*---------------------------------------------------Notice------------------------------------------------------------*/
+.notice {height:auto;}
+.notice .notice_inner .notice_inner_head{font-size:16px; font-weight:600; padding:0.5% 0 0.2% 0.5%; border-bottom:1px solid #0b462d;}
+.notice .notice_inner .table{padding:1% 0%;} .notice .notice_inner .table table{width:100%;}
+.notice .notice_inner .table table .col td{background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.5% 1%; color:#fff;
+  background: linear-gradient(#156946, #0b462d,#156946);}
+.notice .notice_inner .table table tr td{padding:0.5% 1%; font-size:15px;} .notice .notice_inner .table table tr td a{text-decoration:none; color:#097b4d}
+.notice .notice_inner .table table tr{border-bottom:1px solid #CCC;} 
+.notice .notice_inner .table table.dataTable tbody th, .notice .notice_inner .table table.dataTable tbody td{padding:5px 17px !important;}
+.notice .notice_inner .table table tr td a:hover{color:#0b462d; text-decoration:underline;}
+@media only screen and (min-width:450px) and (max-width: 700px){.notice .notice_inner .table table tr td{padding:0.3% 0.5%; font-size:13px;}}
+@media only screen and (min-width:250px) and (max-width: 450px){.notice .notice_inner .table table tr td{padding:0.3% 0.5%; font-size:12px;}}
+/*-------------------------------------------------End Notice-----------------------------------------------------------*/
+/*---------------------------------------------------Emergency Contact-----------------------------------------------------------*/
+.emecontact {height:483px; overflow-y:auto; overflow-x:hidden;}
+.emecontact .emecontact_inner .emecontact_inner_head{font-size:16px; font-weight:600; padding:0.5% 0 0.2% 0.5%; border-bottom:1px solid #0b462d;}
+.emecontact .emecontact_inner .table{padding:1% 0%;} .emecontact .emecontact_inner .table table{width:100%;}
+.emecontact .emecontact_inner .table table .col td{background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.5% 1%; color:#fff;
+  background: linear-gradient(#156946, #0b462d,#156946);}
+.emecontact .emecontact_inner .table table tr td{padding:0.5% 1%; font-size:15px;} .emecontact .emecontact_inner .table table tr td a{text-decoration:none; color:#097b4d}
+.emecontact .emecontact_inner .table table tr{border-bottom:1px solid #CCC;}
+@media only screen and (min-width:450px) and (max-width: 700px){.emecontact .emecontact_inner .table table tr td{padding:0.3% 0.5%; font-size:13px;}}
+@media only screen and (min-width:250px) and (max-width: 450px){.emecontact .emecontact_inner .table table tr td{padding:0.3% 0.5%; font-size:12px;}}
+@media only screen and (min-width:100px) and (max-width: 1050px){.emecontact{height:auto;}}
+/*-------------------------------------------------End Emergency Contact-----------------------------------------------------------*/
+/*-------------------------------------------------My Profile-------------------------------------------------------------*/
+/*Student Detail*/ .myprofile{height:483px;overflow-y:auto; overflow-x:hidden;}
+@media only screen and (min-width:100px) and (max-width: 1050px){.myprofile{height:auto;}}
+.myprofile .myprofile_inner .myprofile_self .myprofile_self_head{width:50%; height:30px; background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.3% 1%; background: linear-gradient(#156946, #0b462d,#156946); border:4px solid none; border-radius:0 35px 0 0; color:#fff; font-size:15px; font-weight:600;} .myprofile .myprofile_inner .myprofile_self{padding:0 1% 1% 1%;}
+.myprofile .myprofile_inner .myprofile_self1{border:2px solid #fff; border-radius:0 0 3px 3px; background:#fff; height:180px; padding:1% 0; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.myprofile .myprofile_inner .myprofile_self .edit{width:5%; border:2px solid transparent; border-radius:5px 5px 0 0; float:right; margin-top:-2%; background:#fff; box-shadow: 0 -3px 6px 0 rgba(0, 0, 0, 0.2), 0 -8px 10px 0 rgba(0, 0, 0, 0.19);}
+.myprofile .myprofile_inner .myprofile_self .edit span{width:5%; float:left;}
+.myprofile .myprofile_inner .myprofile_self .edit span.name{padding-top:10%; font-size:15px; font-weight:bold;}
+.myprofile .myprofile_inner .myprofile_self .edit span.img{display: block; width: 27px; height: 27px; text-indent: -9999px;   background-image: url('../images/edit&delete.png'); background-position: 28.5px 0px; background-size:50px;}
+.myprofile .myprofile_inner .myprofile_self .edit a:hover span.img{background-position:1px 1px; background-size:51px;}
+.myprofile .myprofile_inner .myprofile_self .student_img{width:25%; float:left; padding:1%;}
+.myprofile .myprofile_inner .myprofile_self .student_detail{width:75%; float:left;}
+.myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-3, 
+.myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-6{font-size:14px; margin:0.5% 0%;}
+.myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-3:nth-child(odd){font-weight:bold;}
+/*Family Detail*/ .myprofile .myprofile_inner .myprofile_family{margin-top:0%; float:inherit;padding:0; margin-bottom:2%;}
+.myprofile .myprofile_inner .myprofile_family .myprofile_self_head{width:70%; height:30px; background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.6% 1%; background: linear-gradient(#156946, #0b462d,#156946); border:4px solid none; border-radius:0 35px 0 0; color:#fff; font-size:15px; font-weight:600;}
+.myprofile .myprofile_inner .myprofile_family .family_detail{border:2px solid #fff; border-radius:0 0 3px 3px; background:#fff; height:180px; padding:1% 0; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.myprofile .myprofile_inner .myprofile_family .family_detail .col-xs-6{margin:0.5% 0; font-size:14px;}
+.myprofile .myprofile_inner .myprofile_family .family_detail .col-xs-6:nth-child(odd){font-weight:bold;}
+/*Application Detail*/.myprofile .myprofile_inner .myprofile_application{margin-top:0%; float:inherit;padding:0; margin-bottom:2%; width:100%;}
+.myprofile .myprofile_inner .myprofile_application .myprofile_self_head{width:70%; height:30px; background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.6% 1%; background: linear-gradient(#156946, #0b462d,#156946); border:4px solid none; border-radius:0 35px 0 0; color:#fff; font-size:15px; font-weight:600;}
+.myprofile .myprofile_inner .myprofile_application .application_detail{border:2px solid #fff; border-radius:0 0 3px 3px; background:#fff; height:180px; padding:6% 0; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.myprofile .myprofile_inner .myprofile_application .application_detail .col-xs-6{font-size:14px; margin:0.3% 0%;}
+.myprofile .myprofile_inner .myprofile_application .application_detail .col-xs-6:nth-child(odd){font-weight:bold;}
+@media only screen and (min-width:900px) and (max-width: 1137px){.myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-3, .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-6{width:50%; } .myprofile .myprofile_inner .myprofile_family{margin-top:0%;} .myprofile .myprofile_inner .myprofile_family .family_detail .col-xs-6{width:50%;} .myprofile .myprofile_inner .myprofile_application .application_detail .col-xs-3{width:50%;} .row{padding:0; margin:0; } .myprofile{height:auto;}}
+@media only screen and (min-width:720px) and (max-width: 900px){ .myprofile{height:auto;} .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-3, .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-6{width:50%; } .myprofile .myprofile_inner .myprofile_family{margin-top:0%;} .myprofile .myprofile_inner .myprofile_family .family_detail .col-xs-6{width:50%;} .myprofile .myprofile_inner .myprofile_application .application_detail .col-xs-3{width:50%;} .row{padding:0; margin:0; } .myprofile .myprofile_inner .myprofile_self1{height:270px;} .myprofile .myprofile_inner .col-md-6{padding:1%;} }
+@media only screen and (min-width:450px) and (max-width: 720px){ .myprofile{height:auto;} .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-3, .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-6{width:50%; } .myprofile .myprofile_inner .myprofile_family{margin-top:0%;} .myprofile .myprofile_inner .myprofile_family .family_detail .col-xs-6{width:50%;} .myprofile .myprofile_inner .myprofile_application .application_detail .col-xs-3{width:50%;} .row{padding:0; margin:0; }  .myprofile .myprofile_inner .myprofile_self1{height:270px;} .myprofile .myprofile_inner .col-md-6{padding:1%;} .myprofile .myprofile_inner .myprofile_self .edit{width:10%; margin-top:-4%}.popup{margin: 10px auto !important; width: 95% !important; height: 345px !important;} .overlay .editprofile_detail{height:345px; overflow:auto;} }
+@media only screen and (min-width:250px) and (max-width: 450px){ .myprofile{height:auto;} .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-3, .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-6{width:50%; } .myprofile .myprofile_inner .myprofile_family{margin-top:1%;} .myprofile .myprofile_inner .myprofile_family .family_detail .col-xs-6{width:50%;} .myprofile .myprofile_inner .myprofile_application .application_detail .col-xs-3{width:50%;} .row{padding:0; margin:0; } .myprofile .myprofile_inner .myprofile_self1{height:300px;} .myprofile .myprofile_inner .col-md-6{padding:1%;} .myprofile .myprofile_inner .myprofile_self .edit{width:17%; margin-top:-8%} .popup{margin: 30px auto !important; width: 95% !important; height: 580px !important;} .editprofile_detail .editprofile_inner .col-xs-3, .editprofile_detail .editprofile_inner .col-xs-6{width:50%;} .myprofile{height:auto;}}
+@media only screen and (width:736px){ .myprofile{height:auto;} .myprofile .myprofile_inner .myprofile_family{margin-top:0%;}.myprofile .myprofile_inner .myprofile_self .student_detail .xs1{margin-top:0%; width:49%; float:right;} .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-3, .myprofile .myprofile_inner .myprofile_family .family_detail .col-xs-6, .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-6{font-size:14px;} .myprofile .myprofile_inner .myprofile_self1{height:275px;} .myprofile .myprofile_inner .col-md-6{padding:1%;} .myprofile .myprofile_inner .myprofile_self .edit{width:9%; margin-top:-4%} .popup{margin: 10px auto !important; width: 95% !important; height: 392px !important;} .overlay .editprofile_detail{height:390px; overflow:auto;}}
+@media only screen and (width:732px){.myprofile .myprofile_inner .myprofile_family{margin-top:0%} .myprofile .myprofile_inner .myprofile_self1{height:270px;} .myprofile{height:auto;} .myprofile .myprofile_inner .col-md-6{padding:1%;}.myprofile .myprofile_inner .myprofile_self .edit{width:9%; margin-top:-4%} .popup{margin: 10px auto !important; width: 95% !important; height: 392px !important;} .overlay .editprofile_detail{height:390px; overflow:auto;} }
+@media only screen and (width:640px){ .myprofile{height:auto;} .myprofile .myprofile_inner .myprofile_family{margin-top:0%;} .myprofile .myprofile_inner .myprofile_self1{height:280px;} .myprofile .myprofile_inner .col-md-6{padding:1%;}   }
+@media only screen and (width:568px){ .myprofile{height:auto;} .myprofile .myprofile_inner .myprofile_family{margin-top:0%;} .myprofile .myprofile_inner .myprofile_self .edit{width:11%; margin-top:-5%}.popup{margin: 10px auto !important; width: 95% !important; height: 300px !important;} .overlay .editprofile_detail{height:300px; overflow:auto;}.editprofile_detail .editprofile_inner .col-xs-3, .editprofile_detail .editprofile_inner .col-xs-6{width:50%;}}
+@media only screen and (width:412px){ .myprofile{height:auto;} .myprofile .myprofile_inner .myprofile_family{margin-top:0%;}.myprofile .myprofile_inner .col-md-6{padding:1%;} .popup{margin: 40px auto !important; width: 95% !important; height: 600px !important;} .overlay .editprofile_detail{height:600px; overflow:auto;}}
+@media only screen and (width:414px){ .myprofile{height:auto;} .myprofile .myprofile_inner .myprofile_family{margin-top:0%;}.myprofile .myprofile_inner .myprofile_self .edit{width:15%; margin-top:-7%} .popup{margin: 60px auto !important; width: 95% !important; height: 590px !important;} .editprofile_detail .editprofile_inner .col-xs-3, .editprofile_detail .editprofile_inner .col-xs-6{width:50%;}}
+@media only screen and (width:320px){ .myprofile{height:auto;} .myprofile .myprofile_inner .myprofile_family{margin-top:0%;} .myprofile .myprofile_inner .myprofile_self .student_detail .xs{margin-top:9%; width:49%; float:inherit;} .myprofile .myprofile_inner .myprofile_self .student_detail .xs1{margin-top:-8%; width:49%; float:right;} .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-3, .myprofile .myprofile_inner .myprofile_family .family_detail .col-xs-6, .myprofile .myprofile_inner .myprofile_self .student_detail .col-xs-6{font-size:12px;} .myprofile .myprofile_inner .myprofile_self .edit{width:19%; margin-top:-8%}.popup{margin: 10px auto !important; width: 95% !important; height: 550px !important;} .editprofile_detail .editprofile_inner .col-xs-3, .editprofile_detail .editprofile_inner .col-xs-6{width:50%;}.overlay .editprofile_detail{height:550px; overflow:auto;}}
+/*PopUp*/
+PopUp*/
+.box { width:auto; margin:0 auto;}
+.button {background:transparent; padding:10px; color:#06C;border:1px solid transparent;border-radius:5px; text-decoration:none; transition: all 0.3s ease-out;}
+.button:hover{background: transparent; color:#097b4d;}
+.overlay {position: fixed; top: 0; bottom:0; left:0; right:0; background:rgba(0, 0, 0, 0.7); transition:opacity 500ms; visibility:hidden; opacity:0;}
+.overlay:target {visibility: visible; opacity: 1; z-index:100;}
+.popup {margin: 70px auto; padding: 0px; background: #fff; border-radius: 5px; width:90%; height:550px; position: relative; transition: all 5s ease-in-out;}
+.popup h2 {margin-top: 0; color: #333; font-family: Tahoma, Arial, sans-serif;}
+.popup .close {position: absolute; top: 20px; right: 30px; transition: all 200ms; font-size: 30px; font-weight: bold; text-decoration: none; color:#fff; opacity:1;}
+.popup .close:hover {color: #06D85F;}
+.popup .content {max-height: 100%; overflow: auto;}
+@media screen and (max-width: 700px){.box{ width: 70%;  } .popup{ width: 70%; } }
+/*Edit Profile Detail*/
+.overlay .editprofile_detail{border:5px groove #097b4d; border-radius:5px; padding:1%;}
+.editprofile_detail .editprofile_inner{width:100%; border:1px solid #097b4d; border-radius:5px;}
+.editprofile_detail .editprofile_inner .editprofile_head{color:#fff; font-size:16px; font-weight:bold; padding:1% 0.5%; background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.6% 1%; background: linear-gradient(#156946, #0b462d,#156946); }
+.editprofile_detail .editprofile_inner form{padding:1%;} 
+.editprofile_detail .editprofile_inner .col-xs-3, .editprofile_detail .editprofile_inner .col-xs-6{margin:0.5% 0;} 
+.editprofile_detail .editprofile_inner .col-xs-6 .tba{height:auto !important;}
+.editprofile_detail .editprofile_inner .col-xs-3 .text-box,
+.editprofile_detail .editprofile_inner .col-xs-6 .text-box{width:80%; padding:1%; height:30px; border:1px solid #097b4d; border-radius:3px;}
+.editprofile_detail .editprofile_inner .fn, .editprofile_detail .editprofile_inner .mn, .editprofile_detail .editprofile_inner .cd{border-top:1px solid #0b462d;}
+.editprofile_detail .editprofile_inner .fn1, .editprofile_detail .editprofile_inner .sn1, .editprofile_detail .editprofile_inner .mn1{padding-bottom:1%;}
+.editprofile_detail .editprofile_inner .fn, .editprofile_detail .editprofile_inner .sn, .editprofile_detail .editprofile_inner .mn,
+.editprofile_detail .editprofile_inner .cd{padding-top:1%;}
+.editprofile_detail .col-xs-12{margin:1% 0%; padding:0 0 0.2% 0%;}
+.editprofile_detail .col-xs-12 .btn{background:#0b462d; color:#fff; border:1px solid transparent; border-radius:5px;}
+.editprofile_detail .col-xs-12 .btn{background:#097b4d;}
+/*------------------------------------------------End My Profile-------------------------------------------------------------*/
+/*--------------------------------------------------Attendance---------------------------------------------------------------*/
+.attandance{padding:0 0; height:483px; overflow-y:auto; overflow-x:hidden;}
+.attandance .attandance_inner{}
+.attandance .attandance_inner .attandance_head{padding:0% 0 0 0.5%; border-bottom:2px solid #0b462d; font-size:17px; font-weight:bold; color:#0b462d;}
+.attandance .attandance_inner .attandance_table{width:100%; border:2px solid transparent; border-radius:0 0 3px 3px; background:#fff; padding:1% 0; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.attandance .attandance_inner .attandance_table table{width:100%;}
+.attandance .attandance_inner .attandance_table table .col td{font-size:16px; font-weight:500;background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.5% 1%; color:#fff; background: linear-gradient(#156946, #0b462d,#156946);}
+.attandance .attandance_inner .attandance_table table td{font-size:15px; padding:0.5% 1%; border:1px solid #097b4d;}
+.attandance .attandance_inner .attandance_table table td:first-child{font-weight:bold;}
+@media only screen and (min-width:150px) and (max-width: 1050px){.attandance{height:auto;}.attandance .attandance_inner .attandance_table{overflow-x:auto;} }
+/*------------------------------------------------End Attendance-------------------------------------------------------------*/
+/*--------------------------------------------------My Calencer---------------------------------------------------------------*/
+.mycalender{padding:0 0; height:483px; overflow-y:auto; overflow-x:hidden;}
+.mycalender .mycalender_inner{}
+.mycalender .mycalender_inner .mycalender_head{padding:0% 0 0 0.5%; border-bottom:2px solid #0b462d; font-size:17px; font-weight:bold; color:#0b462d;}
+.mycalender .mycalender_inner .mycalender_table{width:100%; border:2px solid transparent; border-radius:0 0 3px 3px; background:#fff; padding:1% 0; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.mycalender .mycalender_inner .mycalender_table table{width:100%;}
+.mycalender .mycalender_inner .mycalender_table table .col td{font-size:16px; font-weight:500;background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.5% 1%; color:#fff; background: linear-gradient(#156946, #0b462d,#156946);}
+.mycalender .mycalender_inner .mycalender_table table td{font-size:15px; padding:0.5% 1%; border:1px solid #097b4d;}
+@media only screen and (min-width:150px) and (max-width: 1050px){.mycalender{height:auto;}.mycalender .mycalender_inner .mycalender_table{overflow-x:auto;} }
+/*------------------------------------------------End My Calender-------------------------------------------------------------*/
+/*--------------------------------------------------Assignment---------------------------------------------------------------*/
+.assignment{padding:0 0; height:483px; overflow-y:auto; overflow-x:hidden;}
+.assignment .assignment_inner{}
+.assignment .assignment_inner .assignment_head{padding:0% 0 0 0.5%; border-bottom:2px solid #0b462d; font-size:17px; font-weight:bold; color:#0b462d;}
+.assignment .assignment_inner .assignment_table{width:100%; border:2px solid transparent; border-radius:0 0 3px 3px; background:#fff; padding:1% 0; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.assignment .assignment_inner .assignment_table table{width:100%;}
+.assignment .assignment_inner .assignment_table table .col td{font-size:16px; font-weight:500;background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.5% 1%; color:#fff; background: linear-gradient(#156946, #0b462d,#156946);}
+.assignment .assignment_inner .assignment_table table td{font-size:15px; padding:0.5% 1%; border:1px solid #097b4d;}
+@media only screen and (min-width:150px) and (max-width: 1050px){.assignment{height:auto;}.assignment .assignment_inner .assignment_table{overflow-x:auto;} }
+/*------------------------------------------------End Assignment-------------------------------------------------------------*/
+/*--------------------------------------------------Session Plan---------------------------------------------------------------*/
+.sessionplan{padding:0 0; height:483px; overflow-y:auto; overflow-x:hidden;}
+.sessionplan .sessionplan_inner{}
+.sessionplan .sessionplan_inner .sessionplan_head{padding:0% 0 0 0.5%; border-bottom:2px solid #0b462d; font-size:17px; font-weight:bold; color:#0b462d;}
+.sessionplan .sessionplan_inner .sessionplan_table{width:100%; border:2px solid transparent; border-radius:0 0 3px 3px; background:#fff; padding:1% 0; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.sessionplan .sessionplan_inner .sessionplan_table table{width:100%;}
+.sessionplan .sessionplan_inner .sessionplan_table table .col td{font-size:16px; font-weight:500;background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.5% 1%; color:#fff; background: linear-gradient(#156946, #0b462d,#156946);}
+.sessionplan .sessionplan_inner .sessionplan_table table td{font-size:15px; padding:0.5% 1%; border:1px solid #097b4d;}
+@media only screen and (min-width:150px) and (max-width: 1050px){.sessionplan{height:auto;}.sessionplan .sessionplan_inner .sessionplan_table{overflow-x:auto;} }
+/*------------------------------------------------End Session Plan-------------------------------------------------------------*/
+/*--------------------------------------------------DateSheet---------------------------------------------------------------*/
+.datesheet{padding:0 0; height:483px; overflow-y:auto; overflow-x:hidden;}
+.datesheet .datesheet_inner{}
+.datesheet .datesheet_inner .datesheet_head{padding:0% 0 0 0.5%; border-bottom:2px solid #0b462d; font-size:17px; font-weight:bold; color:#0b462d;}
+.datesheet .datesheet_inner .selectbox{width:100%; padding:1% 1% 0 1%;}
+.datesheet .datesheet_inner .selectbox .text-box{width:15%; color:#000; border:1px solid #097b4d; border-radius:3px; padding:0.3% 0.4%; }
+.datesheet .datesheet_inner .datesheet_table{width:100%; border:2px solid transparent; border-radius:0 0 3px 3px; background:#fff; padding:1% 0; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.datesheet .datesheet_inner .datesheet_table table{width:100%;}
+.datesheet .datesheet_inner .datesheet_table table .col td{font-size:16px; font-weight:500;background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.5% 1%; color:#fff; background: linear-gradient(#156946, #0b462d,#156946);}
+.datesheet .datesheet_inner .datesheet_table table td{font-size:15px; padding:0.5% 1%; border:1px solid #097b4d;}
+@media only screen and (min-width:150px) and (max-width: 500px){.datesheet .datesheet_inner .selectbox .text-box{width:50%;}}
+@media only screen and (min-width:500px) and (max-width: 800px){.datesheet .datesheet_inner .selectbox .text-box{width:40%;}}
+@media only screen and (min-width:150px) and (max-width: 1050px){.datesheet{height:auto;}.datesheet .datesheet_inner .datesheet_table{overflow-x:auto;} }
+/*------------------------------------------------End DateSheet-------------------------------------------------------------*/
+/*--------------------------------------------------TimeTable---------------------------------------------------------------*/
+.timetable{padding:0 0; height:483px; overflow-y:auto; overflow-x:hidden;}
+.timetable .timetable_inner{}
+.timetable .timetable_inner .timetable_head{padding:0% 0 0 0.5%; border-bottom:2px solid #0b462d; font-size:17px; font-weight:bold; color:#0b462d;}
+.timetable .timetable_inner .timetable_table{width:100%; border:2px solid transparent; border-radius:0 0 3px 3px; background:#fff; padding:1% 0; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.timetable .timetable_inner .timetable_table table{width:100%;}
+.timetable .timetable_inner .timetable_table table .col td{font-size:16px; font-weight:500;background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.5% 1%; color:#fff; background: linear-gradient(#156946, #0b462d,#156946);}
+.timetable .timetable_inner .timetable_table table td{font-size:15px; padding:0.5% 1%; border:1px solid #097b4d;}
+@media only screen and (min-width:150px) and (max-width: 1050px){.timetable{height:auto;}.timetable .timetable_inner .timetable_table{overflow-x:auto;} }
+/*------------------------------------------------End TimeTable-------------------------------------------------------------*/
+/*--------------------------------------------------Fee Info---------------------------------------------------------------*/
+.feeinfo{padding:0 0; height:483px; overflow-y:auto; overflow-x:hidden;}
+.feeinfo .feeinfo_inner{}
+.feeinfo .feeinfo_inner .feeinfo_head{padding:0% 0 0 0.5%; border-bottom:2px solid #0b462d; font-size:17px; font-weight:bold; color:#0b462d;}
+.feeinfo .feeinfo_inner .feeinfo_table{width:100%; border:2px solid transparent; border-radius:0 0 3px 3px; background:#fff; padding:1% 0; box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 10px 0 rgba(0, 0, 0, 0.19);}
+.feeinfo .feeinfo_inner .feeinfo_table table{width:100%;}
+.feeinfo .feeinfo_inner .feeinfo_table table .col td{font-size:16px; font-weight:500;background: #0b462d; background: -webkit-linear-gradient(#156946, #0b462d,#156946);  background: -o-linear-gradient(#156946, #0b462d,#156946); background: -moz-linear-gradient(#156946, #0b462d,#156946); padding:0.5% 1%; color:#fff; background: linear-gradient(#156946, #0b462d,#156946);}
+.feeinfo .feeinfo_inner .feeinfo_table table td{font-size:15px; padding:0.5% 1%; border:1px solid #097b4d;}
+@media only screen and (min-width:150px) and (max-width: 1050px){.feeinfo{height:auto;}.feeinfo .feeinfo_inner .feeinfo_table{overflow-x:auto;} }
+/*------------------------------------------------End Fee Info-------------------------------------------------------------*/
+

@@ -1,0 +1,212 @@
+/*-------------------------------------------Photo gallary----------------------------------------------*/
+* {
+  box-sizing: border-box;
+}
+.photo_gallary .row{margin-left:-0%; width:100%; padding-top:2%;}
+.photo_gallary .row > .column {
+ padding: 8px;
+  /* padding-top:2%;*/
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.photo_gallary .column {
+  float: left;
+  width: 23%; 
+  margin:1%;
+  padding:4% 1%;
+  border:1px solid transparent;
+  height:300px;
+  cursor:default;
+}
+.photo_gallary .column:hover { border:2px solid #ccc; border-radius:3px;;}
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color:rgba(11,70,45, 0.58);
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 50%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: 097b4d!important;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 50px!important;
+  font-weight: bold;
+  opacity:1!important;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  background:#097b4d;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px; text-decoration:none;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color:#0b462d; text-decoration:none;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s
+}
+
+
+
+img {
+  max-width: 100% ;
+}
+/*
+div.column img {
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.30s;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+*/
+div.column:hover img {
+	opacity: 0.8;
+	/*-webkit-transform: scale(1);
+	transform: scale(0.95);*/
+}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu a .edit{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: -86px 38px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu a .editalbum{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: 49px -5px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu a .addphoto{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: 171px -5px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu a .addalbum{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: 131px -5px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu a .organizealbum{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: 256px -5px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu a .deletealbum{display: block; width: 36px; height: 36px; text-indent: -9999px;   background-image: url('photos/ps.png'); background-position: -2px -5px; background-size:300px; }
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu{margin-top:-176px; margin-left:200px; z-index:10; position:absolute; display:none; background:#fff;} 
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column:hover .photo_manu{display:block;}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu a .name{display:none; color:#000; background:#CCC; width:auto; margin-left:-53px; padding:0.5% 10%; border:1px solid transparent; border-radius:5px; margin-top:-29px; position:absolute; text-align:right;}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_inner:hover .photo_manu{display:block;}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu .photo_submanu{display:none;}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu:hover .photo_submanu{display:block;}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_submanu a .name{display:none; color:#000; background:#CCC; width:auto; margin-left:-70px; padding:0.5% 1%; margin-top:-26px; position:absolute; text-align:right;}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_submanu a .n1{margin-left:-104px;}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_submanu a .n2{margin-left:-88px;}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu a:hover .name{display:block;}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .album_name{font-size:16px; font-weight:bold; text-align:center; float:left; margin-top:10%; text-decoration:underline;}
+.photogallery .photogallery_outer .photogallery_inner .photo_gallary .row1 .column .photo_manu .photo_submanu a.button{background:none!important; padding:0!important;}
+/*PopUp*/
+PopUp*/
+.box { width:auto; margin:0 auto;}
+.button {background:#0b462d; padding:10px; color:#fff; border:1px solid #b462d; border-radius:5px; text-decoration:none; transition: all 0.3s ease-out;}
+.button:hover{background: #097b4d; color:#fff;}
+.overlay {position: fixed; top: 0; bottom:0; left:0; right:0; background:rgba(0, 0, 0, 0.7); transition:opacity 500ms; visibility:hidden; opacity:0;}
+.overlay:target {visibility: visible; opacity: 1; z-index:100;}
+.popup {margin: 70px auto; padding: 0px; background: #fff; border-radius: 5px; width:90%; height:550px; position: relative; transition: all 5s ease-in-out;}
+.popup h2 {margin-top: 0; color: #333; font-family: Tahoma, Arial, sans-serif;}
+.popup .close {position: absolute; top: 20px; right: 30px; transition: all 200ms; font-size: 30px; font-weight: bold; text-decoration: none; color:#333;}
+.popup .close:hover {color: #06D85F;}
+.popup .content {max-height: 100%; overflow: auto;}
+@media screen and (max-width: 700px){.box{ width: 70%;  } .popup{ width: 70%; } }
+/*---------------------------------------End photo gallary--------------------------------------------------*/
+/*---------------------------Add Photo-----------------------------------*/
+/*.addphoto_outer .addphoto_inner .addphoto_head .addphoto_add .addphoto_area*/
+.addphoto_outer{width:100%; height:auto; padding:1%; margin:0;}
+.addphoto_outer .addphoto_inner{border:3px double #0b462d; border-radius:5px; padding:1%; height:525px;}
+.addphoto_outer .addphoto_inner .addphoto_head{font-size:16px; font-weight:bold; color:#fff; background:#0b462d; padding:1%; border-bottom:1px solid #0b462d; border:1px solid transparent; border-radius:5px 5px 0 0;}
+.addphoto_outer .addphoto_inner .addphoto_add h3{font-weight:bold; font-size:17px;}
+.addphoto_outer .addphoto_inner .addphoto_add .addphoto_area{width:100%; overflow-y:auto; height:250px; border:1px solid #097b4d; border-radius:3px; text-align:center;}
+.addphoto_outer .addphoto_inner .addphoto_add .addphoto_area article label{padding:1%; background:#ccc; border:1px solid transparent; border-radius:3px; text-align:center; width:40%; }
+.addphoto_outer .addphoto_inner .addphoto_add .btn{margin-top:1%;}
+.addphoto_outer .addphoto_inner .addphoto_add .btn1{background:#ccc; color:#000;}
+.addphoto_outer .addphoto_inner .addphoto_add .btn:hover{background:#097b4d; color:#fff;}
+.addphoto_outer .addphoto_inner .addphoto_add label{margin-top:2%; font-size:17px;}
+.addphoto_outer .addphoto_inner .addphoto_add .text-box{width:100%; border:1px solid #0b462d; border-radius:3px; height:30px; padding:1%;}
+.addphoto_outer .addphoto_inner .addphoto_add .addphoto_area #result div{width:20%; float:left;}
+.addphoto_outer .addphoto_inner .addphoto_add .addphoto_area article{width: 80%; margin:auto; margin-top:10px; }
+.addphoto_outer .addphoto_inner .addphoto_add .addphoto_area .thumbnail{height: 100px; margin: 10px; }
+.photo_gallary .column img{width:225px; height:170px;}
+
+
+
+
+#filediv div img:first-child{width:150px; height:130px;}

@@ -1,0 +1,282 @@
+/* CSS Document */
+
+body{ font-family:Arial!important;}
+.row{margin:0; padding:0; font-family:Arial!important;}
+ul li{ list-style:none;}
+/*-------------------*/
+.col-md-9 h4{margin-top:20px;}
+.col-md-6 p{ margin-right:3%;  }
+hr{ border:1px dotted #0b462d; margin:5px 0 ;}
+@media only screen and ( max-width: 40em ) /* 640 */
+{
+.col-md-6 {   width:auto; }
+.task{ padding:18px 14px; }
+}
+.hr{border:1px solid #0b462d;}
+/*-------------------*/
+#container, body{overflow:hidden;}
+/*---------MANU---------*/
+a:hover{ text-decoration:none ;}
+#nav{   background:#0b462d ; font-size:12px; font-weight:700; font-family:Arial, Helvetica, sans-serif; /* container */}
+#nav > a   {        display: none; color:#FFFFFF ; text-transform:uppercase;    }
+#nav li    {        position: relative; text-transform:uppercase;   } #nav li a{text-transform:uppercase; }
+    /* first level */
+#nav > ul   {        height: 2.5em; margin-bottom:0px ; margin-left:-3% ;    }
+#nav > ul > li  { width: 8%; height: 100%; background:#0b462d ; float: left;	padding-top:0px; text-align:center; list-style:none; z-index:1;   }
+#nav ul li button:hover{ background:#ffffff; text-decoration:none; color:#0b462d; }
+#nav ul li:hover a{color:#0b462d;}
+#nav ul li button{border:none; background:#0b462d; width:100%; height:30px;}
+    /* second level */
+#nav li ul {display: none; position: absolute; top: 100%; background:#f99b1c ;   }
+li a{color:#FFFFFF ;}
+#nav li:hover ul {display: block; text-decoration:none; color:#0b462d;      }
+#nav ul .active button{ background:#097b4b ; }
+.r{background:rgba(231,231,232,0.3);}
+#nav ul li .submanu{width:170%; background:#0b462d;}
+#nav ul li .submanu li button a{font-size:12px; color:#fff; } #nav ul li .submanu li:hover button a{color:#0b462d;}
+#nav ul li .submanu li{ padding:8% 5%; width: 128%; margin-left: -28%; text-align:left; }
+/*---------------------------------------*/
+input:focus, textarea:focus, select:focus {  outline: none; }
+/*Header*/ .t .col-md-5 .img-responsive { width: 53%;} 
+.t .col-md-1{ text-align:right; margin-top:1%; }
+.t .col-md-1{ margin-top:1%;} .t .col-md-1 .name{margin:8% 5% 0 0;}  .t .col-md-1 span{float:left;}
+.t .col-md-1 .imghover .submanu li{display:none;} 
+.t .col-md-1 .imghover:hover .submanu {position:absolute;  z-index:1000000; margin-left:-97%; margin-top:8%;}
+.t .col-md-1 .imghover:hover .submanu li{display:block;  margin-left:-10%; padding:1% 1%;} 
+.t .col-md-1 .imghover .submanu li{background:#0b462d; color:#fff; list-style:none; text-align:left;} 
+.t .col-md-1 .imghover .submanu li .btnmanu{border:none; background:#0b462d; width:100%;text-align:left!important; padding:5% 1%;}
+.t .col-md-1 .imghover .submanu li .btnmanu:hover {background:#097b4b;}
+.t .col-md-1 .imghover .submanu li a .btnmanu:hover{color:#fff;}
+.t .col-md-1 .imghover .submanu li.te{border-bottom: 10px solid #0b462d; border-left: 10px solid transparent; border-right: 10px solid transparent;	background:none; position: absolute; right: 8px; top: -12px;}
+/*------------------Side Manu for All Pages----------------------*/
+.c div.hris1 ul{margin-left:-27%; margin-top:10%;} .c div.hris1 ul li .btnmanu{ list-style: none; padding:5% 0; } 
+.hris1 ul li a{color:#000!important; margin-left:3%;} .c div.hris1 ul li{border-bottom:1px dotted #0b462d;}
+.c div.hris1 ul li:hover{ background:#0b462d;} .hris1 ul li a .btnmanu{background:none; width:100%; border:none; text-align:left;}
+.c div.hris1 ul li:hover a, .c div.hris1 ul li.active a{color:#fff!important;} .c div.hris1 ul li.active{background:#0b462d;} 
+.c div.hris1 ul li.active:hover{background:#097b4b;} .c div.hris1 ul li.active:hover a{color:#000!important;}
+button:focus{outline:none; border:none;} .c div.hris1 ul li.active:hover a button{color:#fff;}
+/*----------------------------------------------------------*/
+.btn{background:#0b462d; height:33px; color:#fff;} .btn:hover{background:#097b4b; color:#fff;} .btn:focus{background:#097b4b; color:#fff; outline:none;}
+.col-md-2{padding-top:1%; overflow:auto;} .col-md-10{padding-top:1%; overflow-y:scroll; height:560px;}
+option:hover{background-color:#0b462d!important;}
+/*----------------------------------Empoyee Payroll--------------------------------------*/
+/*Empoyee Payroll > Home > Income Tax Statement*/
+.col-md-10 .empl-top{border-bottom:1px solid #ccc; margin-bottom:1%; font-size:16px; font-weight:600;}
+.col-md-10 .employee-main img{width:40%;} 
+.col-md-10 .employee-main .col-xs-3 .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px;}
+.col-md-10 .employee-main .col-xs-3 .tbs{width:80%;} 
+.col-md-10 .employee-main .row{margin-bottom:2%; border-bottom:1px solid #ccc; padding:1% 10% 3% 10%;}
+/*Empoyee Payroll > Home > Employee Monthly Salary Sheet*/
+.col-md-10 .employee-main .col-xs-2 .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px;}
+.col-md-10 .employee-main .col-xs-2 .tbs{width:100%;} 
+.col-md-10 .employee-table1 .tableem{overflow-x:scroll; min-height:290px;}
+
+/*Empoyee Payroll > EMPLOYEE FINANCIALS > Define Employee Salary*/
+.col-md-10 .emplfinancial-salary .emplfinancial{border-bottom:1px solid #0b462d;padding-bottom:0.5%;font-size:16px;font-weight:600;width:100%;margin:1% 0;} .col-md-10 .emplfinancial-salary .row-top{padding:0 15% 0 10%; border-bottom:1px solid #0b462d; padding-bottom:1%;} 
+.col-md-10 .emplfinancial-salary .row-top .col-xs-5 .btn{height:27px; padding:1% 2%;} .col-md-10 .emplfinancial-salary .row-top .col-xs-4{margin:0;}
+.col-md-10 .emplfinancial-salary .tbs{width:75%!important;} .col-md-10 .emplfinancial-salary .col-xs-3{margin-top:1%;}
+.col-md-10 .emplfinancial-salary .text-box{border:1px solid #0b462d; border-radius:3px; height:27px; padding:0.3% 1%; width:75%;}
+.col-md-10 .emplfinancial-table{margin-top:1%; border:1px solid #0b462d; border-radius:3px;} .col-md-10 .emplfinancial-table table{width:100.25%;}
+.col-md-10 .emplfinancial-table table .col td{background:#0b462d; color:#fff; font-size:15px; border-right:1px solid #0b462d; }
+.col-md-10 .emplfinancial-table table td{font-size:14px;padding:0.5% 1%;}
+.col-md-10 .emplfinancial-table table td:first-child{border-right:1px solid #ccc;}
+.col-md-10 .emplfinancial-table table tr{border-bottom: 1px solid #ccc;} 
+.col-md-10 .emplfinancial-table table .col1 td{border:1px solid #0b462d; border-left:none;}
+
+/*Empoyee Payroll > MONTHLY SALARY TASKS > Employee Salary Slip Generation*/
+.col-md-10 .employeesalary-main img{width:40%;} 
+.col-md-10 .employeesalary-main .col-xs-3 .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px;}
+.col-md-10 .employeesalary-main .col-xs-3 .tbs{width:80%;} 
+.col-md-10 .employeesalary-main .row{margin-bottom:1%; border-bottom:1px solid #ccc; padding:1% 10% 1% 10%;}
+/*Empoyee Payroll > MONTHLY SALARY TASKS > Individual Employee Attendance Entry*/
+.col-md-10 .employeeleave-main img{width:40%;} 
+.col-md-10 .employeeleave-main .col-xs-6 .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px;}
+.col-md-10 .employeeleave-main .col-xs-6 .tbs{width:80%;} 
+.col-md-10 .employeeleave-main .row{padding:0% 25% 1% 20%;}
+
+/*Empoyee Payroll > INCOME TAX > Investment Declaration*/
+.col-md-10 .emptax-top{font-weight:600; font-size:16px; border-bottom:1px solid #0b462d;} .col-md-10 .employeetax-main{width:100%;} 
+.col-md-10 .employeetax-main .incometax-table{width:100%; border-radius:3px; padding:0 20%; margin-top:2%;} 
+.col-md-10 .employeetax-main .incometax-table .col-xs-6{margin:0.5% 0;}
+.col-md-10 .employeetax-main .incometax-table .col-xs-6 .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px; width:80%;}
+.col-md-10 .employeetax-main .incometax-table .col-xs-6 .tbs{width:80%;}
+/*Payroll > Investment Declaration*/
+.col-md-10 .investment{width:100%; margin-bottom:1%; padding:0;} .col-md-10 .investment .col-md-6{float:left; padding:0;}
+.col-md-10 .payroll-topmanu div.investment_d{width:100%; background:#0b462d; color:#fff; font-size:15px; font-weight:700; padding:0.5% 1%; margin-bottom:2%; text-transform:uppercase;}
+.col-md-10 .payroll-topmanu .investment-table{padding:0 0 0 5%;}
+.col-md-10 .payroll-topmanu .investment-table table td{font-size:13px; padding:0.3% 1%;}
+.col-md-10 .investment-tables .investment1{font-size:14px; font-weight:700; text-transform:uppercase; margin:1% 0;}
+.col-md-10 .investment-tables .investment-table1, 
+.col-md-10 .investment-tables .investment-table2,
+.col-md-10 .investment-tables .investment-table3,
+.col-md-10 .investment-tables .investment-table4{width:100%; border:1px solid #0b462d; border-radius:3px;}
+.col-md-10 .investment-tables .investment-table1 table, 
+.col-md-10 .investment-tables .investment-table2 table,
+.col-md-10 .investment-tables .investment-table3 table,
+.col-md-10 .investment-tables .investment-table4 table{width:100%;}
+.col-md-10 .investment-tables .investment-table1 table .col td, 
+.col-md-10 .investment-tables .investment-table2 table .col td,
+.col-md-10 .investment-tables .investment-table3 table .col td,
+.col-md-10 .investment-tables .investment-table4 table .col td{background:#0b462d; color:#fff; font-size:15px; padding:1% 1%;}
+.col-md-10 .investment-tables .investment-table1 table tr,
+.col-md-10 .investment-tables .investment-table2 table tr,
+.col-md-10 .investment-tables .investment-table3 table tr,
+.col-md-10 .investment-tables .investment-table4 table tr{border-bottom:1px solid #ccc;}
+.col-md-10 .investment-tables .investment-table1 table td,
+.col-md-10 .investment-tables .investment-table2 table td,
+.col-md-10 .investment-tables .investment-table3 table td,
+.col-md-10 .investment-tables .investment-table4 table td{padding:0.5% 1%; font-size:13px;}
+.col-md-10 .investment-tables .investment-table3 table td{width:14%;}
+.col-md-10 .investment-tables .investment-table3 table td:first-child{width:10px;}
+.col-md-10 .investment-tables .investment-table1 table td .text-box,
+.col-md-10 .investment-tables .investment-table2 table td .text-box,
+.col-md-10 .investment-tables .investment-table3 table td .text-box,
+.col-md-10 .investment-tables .investment-table4 table td .text-box{padding:0.5% 1%; height:25px; width:95%; border:1px solid #0b462d; border-radius:3px;}
+.col-md-10 .investment-tables .investment-table3 table td .tbs{padding:0.5% 1%; height:25px; width:95%;}
+.col-md-10 .investment-tables .btns{margin-top:1%;}
+.col-md-10 .investment-tables .btns .btn-submit{background:#097b4b; color:#fff; border:1px solid #097b4b; border-radius:3px; padding:0.5% 1%;}
+.col-md-10 .investment-tables .btns .btn-cancel{background:#ccc; color:#000; border:1px solid #ccc; border-radius:3px; padding:0.5% 1%;}
+.col-md-10 .investment-tables .btns .btn-submit:hover,
+.col-md-10 .investment-tables .btns .btn-cancel:hover{background:#0b462d; color:#fff;}
+/*Empoyee Payroll > INCOME TAX > Submit Investment Proof*/
+.col-md-10 .employeetax1-main .incometax-table{width:100%; border-radius:3px; padding:0 20%; margin-top:1%;} 
+.col-md-10 .employeetax1-main .incometax-table .col-xs-6{margin:0 0;}
+.col-md-10 .employeetax1-main .incometax-table .col-xs-6 .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px; width:80%;}
+.col-md-10 .employeetax1-main .incometax-table .col-xs-6 .tbs{width:80%;}
+.col-md-10 .employeetax1-main .declaration1 {width:100%; padding:1% 0;}
+.col-md-10 .employeetax1-main .h{font-weight:600; font-size:14px; border-bottom:1px solid #ccc; margin-top:1%;}
+.col-md-10 .employeetax1-main .incometax-table .col-xs-6 .tbs{width:80%;}
+.col-md-10 .employeetax1-main .col-xs-3 .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px; width:80%;}
+.col-md-10 .employeetax1-main .col-xs-3{margin-top:1%;} 
+.col-md-10 .employeetax1-main .incometax-table1 .col-xs-6{margin-top:1%}
+.col-md-10 .employeetax1-main .declaration1 .incometax-table1{margin-top:0%; }
+.col-md-10 .employeetax1-main .declaration1 .incometax-table1 .col-xs-6 .text-box, 
+.col-md-10 .employeetax1-main .declaration1 .incometax-table1 .col-xs-6 .tbs{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; height:30px; width:40%;}
+/*Empoyee Payroll > Setup > */
+/*sidemnau common for all setup*/
+.c div.hris1 ul li.addmanu ul{display:none; margin-top:-2%; background:#f3f3f3;}
+.c div.hris1 ul li.addmanu:hover ul{display:block; width:127%;}
+.c div.hris1 ul li.addmanu ul li{margin-left:10%;} .c div.hris1 ul li.addmanu ul li a button{  color:#000!important; }
+.c div.hris1 ul li.addmanu ul li:hover{background:#097b4b;} .c div.hris1 ul li.addmanu ul li:hover a button{color:#fff!important;}
+.c div.hris1 ul li.addmanu:hover{background: #0b462d; color: #000; } .c div.hris1 ul li.addmanu:hover a button{color:#fff;}
+/*Empoyee Payroll > Setup > My Master > Add Department*/
+.col-md-10 .emplmaster .emplmastertop{border-bottom:1px solid #0b462d; padding-bottom:0.5%; font-size:16px; font-weight:600; width:100%; margin:1% 0; }
+.col-md-10 .emplmaster .row{border-bottom:1px solid #0b462d; margin-bottom:1%; padding:1% 20% 2% 17%;} .col-md-10 .emplmaster .tbs{width:75%!important;}
+.col-md-10 .emplmaster .text-box{border:1px solid #0b462d; border-radius:3px; height:27px; padding:0.3% 1%; width:75%;} 
+.col-md-10 .empdepartment-table{margin-top:5%; border:1px solid #0b462d; border-radius:3px; }
+.col-md-10 .empdepartment-table table{width:100%;} .col-md-10 .empdepartment-table table tr{border-bottom:1px solid #ccc;}
+.col-md-10 .empdepartment-table table .col td{background:#0b462d; color:#fff; font-size:15px; padding:0.5% 1%;}
+.col-md-10 .empdepartment-table table td{padding:0.3% 1%; font-size:14px; } .col-md-10 .empdepartment-table table tr:last-child{border:none;}
+.col-md-10 .col-xs-4, .col-md-10 .col-xs-8{margin-top:1%;}
+/*Empoyee Payroll > Setup > My Master > Add Designation*/
+.col-md-10 .emplmaster-desig .emplmastertop{border-bottom:1px solid #0b462d;padding-bottom:0.5%;font-size:16px;font-weight:600; width:100%; margin:1% 0;}
+.col-md-10 .emplmaster-desig .row{border-bottom:1px solid #0b462d; margin-bottom:1%; padding:1% 20% 2% 17%;} 
+.col-md-10 .emplmaster-desig .tbs{width:75%!important;}
+.col-md-10 .emplmaster-desig .text-box{border:1px solid #0b462d; border-radius:3px; height:27px; padding:0.3% 1%; width:75%;} 
+
+/*---------------------------------Empoyee Payroll-------------------------------------*/
+/*---------------------------------Employee Management------------------------------------*/
+/*--------------------------------HRIS For New Employee------------------------------*/
+.newemployee div.hris-topmanu ul{margin-left:-27%; margin-top:10%;} .newemployee div.hris-topmanu ul li .btnmanu{ list-style: none; padding:5% 0; } 
+.hris-topmanu ul li a{color:#000!important; margin-left:3%;} .newemployee div.hris-topmanu ul li{border-bottom:1px dotted #0b462d; margin-left:-1%;}
+.newemployee div.hris-topmanu ul li:hover{ background:#0b462d;} .hris-topmanu ul li a .btnmanu{background:none; width:100%; border:none; text-align:left;}
+.newemployee div.hris-topmanu ul li:hover a, .newemployee div.hris-topmanu ul li.active a{color:#fff!important;} 
+.newemployee div.hris-topmanu ul li.active{background:#0b462d;} 
+.newemployee div.hris-topmanu ul li.active:hover{background:#097b4b;} .newemployee div.hris-topmanu ul li.active:hover a{color:#000!important;}
+button:focus{outline:none; border:none;}
+.newemployee .col-md-10{overflow:hidden !important;}
+.text-box{width:72%; border-radius:3px; border:1px solid #999; padding:1%;} .tba{padding:1.5%; width:100%;}
+/*New Employee/Basic Detail*/ 
+.newemployee .show-basicdetails{border-radius:3px; border:1px solid #0b462d; width:100%; padding:2% 2% 2% 2%;} 
+.newemployee .show-basicdetails .basic1{width:100%; border-bottom:1px solid #ccc;}
+.newemployee .show-basicdetails .showdetail1{width:100%; padding:3% 0 0 1%;}
+.newemployee .show-basicdetails .showdetail1 div{width:50%; float:left;}
+.newemployee .show-basicdetails .showdetail1 div.img{padding:2% 0; text-align:center;} .newemployee .show-basicdetails .showdetail1 div.img img{width:150px;} 
+.newemployee .show-basicdetails .showdetail1 div.details{ text-align:center;} 
+.newemployee .show-basicdetails .showdetail1 .details table{width:80%;}
+.newemployee .show-basicdetails .health{width:100%; border-bottom:1px solid #ccc; margin-top:2%; padding:0.5% 0; }
+/*New Employee/Position Detail*/
+.newemployee .show-positiondetails{border-radius:3px; border:1px solid #0b462d; width:100%; padding:2% 2% 2% 2%;} 
+.newemployee .show-positiondetails{padding: 2% 2% 0% 2%!important;}
+.newemployee .show-positiondetails .basic{width:100%; border-bottom:1px solid #ccc;}
+.newemployee .show-positiondetails .showdetail1 div{width:50%; float:left;}
+.newemployee .show-positiondetails .showdetail1 .details table{width:100%;}
+/*New Employee/Contact Detail*/
+.newemployee .show-contactdetails {border-radius:3px; border:1px solid #0b462d; width:100%; padding:2% 2% 2% 2%; height:540px;} 
+.newemployee .show-contactdetails .basic{width:100%; border-bottom:1px solid #ccc;}
+.newemployee .show-contactdetails .showdetail1{width:100%; padding:3% 0 0 1%;}
+.newemployee .show-contactdetails .showdetail1 div.cdetails{ text-align:center; width:100%;} 
+.newemployee .show-contactdetails .showdetail1 div.cdetails div{float:left; width:49%;} 
+.newemployee .show-contactdetails .showdetail1 div.cdetails div table{width:100%;} 
+.newemployee .show-contactdetails .showdetail1 div.cdetails table .col td{font-weight:600; color:#FFF; background:#0b462d; padding:1.5% 1%;}
+.newemployee .show-contactdetails .showdetail1 div.cdetails table td{padding:1.5% 1%; font-size:13px;}
+/*New Employee/Employee Detail*/
+.newemployee .show-contactdetails .showdetail1 div.cdetails .emtable2 .text-box{width:88%;}
+.newemployee .show-contactdetails .showdetail1 div.cdetails .emtable2 .tbs{padding:2.6% 1% !important;}
+/*New Employee/Bank Detail*/
+/*common*/
+.newemployee .show-basicdetails .showdetail1 div.details table td:first-child, 
+.newemployee .show-positiondetails .showdetail1 div.details table td:first-child{text-align:left; font-weight:600;}
+.newemployee .show-basicdetails .showdetail1 div.details table td:nth-child(even),
+.newemployee .show-positiondetails .showdetail1 div.details table td:nth-child(even),
+.newemployee .show-contactdetails .showdetail1 div.cdetails table td:nth-child(even){font-weight:700!important;}
+.newemployee .show-basicdetails .showdetail1 div.details table td,
+.newemployee .show-positiondetails .showdetail1 div.details table td,
+.newemployee .show-contactdetails .showdetail1 div.cdetails table td{padding:2% 2%; font-size:13px;}
+.newemployee .show-basicdetails .showdetail1 div.details table td .text-box,
+.newemployee .show-positiondetails .showdetail1 div.details table td .text-box,
+.newemployee .show-contactdetails .showdetail1 div.cdetails table td .text-box{padding:2% 1%!important;}
+.newemployee .show-basicdetails .showdetail1 div.details table td .tbs,
+.newemployee .show-positiondetails .showdetail1 div.details table td .tbs,
+.newemployee .show-contactdetails .showdetail1 div.cdetails table td .tbs{padding:1.5% 1%!important;}
+/*Progress Bar*/
+.newemployee .show-basicdetails #myProgress,
+.newemployee .show-positiondetails #myProgress, 
+.newemployee .show-contactdetails #myProgress{position: relative; width: 100%; height: 20px !important; background-color: #ddd; margin-bottom:2%; border-radius:5px;}
+.newemployee .show-basicdetails #myBar,
+.newemployee .show-positiondetails #myBar,
+.newemployee .show-contactdetails #myBar{position: absolute; height: 100%; background-color: #0b462d; border-radius:5px;}
+
+/*End Progress Bar*/
+/*--------------------------------End HRIS For New Employee------------------------------*/
+/*Employee Management > Header*/
+a:hover{ text-decoration:none ;}
+.empmgt #nav{background:#0b462d ; font-size:12px; font-weight:700; font-family:Arial, Helvetica, sans-serif; /* container */}
+.empmgt #nav > a{display: none; color:#FFFFFF ; text-transform:uppercase;    }
+.empmgt #nav li{position: relative; text-transform:uppercase;   } #nav li a{text-transform:uppercase; }
+    /* first level */
+.empmgt #nav > ul   {height: 2.5em; margin-bottom:0px ; margin-left:-3% ;    }
+.empmgt #nav > ul > li  { width: 10%; height: 100%; background:#0b462d ; float: left; padding-top:0px; text-align:center; list-style:none; z-index:1;   }
+.empmgt #nav ul li button:hover{ background:#ffffff; text-decoration:none; color:#0b462d; }
+.empmgt #nav ul li:hover a{color:#0b462d;}
+.empmgt #nav ul li button{border:none; background:#0b462d; width:100%; height:30px;}
+    /* second level */
+.empmgt #nav li ul {display: none; position: absolute; top: 100%; background:#f99b1c ;   }
+.empmgt #nav li:hover ul {display: block; text-decoration:none; color:#0b462d;      }
+.empmgt #nav ul .active button{ background:#097b4b ; }
+.empmgt #nav ul li .submanu{width:170%; background:#0b462d;}
+.empmgt #nav ul li .submanu li button a{font-size:12px; color:#fff; } #nav ul li .submanu li:hover button a{color:#0b462d;}
+.empmgt #nav ul li .submanu li{ padding:8% 5%; width: 128%; margin-left: -28%; text-align:left; }
+/*Employee Management > EMPLOYEE TASK > Employee Master*/
+.col-md-10 .employee_mgt{margin:1% 0;}
+.col-md-10 .employee_mgt .empmgt_top{border-bottom:1px solid #0b462d; padding:0 0 0.5% 0; font-size:15px; font-weight:600;}
+.panel .btn1{background:#097b4d; padding:1px 4px; border:1px solid #097b4d; border-radius:3px; color:#fff;} .panel .btn1:hover{background:#0b462d;}
+.panel .text-box{border:1px solid #097b4d; padding:3px 5px; border-radius:3px; width:90%;}
+/*Employee Management > EMPLOYEE TASK > Exit Employee*/
+.col-md-10 .employee_mgt .emp_search1{margin:1% 0; padding:0 10% 1% 10%;} 
+.col-md-10 .employee_mgt .emp_search1 .text-box{border:1px solid #0b462d; border-radius:3px; padding:0.5% 1%; width:90%; }
+.col-md-10 .employee_mgt .emp_search1 .btn{padding:3px 5px; height:auto;} .col-md-10 .employee_mgt .es1{border-bottom:1px solid #0b462d;}
+/*Employee Management > EMPLOYEE TASK > Communication*/
+.col-md-10 .employee_mgt .emplmgt_comm .row div{margin-top:1%;} .col-md-10 .employee_mgt .emplmgt_comm .row{padding-left:5%;}
+.col-md-10 .employee_mgt .emplmgt_comm .row div .text-box{width:30%;}
+.col-md-10 .employee_mgt .emplmgt_comm .row div .tba{width:90%;} .col-md-10 .employee_mgt .emplmgt_comm .col-xs-12{margin-top:1%;}
+/*Employee Management > EMPLOYEE TASK > Leave Mgt*/
+.col-md-10 .employee_mgt .emplmgt_leave table td .text-box{height:20px;}
+.col-md-10 .employee_mgt .emplmgt_leave table td{font-size:14px;}
+.col-md-10 .employee_mgt .emplmgt_leave table th{font-size:13px; padding:0 7px;}
+.col-md-10 .employee_mgt .col-xs-12{margin:1% auto;} .col-md-10 .employee_mgt .col-xs-12 .btn{height:27px; padding:3px 1%;}
+/*Leave Approved History*/
+.col-md-10 .employee_mgt .emp_search2{ padding:0 10%;} .col-md-10 .employee_mgt .emp_search2 .row div{margin-top:1%;}  
+.col-md-10 .employee_mgt .e_l table th{padding:3px 12px;}
+, .col-md-10 .employee_mgt .e_l table td{padding:3px 20px;}
+/*------------------------------End Employee Management------------------------------------*/

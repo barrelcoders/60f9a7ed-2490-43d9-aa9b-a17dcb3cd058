@@ -1,0 +1,943 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- #include file="connection.asp" -->
+
+<script language="javascript">
+
+function Validate()
+{
+	var sstr="";
+	if(document.getElementById("e-mail").value =="")
+	{
+		sstr=sstr + "Please enter requester's detail\n";
+	}
+	
+	if(document.getElementById("docname").value=="")
+	{
+		sstr=sstr + "Please enter document's detail\n";
+	}
+	if(document.getElementById("d_ac").value=="")
+	{
+		sstr=sstr + "Please enter description of actual\n";
+	}
+	if(document.getElementById("dcr").value=="")
+	{
+		sstr=sstr + "Please enter description of change request\n";
+	}
+	if(document.getElementById("qb").value=="")
+	{
+		sstr=sstr + "Please enter qualitative benefit\n";
+	}
+	if(document.getElementById("ql_b").value=="")
+	{
+		sstr=sstr + "Please enter quantitative benefit\n";
+	}
+	
+	if (sstr!="")
+	{
+		alert(sstr);
+		return;
+	}
+	else
+	{
+	//isSubmit" value="submit">
+	document.getElementById("isSubmit").value="submit";
+	//method="post" action="change_request.asp"
+	document.frmForm.method ="POST";
+	document.frmForm.action="change_request.asp";
+		document.frmForm.submit(); 
+	}
+	
+
+}
+function GetStakeholder()
+{
+var xmlHttp;
+		  var xmlHttp1;
+		  
+		  try
+		    {    
+				// Firefox, Opera 8.0+, Safari    
+				xmlHttp=new XMLHttpRequest();
+			}
+		  catch (e)
+		    {    // Internet Explorer    
+				try
+			      {      
+					xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+				  }
+			    catch (e)
+			      {      
+					  try
+				        {        
+							xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+						}
+				      catch (e)
+				        {        
+							alert("Your browser does not support AJAX!");        
+							return false;        
+						}      
+				  }    
+			 } 
+			 xmlHttp.onreadystatechange=function()
+		      {
+			      if(xmlHttp.readyState==4)
+			        {
+						var rows="";
+						var download_filename="";
+						var attach_file_path="";
+			        	
+			        	rows=new String(xmlHttp.responseText);
+			        	
+							//form submit
+							
+							if(rows=="")
+							{
+								/*alert("SITE CREATED ! SUCCESSFULLY");
+								document.frmReport.reset();*/
+								//alert(rows);
+								document.getElementById("Employee_Name").value="";
+								document.getElementById("function").value="";
+								document.getElementById("location").value="";
+								
+								//document.getElementById("value_stream").value="O2O";
+								
+							}
+							else
+							{
+								//alert(rows);
+								rows=rows.split("newline");
+									removeAllOptions(document.getElementById("StakeHolderName"))
+									removeAllOptions(document.getElementById("StakeHolderEmail"))
+								for(i=0;i<rows.length;i++)
+								{
+									var curline=rows[i];
+									arrcurline=curline.split("~");
+									addOption(document.getElementById("StakeHolderName"),arrcurline[0],arrcurline[0])
+									addOption(document.getElementById("StakeHolderEmail"),arrcurline[1],arrcurline[1])
+								}
+								
+								var listbox = document.getElementById("StakeHolderEmail");         
+								for(var count=0; count < listbox.options.length; count++) 
+								{             
+									listbox.options[count].selected = true; 
+								}
+							}
+			        }
+		      }
+						  
+			
+				var listBox = document.getElementById("business_risk"); 
+				       
+				         var text = ""; 
+				         
+				         for (var cnt = 0; cnt < listBox.options.length; cnt++) 
+				         { 
+				            if (listBox.options[cnt].selected) 
+				            { 
+				               if (text.length > 0) 
+				               { 
+				                  text = text + ","; 
+				               } 
+				               text = text + listBox.options[cnt].text; 
+				            } 
+				         }		 
+				   
+				 
+				//alert(text);
+				//return;
+				var submiturl="GET_DETAILS.asp?Func="+ escape(text) + "&action=Stakeholder";
+				xmlHttp.open("POST", submiturl ,true);
+				xmlHttp.send(null);
+}
+
+function fnlGetDocDetail()
+	{
+		  
+		  var xmlHttp;
+		  var xmlHttp1;
+		  
+		  try
+		    {    
+				// Firefox, Opera 8.0+, Safari    
+				xmlHttp=new XMLHttpRequest();
+			}
+		  catch (e)
+		    {    // Internet Explorer    
+				try
+			      {      
+					xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+				  }
+			    catch (e)
+			      {      
+					  try
+				        {        
+							xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+						}
+				      catch (e)
+				        {        
+							alert("Your browser does not support AJAX!");        
+							return false;        
+						}      
+				  }    
+			 } 
+			 xmlHttp.onreadystatechange=function()
+		      {
+			      if(xmlHttp.readyState==4)
+			        {
+			    		
+						var rows="";
+						var download_filename="";
+						var attach_file_path="";
+			        	
+			        	rows=new String(xmlHttp.responseText);
+						if(rows=="")
+							{
+								/*alert("SITE CREATED ! SUCCESSFULLY");
+								document.frmReport.reset();*/
+								//alert(rows);
+								document.getElementById("Employee_Name").value="";
+								document.getElementById("function").value="";
+								document.getElementById("location").value="";
+								
+							}
+							else
+							{
+								
+								rows=rows.split("newline");
+								varTable="";
+								varTable="<table class='Request_tab_data'>";
+						           varTable=varTable + "<tr class='trclasse'>";
+						           varTable=varTable + "<td>Function </td>";
+						           varTable=varTable + "<td>Doc. Type</td>";
+						           varTable=varTable + "<td>S.No.</td>";
+						           varTable=varTable + "<td>Document No.</td>";
+						           varTable=varTable + "<td>Document Title </td>";
+						           varTable=varTable + "<td>Cur. Rev.</td>";
+						           varTable=varTable + "<td>Doc. Release Data</td>";
+						           varTable=varTable + "<td>Click to Raise</td>";
+						            varTable=varTable + "</tr>";
+						            
+
+
+								
+								for(i=0;i<rows.length;i++)
+								{
+									var curline=rows[i];
+									arrcurline=curline.split("~");
+									//alert(arrcurline[4]);
+									varTable=varTable + "<tr class='trclasse_two'>";
+						             varTable=varTable + "<td>" + arrcurline[0] + "</td>";
+						             varTable=varTable + "<td class='td_bg_change'>" + arrcurline[1] + "</td>";
+						             varTable=varTable + "<td>" + arrcurline[2] + "</td>";
+						             varTable=varTable + "<td class='td_bg_change'>" + arrcurline[3] + "</td>";
+						             varTable=varTable + "<td>" + arrcurline[5] + "</td>";
+						             varTable=varTable + "<td class='td_bg_change'>" + arrcurline[6] + "</td>";
+						             varTable=varTable + "<td>" + arrcurline[7] + "</td>";
+						             //varTable=varTable + "<td class='td_bg_change'><a href=Javascript:fnlFillDocDetail('" + arrcurline[3].toString() + "','" + arrcurline[4].toString() + "','" + arrcurline[6].toString() + "','" + arrcurline[7].toString() + "');>Click</a> </td>";
+									varTable=varTable + "<td><input type='button' value='Add' name='btnClick' onclick=Javascript:fnlFillDocDetail('" + escape(arrcurline[3].toString()) + "','" + escape(arrcurline[4].toString()) + "','" + escape(arrcurline[6].toString()) + "','" + escape(arrcurline[7].toString()) + "')></td>";
+											
+						             varTable=varTable + "</tr>";
+						             
+						             
+									
+									
+								}
+								varTable=varTable + "</table>";
+								document.getElementById("divDocDetail").innerHTML=varTable;
+								return;
+								
+							}
+							
+			        }
+		      }
+						  
+				
+				var submiturl="GET_DETAILS.asp?Func="+ document.getElementById("func").value + "&doctype=" + document.getElementById("doc_typ").value + "&action=docdetail";
+				xmlHttp.open("POST", submiturl ,true);
+				xmlHttp.send(null);
+			
+	}
+
+function fnlFillDocDetail(docno,docname,verson,releasedate)
+{
+	//alert(docno + "," + docname + "," + verson + "," +releasedate);
+	//return;
+	document.getElementById("docno").value=unescape(docno);
+	document.getElementById("docname").value=unescape(docname);
+	document.getElementById("version").value=unescape(verson);
+	document.getElementById("re_date").value=unescape(releasedate);
+}
+
+function fnlGetEmpDetail()
+	{
+		  var xmlHttp;
+		  var xmlHttp1;
+		  
+		  try
+		    {    
+				// Firefox, Opera 8.0+, Safari    
+				xmlHttp=new XMLHttpRequest();
+			}
+		  catch (e)
+		    {    // Internet Explorer    
+				try
+			      {      
+					xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+				  }
+			    catch (e)
+			      {      
+					  try
+				        {        
+							xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+						}
+				      catch (e)
+				        {        
+							alert("Your browser does not support AJAX!");        
+							return false;        
+						}      
+				  }    
+			 } 
+			 xmlHttp.onreadystatechange=function()
+		      {
+			      if(xmlHttp.readyState==4)
+			        {
+						var rows="";
+						var download_filename="";
+						var attach_file_path="";
+			        	/*
+			        	str = new String(xmlHttp.responseText);
+			        	str = str.split("~");
+			        	
+			        	removeAllOptions(document.forminsert.cboAllSpecs)
+			       		
+			        	for(var i=0;i<str.length;++i)
+			        	{
+			        		addOption(document.forminsert.cboAllSpecs,str[i],str[i])
+			        	}
+			        	*/
+			        	rows=new String(xmlHttp.responseText);
+							//form submit
+							
+							if(rows=="")
+							{
+								/*alert("SITE CREATED ! SUCCESSFULLY");
+								document.frmReport.reset();*/
+								//alert(rows);
+								document.getElementById("Employee_Name").value="";
+								document.getElementById("function").value="";
+								document.getElementById("location").value="";
+								
+								//document.getElementById("value_stream").value="O2O";
+								
+							}
+							else
+							{
+								//alert(rows);
+								rows=rows.split("~");
+								document.getElementById("Employee_Name").value=rows[0];
+								document.getElementById("function").value=rows[1];
+								document.getElementById("location").value=rows[2];
+								
+							}
+			        }
+		      }
+						  
+						  
+			//if(event.keyCode=='13')
+			//{
+
+				//alert(document.getElementById("e-mail").value);
+				//return;
+				var submiturl="GET_DETAILS.asp?email_id="+ document.getElementById("e-mail").value + "&action=empdetail";
+				xmlHttp.open("POST", submiturl ,true);
+				xmlHttp.send(null);
+			//}
+	}
+	
+function removeAllOptions(selectbox)
+	{
+		var i;
+		for(i=selectbox.options.length-1;i>=0;i--)
+		{
+			selectbox.remove(i);
+		}
+	}
+	
+function addOption(selectbox,text,value )
+	{
+		
+		var optn = document.createElement("OPTION");
+		optn.text = text;
+		optn.value = value;
+		selectbox.options.add(optn);
+	}
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Bharti Infratel Process Excellence</title>
+<link href="css/reset.css" type="text/css" rel="stylesheet" />
+<link href="css/style.css" type="text/css" rel="stylesheet" />
+<link href="css/default.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/ddlevelsmenu-base.css" />
+<link rel="stylesheet" type="text/css" href="css/ddlevelsmenu-topbar.css" />
+<script type="text/javascript" src="js/ddlevelsmenu.js"></script>
+</head>
+<body>
+<!--wrapper-->
+<div id="wrapper"> 
+  <!--head_part -->
+  <div class="top_main_holder">
+    <div class="logoPart"><a href="index.asp"><img src="images/logo.png" /></a></div>
+    <div class="right_login_part">
+      <div class="welcome_btn" style="width: 363px; height: 25px">
+        <p align="left">
+        <!--<h3>Welcome <a href="#">Mohan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h3>
+        <a href="#" class="Profile">profile</a> --><a href="Abbreviationfile_28_May_2013.xlsm" target="_blank" class="abbreviation">ABBREVIATION DIRECTORY</a> <a href="feedback.asp" class="Feedback">Feedback</a> <a href="help.html" class="help">help</a> </div>
+      <div class="search_area">
+        <input type="text" name="search" id="search" value="Search" class="Search" />
+        <input type="submit" id="submit" name="submit" class="SUB" value=""/>
+        <label class="advance"><a href="advance_search.html">Advanced Search</a></label>
+      </div>
+    </div>
+    <!--Navigation -->
+    <div class="m_nav">
+            <div class="floatL"><img src="images/nav_left.png"/></div>
+            <div class="nav_mid">
+              <div id="ddtopmenubar" class="mattblackmenu">
+                <ul>
+                  <li style="background:none;"><a href="index.asp">Home</a></li>
+                  <li><a href="#" rel="ddsubmenu2">Process Management System</a></li>
+                  <li><a href="knowledgeshare_places.html" rel="ddsubmenu3">Process Change Management </a></li>
+                  <li><a href="portal_facility.html">Portal features</a></li>
+                </ul>
+              </div>
+              <script type="text/javascript">
+ddlevelsmenu.setup("ddtopmenubar", "topbar") //ddlevelsmenu.setup("mainmenuid", "topbar|sidebar")
+    </script>
+              <!--HTML for the Drop Down Menus associated with Top Menu Bar-->
+              <!--They should be inserted OUTSIDE any element other than the BODY tag itself-->
+              <!--A good location would be the end of the page (right above "</BODY>")-->
+              <!--Top Drop Down Menu 1 HTML-->
+              <ul id="ddsubmenu2" class="ddsubmenustyle">
+               <li><a href="aboutus.html">Introduction</a></li>
+                <li><a href="Infratel_process_model.html">Infratel Process Model</a></li>
+                <li><a href="#">Value Stream »</a>
+                 <ul>
+                      <li><a href="value_straem2.html">Value Stream  &amp; Their Integrations</a></li>
+                      <li><a href="ops_to_order.asp">Opportunity to Order</a></li>
+                      <li><a href="site_acquisition.html">Site Acquisition</a></li>
+                      <li><a href="stock_to_build.html">Stock to Build</a></li>
+                      <li><a href="procure_to_pay.html">Procure to Pay</a></li>
+                      <li><a  href="order_to_cash.html">Order to Cash</a></li>
+                      <li><a href="deploy_to_retire.html">Deploy to Retire</a></li>
+                 </ul>
+                </li>
+                <li><a href="#">Integrated Business Process »</a>
+                <ul>
+                      <li><a href="activity_charts.html">Activity Chart</a></li>
+                    <li><a href="integrated-business-process-micro-flow.html"> Process Macro Flow</a></li>
+                    <li><a href="Infratel_integrated_b_processflow.html"> Process Micro Flow</a></li>
+                 </ul>                
+                </li>
+                <li><a href="process_navigator.html">Processes Navigator</a></li>
+                <li style="border:none;"><a href="business_process_docs.html">Business Process & Documents</a></li>
+              </ul>
+              <!--Top Drop Down Menu 2 HTML-->
+              <ul id="ddsubmenu3" class="ddsubmenustyle">
+                <li ><a href="process_change_management.html">Change Management Feature</a> </li>
+                <li ><a href="change_request.html">Change Request</a></li>
+                <li><a href="change_management_report.html">Report</a></li>
+                <li class="dir"><a href="#">Temporary Deviation (TED) »</a>
+                  <ul>
+                    <li><a href="temporary_deviation.html">Temporary Deviation </a></li>
+                    <li><a href="ted_request.html">TED Request</a></li>
+                    <li><a href="ted_report.html">Report</a></li>
+                  </ul>
+                </li>
+              </ul>
+             </div>
+            <!--nav_mid ends-->
+            <div class="floatR"><img src="images/nav_right.png" /></div>
+          </div>
+  </div>
+  <!--end_head_part --> 
+  <!--processChange -->
+  <div class="wrapof_processChange">
+    <div class="wrapof_processChange_holder ">
+      <h1>Temporary Deviation </h1>
+      <div class="floatL"><img src="images/change_request_top_bg.png" /> </div>
+      <div class="process_change_request">
+        <h2>Temporary Deviation Request</h2>
+        <form>
+        <div class="floatL marGin_left"><img src="images/request_detail_Top_bg.jpg" /></div>
+        <div class="Request_detail_filled">
+          <h3>Requester Details (to be filled by Requester):</h3>
+          <ul>
+            <li>
+              <label>Employee Name</label>
+              <br />
+              <input type="text" id="Employee_Name" name="Employee_Name" class="EmployeeName" />
+            </li>
+            <li>
+              <label>Employee e-mail ID</label>
+              <br />
+              <input type="text" id="e-mail" name="e-mail" class="EmployeeName" onkeyup="fnlGetEmpDetail();" />
+            </li>
+            <li>
+              <label>Function</label>
+              <br />
+              <input type="text" id="function" name="function" class="EmployeeName" />
+            </li>
+            <li>
+              <label>Location</label>
+              <br />
+              <input type="text" id="location" name="location" class="EmployeeName" />
+            </li>
+            <li class="funct_li" style="margin-top:25px;">
+              <label>TED against :</label>
+              <select id="func" name="Func" class="function_optn">
+                <option>Process Document</option>
+                <option> Audit NC</option>
+              </select>
+            </li>
+            <li class="funct_li" style="margin-top:25px; margin-left:15px;">
+              <label class="label_mar">Risk Type :</label>
+              <select id="doc_typ" name="doc_typ" class="function_optn">
+                <option>Financial</option>
+                <option>Operational</option>
+                <option>Complaince</option>
+              </select>
+            </li>
+            
+            <br class="clear" />
+            
+            <li class="funct_li">
+              <label>Business Risk</label><br />
+              <select name="business risk" multiple="multiple" size="20"  class="jump_menu">
+                <option>SLA</option>
+                <option>vendor</option>
+                <option>opco</option>
+                <option>cost</option>
+                <option>process</option>
+                <option>asset</option>
+                <option>uptime</option>
+                <option>customer</option>
+              </select>
+            </li>
+            
+            
+            <li class="funct_li" style="padding-top:65px;">
+            	<a href="#"><img src="images/jump-aero1.jpg" align="absmiddle" /></a><br />
+                <a href="#"><img src="images/jump-aero2.jpg" align="absmiddle" /></a>
+            </li>
+            
+            
+            <li class="funct_li">
+              <br /><br />
+              <select name="business risk" multiple="multiple" size="20"  class="jump_menu">
+              </select>
+            </li>
+            <li class="funct_li">
+              <label>TED For Location</label>
+              <br />
+              <select name="business risk" multiple="multiple" size="20"  class="jump_menu">
+                <option>Across Infratel</option>
+                <option>HO</option>
+                <option>Bihar</option>
+                <option>ORI</option>
+                <option>NESA</option>
+                <option>MPCG</option>
+                <option>HPH</option>
+                <option>J &amp; K</option>
+                <option>UPW</option>
+                <option>UPE</option>
+                <option>Raj</option>
+              </select>
+            </li>
+            
+            <li class="funct_li" style="padding-top:65px;">
+            	<a href="#"><img src="images/jump-aero1.jpg" align="absmiddle" /></a><br />
+                <a href="#"><img src="images/jump-aero2.jpg" align="absmiddle" /></a>
+            </li>
+            
+            <li class="funct_li">
+              <br />
+              <br />
+              <select name="business risk" multiple="multiple" size="20"  class="jump_menu">
+              </select>
+            </li>
+          </ul>
+          <br class="clear" /><br />
+        </div>
+        <div class="floatL marGin_left"><img src="images/request_detail_bottom_bg.jpg" /></div>
+        <!--select_process -->
+        <div class="floatL marGin_left"><img src="images/request_detail_Top_bg.jpg" /></div>
+        <div class="Request_detail_filled2">
+          <h3>Select Process/Policy/Guideline/Formet/Checklist To Raise TED Request:</h3>
+          <ul style="margin-top:0px;">
+            <li class="funct_li">
+              <label>Function</label>
+              <select id="func" name="Func" class="function_optn">
+                <option>S&amp;M</option>
+                <option>SA</option>
+                <option>DEPL</option>
+                <option>TECH</option>
+                <option>O&amp;M</option>
+                <option>FIN</option>
+                <option>HR</option>
+                <option>LEGAL</option>
+                <option>IT</option>
+              </select>
+            </li>
+            <li class="funct_li">
+              <label class="label_mar">Document Type</label>
+              <select id="doc_typ" name="doc_typ" class="function_optn">
+                <option>All Documents</option>
+                <option>Business Process</option>
+                <option>Work Instructions</option>
+                <option>Guidelines</option>
+                <option>Policies</option>
+                <option>Formats</option>
+                <option>Check sheets</option>
+                <option>Annexure</option>
+              </select>
+            </li>
+            <br />
+            <button class="go_btn"></button>
+          </ul>
+          <h4>Select Doc. from here to raise change request</h4>
+          <table class="Request_tab_data">
+            <tr class="trclasse">
+              <td>Function </td>
+              <td>Doc. Type</td>
+              <td>S.No.</td>
+              <td>Document No.</td>
+              <td>Document Title </td>
+              <td>Cur. Rev.</td>
+              <td>Doc. Release Data</td>
+              <td>Click to Raise</td>
+            </tr>
+            <tr class="trclasse_two">
+              <td>DEPL</td>
+              <td class="td_bg_change">BP</td>
+              <td>01</td>
+              <td class="td_bg_change">BP-DEPL-01-V2.0</td>
+              <td>Process for Cancellation of Acquired Site </td>
+              <td class="td_bg_change">V2.0</td>
+              <td>1-Jul-09</td>
+              <td class="td_bg_change"><a href="#">Click</a></td>
+            </tr>
+            <tr class="trclasse_two">
+              <td>DEPL</td>
+              <td class="td_bg_chan">BP</td>
+              <td>01</td>
+              <td class="td_bg_chan">BP-DEPL-01-V2.0</td>
+              <td>Process for Cancellation of Acquired Site </td>
+              <td class="td_bg_chan">V2.0</td>
+              <td>1-Jul-09</td>
+              <td class="td_bg_chan"><a href="#">Click</a></td>
+            </tr>
+            <tr class="trclasse_two">
+              <td>DEPL</td>
+              <td class="td_bg_change">BP</td>
+              <td>01</td>
+              <td class="td_bg_change">BP-DEPL-01-V2.0</td>
+              <td>Process for Cancellation of Acquired Site </td>
+              <td class="td_bg_change">V2.0</td>
+              <td>1-Jul-09</td>
+              <td class="td_bg_change"><a href="#">Click</a></td>
+            </tr>
+            <tr class="trclasse_two">
+              <td>DEPL</td>
+              <td class="td_bg_chan">BP</td>
+              <td>01</td>
+              <td class="td_bg_chan">BP-DEPL-01-V2.0</td>
+              <td>Process for Cancellation of Acquired Site </td>
+              <td class="td_bg_chan">V2.0</td>
+              <td>1-Jul-09</td>
+              <td class="td_bg_chan"><a href="#">Click</a></td>
+            </tr>
+          </table>
+          <ul>
+            <li>
+              <label>Document No.</label>
+              <br />
+              <input type="text" id="docno" name="docno" class="EmployeeName" />
+            </li>
+            <li>
+              <label>Document Name</label>
+              <br />
+              <input type="text" id="docname" name="docname" class="EmployeeName" />
+            </li>
+            <li>
+              <label>Version</label>
+              <br />
+              <input type="text" id="version" name="version" class="EmployeeName" />
+            </li>
+            <li>
+              <label>Doc. Release Date</label>
+              <br />
+              <input type="text" id="re_date" name="re_date" class="EmployeeName" />
+            </li>
+          </ul>
+          
+          <h3>TED against audit NC</h3>
+          <br class="clear" />
+          
+          <ul style="margin-top:0px;">
+            <li class="funct_li">
+              <label>NC no.</label>
+              <select id="func" name="Func" class="function_optn">
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+            </li>
+            <li class="funct_li">
+              <label class="label_mar">Date of NC</label>
+              <select id="doc_typ" name="doc_typ" class="function_optn">
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+            </li>
+            <br class="clear" />
+            <li>
+              <label>NC description</label>
+              <br />
+              <textarea name="" cols="" rows="" id="sta_na" class="d_act"></textarea>
+            </li>
+          </ul>
+        </div>
+        <!--end_select_process -->
+        <div class="floatL marGin_left"><img src="images/request_detail_bottom_bg.jpg" /></div>
+        
+        <!--hold_hund ends-->
+        <div class="hold_hund"> 
+          <!--reason_change starts-->
+          <div class="floatL marGin_left"><img src="images/request_detail_Top_bg.jpg" /></div>
+          <div class="aut_appr">
+            <h3 style="margin-bottom:0;">Desviation Details </h3>
+            <ul class="aut_ul" style="padding-bottom:10px;">
+              <li class="aut_li">
+                <label>Actual (as per process)</label>
+                <br />
+                <input type="text" id="dow_name" name="dow_name" class="EmployeeName" style="width:410px;" />
+              </li>
+              <li class="aut_li">
+                <label>Proposed Deviation</label>
+                <br />
+                <input type="text" id="doe_email" name="doe_email" class="EmployeeName" style="width:410px;" />
+              </li>
+            </ul>
+          </div>
+          <div class="floatL marGin_left"><img src="images/request_detail_bottom_bg.jpg" /></div>
+          <div class="floatL marGin_left"><img src="images/request_detail_Top_bg.jpg" /></div>
+          <div class="aut_appr">
+            <h3 style="margin-bottom:0;">Reasion &amp; Action </h3>
+            <ul class="aut_ul" style="padding-bottom:10px;">
+              <li class="aut_li">
+                <label>Reasion &amp; Circumstances Underlying the Deviation </label>
+                <br />
+                <input type="text" id="dow_name" name="dow_name" class="EmployeeName" style="width:410px;" />
+              </li>
+              <li class="aut_li">
+                <label>Action Plan for Complaince</label>
+                <br />
+                <input type="text" id="doe_email" name="doe_email" class="EmployeeName" style="width:410px;" />
+              </li>
+            </ul>
+          </div>
+          <div class="floatL marGin_left"><img src="images/request_detail_bottom_bg.jpg" /></div>
+          
+          <div class="floatL marGin_left"><img src="images/request_detail_Top_bg.jpg" /></div>
+          <div class="aut_appr">
+            <h3 style="margin-bottom:0;">Duration of Deviation</h3>
+            <ul class="aut_ul" style="padding-bottom:10px;">
+              <li class="aut_li">
+                <label>Start Date </label>
+             
+                 <select id="func" name="Func" class="function_optn">
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+              </li>
+              <li class="aut_li">
+                <label>End Date</label>
+              
+                <select id="func" name="Func" class="function_optn">
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
+              </li>
+            </ul>
+          </div>
+          <div class="floatL marGin_left"><img src="images/request_detail_bottom_bg.jpg" /></div>
+        <!--reason_change starts-->
+        <div class="floatL marGin_left"><img src="images/request_detail_Top_bg.jpg" /></div>
+        <div class="aut_appr">
+          <h3>Authorized Approver's Details </h3>
+         
+          
+        <ul class="aut_ul">
+            <li class="aut_li">
+             
+                <label>Doc. Owner Name</label>
+                <br />
+                <input type="text" id="dow_name" name="dow_name"  class="EmployeeName" />
+            
+            </li>
+            <li class="aut_li">
+           
+                <label>Doc. Owner e-mail ID</label>
+                <br />
+                <input type="text" id="doe_email" name="doe_email" class="EmployeeName" />
+             
+            </li>
+        
+         
+          
+          </ul>
+           <h3>Default Approval </h3>
+           <ul class="aut_ul">
+             <li class="aut_li">
+             
+                <label>PQC SPOC Name</label>
+                <br />
+                <input type="text" id="pqc_name" name="pqc_name" value="Vishal Ranjan" class="EmployeeName" />
+           
+            </li>
+            <li class="aut_li">
+             
+                <label>PQC SPOC e-mail ID</label>
+                <br />
+                <input type="text" id="pqc_ema" name="pqc_ema" value="Vishal Ranjan/HO/IAG/Infratel/BHARTI" class="EmployeeName" />
+            
+            </li>
+            <li class="aut_li">
+           
+                <label>IAG SPOC Name</label>
+                <br />
+                <input type="text" id="iag_name" name="iag_name" value="Anand Batra" class="EmployeeName" />
+             
+            </li>
+            <li class="aut_li">
+             
+                <label>IAG SPOC e-mail ID</label>
+                <br />
+                <input type="text" id="iag_s_email" name="iag_s_email" value="Anand Batra/HO/IAG/Infratel/BHARTI" class="EmployeeName" />
+          
+            </li>
+            
+          </ul>
+          <h4>Stakeholders Consent Taken-Select as applicable <span class="aut_amll_h">(To be selected by requester by refering process document)</span></h4>
+          <div class="hold_hund">
+          
+           <ul class="stake_ul">
+            <li class="stake_li">
+             
+                <label>Function</label>
+                <br />
+                <select name="business risk" multiple="multiple" size="20"  class="jump_menu_revised">
+                  <option>Operation & Maintenance</option>
+                  <option>Site Acquisition</option>
+                  <option>Deployment</option>
+                        <option>IAG</option>
+                              <option>Sales & Marketing</option>
+                                    <option>Finance</option>
+                                     <option>Supply Chain Management</option>
+                                      <option>Technical</option>
+                                      <option>HR</option>
+                                      <option>IT</option>
+                                       <option>L&R </option>
+                </select>
+            
+            </li>
+            <li class="stake_li mar_left_li">
+             
+                <label>Stakeholder Name (HO Function Head)</label>
+                <br />
+               <select name="business risk" multiple="multiple" size="20"  class="jump_menu_revised">
+                  <option>Abhay kumar Singh</option>
+                  <option>Dhananjay Ozarkar</option>
+                  <option>Dhananjay Ozarkar</option>
+                        <option>Ravi Mohan</option>
+                              <option>Biswajit Patnaik</option>
+                                    <option>Jaspal Tandon</option>
+                                     <option>Pankaj Priyadarshi</option>
+                                      <option>Sairam Prasad</option>
+                                      <option>Vikas Joshi</option>
+                                    <option>Prashant Veer Singh</option>
+                                     <option>Rajiv Arora</option>
+                             
+                </select>
+            
+            </li>
+            
+            <li class="stake_li mar_left_li">
+             
+                <label>Stakeholder e-mail ID</label>
+                <br />
+               <select name="business risk" multiple="multiple" size="20"  class="jump_menu_revised">
+                  <option>Abhay Kumar Singh/HO/Network/Infratel/BHARTI,</option>
+                  <option>Dhananjay Ozarkar/HO/Operations/Infratel/BHARTI,</option>
+                  <option>Dhananjay Ozarkar/HO/Operations/Infratel/BHARTI,</option>
+                        <option>Ravi Mohan/HO/IAG/Infratel/BHARTI,</option>
+                              <option>Biswajit Patnaik/HO/Sales & Mkt/Infratel/BHARTI,</option>
+                                    <option>Jaspal Tandon/HO/Finance/Infratel/BHARTI@bharti</option>
+                                     <option>Pankaj Priyadarshi/HO/SCM/Infratel/BHARTI</option>
+                                      <option>Sairam Prasad/HO/Network/Infratel/BHARTI, </option>
+                                      <option>Vikas Joshi/HO/HR& Admin/Infratel/BHARTI, </option>
+                                    <option>Prashant Veer Singh/HO/TS/Infratel/BHARTI, </option>
+                                     <option>Rajiv Arora/Legal & Regulatory/Infratel/BHARTI, </option>
+                                    
+                </select>
+            
+            </li>
+            
+            
+            <br />
+             </ul>
+        
+            
+          </ul>
+           <div style="float:left; margin:0 0 0 20px;"> *Select multi stakeholder using Ctrl
+           </div>
+          
+          </div>
+          
+        </div>
+        <div class="floatL marGin_left"><img src="images/request_detail_bottom_bg.jpg" /></div>
+        
+       <!--reason_change ends-->
+
+        </div>
+        <!--hold_hund ends-->
+        <input type="image" img src="images/sub_bt.jpg"  class="sub_bt"/>
+        </form>
+      </div>
+      <div class="floatR"><img src="images/change_request_bottom_bg.png" /> </div>
+    </div>
+  </div>
+  <!--end_processChange --> 
+  <!--footer -->
+  <div class="footer_wrap">
+    <div class="footer_container">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li class="NoBG"><a href="#">Disclaimer</a></li>
+      </ul>
+      <br />
+      <h6>© 2011 Bharti Infratel All rights Reserved</h6>
+    </div>
+  </div>
+  <!--end --> 
+</div>
+<!--end-->
+</body>
+</html>

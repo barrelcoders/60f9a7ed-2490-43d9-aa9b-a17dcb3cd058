@@ -1,0 +1,17 @@
+
+/*PopUp*/
+.box { width:auto; margin:0 auto;}
+.button {background:transparent; padding:10px 70px 10px 0px; color:#000; border:1px solid #b462d; border-radius:5px; text-decoration:none; transition: all 0.3s ease-out; text-align:left; }
+.button:hover{background:transparent; color:#097b4d;}
+.overlay {position: fixed; top: 0; bottom:0; left:0; right:0; background:rgba(0, 0, 0, 0.7); transition:opacity 500ms; visibility:hidden; opacity:0;}
+.overlay:target {visibility: visible; opacity: 1; z-index:100;}
+.popup {margin:20px auto; padding:0px; background:#fff; border-radius:5px; width:90%; height:630px; position: relative; transition: all 5s ease-in-out;}
+.popup h2 {margin-top: 0; color: #333; font-family: Tahoma, Arial, sans-serif;}
+.popup .close {position: absolute; top: 20px; right: 30px; transition: all 200ms; font-size: 30px; font-weight: bold; text-decoration: none; color:#fff; opacity:1;}
+.popup .close:hover {color: #06D85F;}
+.popup .content {max-height: 100%; overflow: auto;}
+@media screen and (max-width: 700px){.box{ width: 70%;  } .popup{ width: 70%; } }
+
+
+.feeedit .popup{margin:130px auto; padding:0px; background:#fff; border-radius:5px; width:50%; height:350px; position: relative; transition: all 5s ease-in-out;}
+.feeedit1 .popup{margin:80px auto; padding:0px; background:#fff; border-radius:5px; width:50%; height:450px; position: relative; transition: all 5s ease-in-out;}

@@ -1,0 +1,422 @@
+/* CSS Document */
+body{ font-family:Arial!important;}
+.row{margin:0; padding:0; font-family:Arial!important;}
+ul li{ list-style:none;}
+/*-------------------*/
+.col-md-9 h4{margin-top:20px;}
+.col-md-6 p{ margin-right:3%;  }
+hr{ border:1px dotted #0b462d; margin:8px 0 ;}
+@media only screen and ( max-width: 40em ) /* 640 */
+{
+.col-md-6 {   width:auto; }
+.task{ padding:18px 14px; }
+
+}
+.hr{border:1px solid #0b462d;}
+/*-------------------*/
+/*------------Side Manu-----------*/
+.a11{ background:#fff; padding:2% 5% 2% 0;}
+.a11 ul{padding:0;}
+.a11 ul .manu:hover{ background:#0b462d; color:#000; padding:3% 2% 0 2%;} .a11 ul .manu:hover a{color:#fff;}
+.a11 ul li a{color:#0b462d; font-size:14px;}
+.a11 ul li{padding:3% 2%; border-bottom:1px dotted #0b462d;}
+.a11 ul li:hover{ background:#0b462d; color:#fff;} .a11 ul li:hover a{color:#fff;}
+.a11 ul li .submanu li{ margin-left:5%;}
+.a11 ul li .submanu{display:none; background:#f3f3f3; margin-top:2%; margin-left:-2%; width:104%; } .a11 ul li .submanu li a{font-size:13px; color:#000!important; }
+.a11 ul li:hover .submanu{display:block; color:#fff;} .a11 ul li .submanu li:hover a{color:#fff!important;}
+/*------------End Side Manu-----------*/
+
+/*---------MANU---------*/
+a:hover{ text-decoration:none ;}
+#nav{   background:#0b462d ; font-size:12px; font-weight:700; font-family:Arial, Helvetica, sans-serif; /* container */}
+#nav > a   {        display: none; color:#FFFFFF ; text-transform:uppercase;    }
+#nav li    {        position: relative; text-transform:uppercase;   } #nav li a{text-transform:uppercase; }
+    /* first level */
+#nav > ul   {        height: 2.5em; margin-bottom:0px ; margin-left:-3% ;    }
+#nav > ul > li  { width: 8%; height: 100%; background:#0b462d ; float: left;	padding-top:0px; text-align:center; list-style:none; z-index:1;   }
+#nav ul li button:hover{ background:#ffffff; text-decoration:none; color:#0b462d; }
+#nav ul li:hover a{color:#0b462d;}
+#nav ul li button{border:none; background:#0b462d; width:100%; height:30px;}
+    /* second level */
+#nav li ul {display: none; position: absolute; top: 100%; background:#f99b1c ;   }
+li a{color:#FFFFFF ;}
+#nav li:hover ul {display: block; text-decoration:none; color:#0b462d;      }
+#nav ul .active button{ background:#097b4b ; }
+.r{background:rgba(231,231,232,0.3);}
+#nav ul li .submanu{width:170%; background:#0b462d;}
+#nav ul li .submanu li button a{font-size:12px; color:#fff; } #nav ul li .submanu li:hover button a{color:#0b462d;}
+#nav ul li .submanu li{ padding:8% 5%; width: 128%; margin-left: -28%; text-align:left; }
+
+/*---------------------------------------*/
+input:focus, textarea:focus, select:focus {  outline: none; }
+
+/*Header*/ .t .col-md-5 .img-responsive {width: 75%; margin-left: 4%;} 
+.t .col-md-1{ text-align:right; margin-top:1%; } .t .col-md-2{ margin-top:1.5%;}
+.t .col-md-1{ margin-top:1%;} .t .col-md-1 .name{margin:8% 5% 0 0;}  .t .col-md-1 span{float:left;}
+.t .col-md-1 .imghover .submanu li{display:none;} 
+.t .col-md-1 .imghover:hover .submanu {position:absolute;  z-index:1000000; margin-left:-97%; margin-top:8%;}
+.t .col-md-1 .imghover:hover .submanu li{display:block;  margin-left:-10%; padding:1% 1%;} 
+.t .col-md-1 .imghover .submanu li{background:#0b462d; color:#fff; list-style:none; text-align:left;} 
+.t .col-md-1 .imghover .submanu li .btnmanu{border:none; background:#0b462d; width:100%;text-align:left!important; padding:5% 1%;}
+.t .col-md-1 .imghover .submanu li .btnmanu:hover {background:#097b4b;}
+.t .col-md-1 .imghover .submanu li a .btnmanu:hover{color:#fff;}
+.t .col-md-1 .imghover .submanu li.te{border-bottom: 10px solid #0b462d; border-left: 10px solid transparent; border-right: 10px solid transparent;	background:none; position: absolute; right: 8px; top: -12px;}
+
+/*home*/ .c .col-md-3{ height:531px; width:25%; overflow-y:scroll; overflow-x:hidden; cursor:default; padding:0;}
+.c .col-md-6 {   width: 50%; cursor:default; } 
+.tap{width:100%;} 
+.tap .col td{color:#fff; background:#0b462d;} 
+.tap .coln{width:30%; text-align:left;} 
+.tap td{ text-align:center; width:20%; padding:2% 0.5%; border-bottom:1px solid #ccc; font-size:14px;}
+.c .col-md-6 form{border:1px solid #0b462d; border-radius:5px;}
+.c .col-md-6 form .input .col-sm-3{background:#0b462d; color:#fff; padding:1% 1%;}
+.c .col-md-6 form .input .col-sm-3 input{width:100%; border:1px solid #0b462d; border-radius:5px; color:#0b462d; height:25px; padding:0.2% 1%;}
+.c .col-md-6 form .input .task{color:#0b462d; padding:1% 0 2% 1%;}
+/*--------end manu---------------*/
+/*##################################---End Home---#########################################*/ 
+/*input:focus{ box-shadow:none; border:none;}*/
+/*-----------------Leave---------------------*/
+/*MyLeave*/
+.leave .col-md-10{height:531px; cursor:default;; overflow:auto;}
+.leave .col-md-10 .table1, .leave .col-md-10 .table2{width:100%;}
+.col-md-10 .table1 table thead tr{ border:1px solid #0b462d; border-radius:5px;}
+.col-md-10 .table1 table, .col-md-10 .table2 table{width:100%;}
+.col-md-10 .table1 table thead td, .col-md-10 .table2 table thead td{ background:#0b462d; color:#fff; padding:1% 1%!important; font-size:14px}
+.col-md-10 .table1 table thead td div:last-child{margin-top:8%;}
+.col-md-10 .table1 table tr td{width:6.5%; padding:1% 1%; font-size:12px;}
+.col-md-10 .table1 table tr td:first-child{padding-right:5%}
+/*NewLeave*/
+ .form1 table{ float:left; width:42%; margin:1% 0% 0% 7%; font-size:12px;} .form1{border:1px solid #0b462d; height:40%; margin-top:1%; border-radius:5px; font-size:12px;} .form1 .he{background:#0b462d; padding:1%; color:#FFFFFF; font-size:14px;}
+ .form1 .input-btn{width:50%; font-size:12px; border:1px solid #CCCCCC; border-radius:5px; margin-top:0; height:25px }
+ .form2{border:1px solid #0b462d; border-radius:5px;} .form2 table{width:100.016%; } .form2 table thead{background:#0b462d; width:100%; color:#FFFFFF;}
+ .form2 table thead td{padding:1%; font-size:14px;} .form2 table tbody tr td{ border-bottom:1px solid #CCCCCC; padding:0.5% 1%; font-size:12px; } 
+ .form2 .input-btn{width:50%; margin-top:0px; margin-bottom:0px;}
+ .leave .col-md-10 div.form3{border:1px solid #0b462d; border-radius:5px; width:100%;} .form3 table{width:100%;} .form3 table thead{background:#0b462d; width:100%; color:#FFFFFF;}
+ .form3 table thead td{padding:1%; font-size:14px;} .form3 table tbody tr td{ border-bottom:1px solid #CCCCCC; padding:0.5% 1%; font-size:12px;}
+ .btn-success{ padding:0.3% 1%; height:24px; font-size:12px; border-radius:5px; background-color:#0b462d; border:1px solid #0b462d;} 
+ .btn-default{ padding:0.3% 1%; font-size:12px; height:24px; border-radius:5px; background-color:#0b462d; border:1px solid #0b462d; color:#fff;}
+ .check ul li span{float:left;}
+ /*.check .green{display:block; width:17px; height:20px; text-indent:-9999px; background-image:url('../images/btn.png'); background-position:-8px 0px; }
+ .check .pink{display:block; width:17px; height:20px; text-indent:-9999px; background-image:url('../images/btn.png'); background-position:119px 0px; }
+ .check .red{display:block; width:17px; height:20px; text-indent:-9999px; background-image:url('../images/btn.png'); background-position:91px 0px; }
+ .check .blue{display:block; width:17px; height:20px; text-indent:-9999px; background-image:url('../images/btn.png'); background-position:56px 0px; }
+ .check .yellow{display:block; width:17px; height:20px; text-indent:-9999px; background-image:url('../images/btn.png'); background-position:25px 0px; }
+*/
+ .col-md-10 .table1 table{  border-radius:3px;  width:100%; font-size:14px; } .table1 table tr{border-bottom:1px solid #CCCCCC;}  
+ .table td div input{ font-size:11px;} 
+ .table2 table tr{ border-bottom:1px solid #CCCCCC;} .table2 table thead td{ padding:2% 3%!important; text-align:center; } 
+ .table2 table tr td{ padding:1% 2%!important; text-align:center; font-size:12px; width:8%;} 
+ .table2 table tr td:first-child{ padding:0 1% !important; width:3%!important;}
+ .check ul li{width:33%; margin-left:0%; float:left;    } .check ul{ float:left; width:100%; padding:0; margin:0; height:55px;}
+ /*----------------------------------------End Leave-----------------------------------------------*/
+/*-----------------------Upload Classwork & Homework--------------------------------------*/
+container{padding:0 5%;}
+ .table_top table{width:100%; border-top:1px solid #af251c;} .table_top table td{padding:1% 1%;} 
+ .text-box{width:72%; border-radius:3px; border:1px solid #999; padding:1%;} .tba{padding:1.5%; width:100%;}
+ .new_row{ margin:0; } .row{ margin-left:0!important; margin-right:0!important;} .new_row .col-md-3 a{ text-decoration:none; color:#0b462d;}
+ .new_row .col-md-3, .new_row .col-md-2, .new_row .col-md-1{border-bottom:1px solid #999; text-align:center; padding:0.5% 0; } 
+ .new_row .active{border-bottom:none; border-top:1px solid #999; border-left:1px solid #999; border-right:1px solid #999; border-radius:5px 5px 0px 0;  } 
+ .new_row .col-md-3:hover{border-bottom:none; border-top:1px solid #999; border-left:1px solid #999; border-right:1px solid #999; border-radius:5px 5px 0px 0; } .btn{border:1px solid #ccc;}
+ .input_row{padding:2% 2%;} .input_row .col-md-12{margin-top:2%; width:90%; text-align:right;} 
+ .input_row{padding-top:3%;} .input_row .col-md-2{ width:12%;} .tba1{width:15%!important;} .input_row .col-md-4{width:38%;}
+ .container1{height:530px; overflow:auto;}
+ .container1 form{border-bottom:1px solid #999; }
+ .heading{float:left; padding:2% 0; font-family: Arial;}
+ .class-table{padding:0 1%;} .class-table table{width:100%;} .class-table table .col td{background:#0b462d; padding:0.5%; text-align:center; color:#fff; font-size:14px; } .class-table table td:first-child{width:5%;}
+ .class-table table td{padding:0.5%; text-align:center; font-size:12px; border:1px solid #999;}
+/*---------------------------------End Upload Classwork & Homework-------------------------------------*/
+.new_row1 .col-md-1:first-child{width:3%;}
+/*---------------------------------Upload Student Attendance-------------------------------------*/
+.attendance_row .col-md-2{width:12%;} .attendance_row .col-md-2:nth-child(even){width:21%;} .attendance_row{padding:2% 2%; padding-top:3%;} .attendance_row .col-md-12{margin-top:2%; width:90%; text-align:right;} 
+
+/*---------------------------------End Upload Student Attendance------------------------------------*/
+/*---------------------------------CCE------------------------------------*/
+.cce_row{background:rgba(11,70,45,0.1); padding:0.5% 0; border-bottom:1px solid #0b462d;}
+/*Nursery-5-reportcard*/ .cce_row1{margin:1% 0; padding:0 5%;} .cce_row1 .col-xs-3{margin-top:1%;} .cce_row1 .col-xs-3 .text-box{padding:1.5% 1%; width:85%;} .cce_row1 .col-xs-3:nth-child(odd){width:15%;} .cce_row1 .col-xs-3:nth-child(even){width:35%;} .cce_row1 .col-md-12{text-align:center; margin-top:2%;} 
+/*---------------------------------End CCE------------------------------------*/
+@media only screen and ( min-width: 40em ) /* 640 */{.col-md-10{height:531px; overflow-y:scroll;}}
+.col-md-10{ cursor:default !important;}
+/*--------------------------------HRIS For New Employee------------------------------*/
+/*New Employee/Basic Detail*/ 
+.col-md-10 .show-basicdetails .basic1{width:100%; border-bottom:1px solid #ccc;}
+.col-md-10 .show-basicdetails .showdetail1{width:100%; padding:3% 0 0 1%;}
+.col-md-10 .show-basicdetails .showdetail1 div{width:50%; float:left;}
+.col-md-10 .show-basicdetails .showdetail1 div.img{padding:2% 0; text-align:center;} .col-md-10 .show-basicdetails .showdetail1 div.img img{width:150px;}
+.col-md-10 .show-basicdetails .showdetail1 div.details{ text-align:center;} 
+.col-md-10 .show-basicdetails .showdetail1 .details table{width:80%;}
+.col-md-10 .show-basicdetails .health{width:100%; border-bottom:1px solid #ccc; margin-top:2%; padding:0.5% 0; }
+/*New Employee/Position Detail*/
+.col-md-10 .show-positiondetails .showdetail1 div{width:50%; float:left;}
+.col-md-10 .show-positiondetails .showdetail1 .details table{width:100%;}
+/*New Employee/Contact Detail*/
+.col-md-10 .show-contactdetails .showdetail1{width:100%; padding:3% 0 0 1%;}
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails{ text-align:center; width:100%;} 
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails div{float:left; width:49%;} 
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails div table{width:100%;} 
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails table .col td{font-weight:600; color:#FFF; background:#0b462d; padding:1.5% 1%;}
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails table td{padding:1.5% 1%; font-size:13px;}
+/*New Employee/Employee Detail*/
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails .emtable2 .text-box{width:88%;}
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails .emtable2 .tbs{padding:2.6% 1% !important;}
+/*New Employee/Bank Detail*/
+/*common*/
+.col-md-10 .show-basicdetails .showdetail1 div.details table td:first-child, 
+.col-md-10 .show-positiondetails .showdetail1 div.details table td:first-child{text-align:left; font-weight:600;}
+.col-md-10 .show-basicdetails .showdetail1 div.details table td:nth-child(even),
+.col-md-10 .show-positiondetails .showdetail1 div.details table td:nth-child(even),
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails table td:nth-child(even){font-weight:700!important;}
+.col-md-10 .show-basicdetails .showdetail1 div.details table td,
+.col-md-10 .show-positiondetails .showdetail1 div.details table td,
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails table td{padding:2% 2%; font-size:13px;}
+.col-md-10 .show-basicdetails .showdetail1 div.details table td .text-box,
+.col-md-10 .show-positiondetails .showdetail1 div.details table td .text-box,
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails table td .text-box{padding:2% 1%!important;}
+.col-md-10 .show-basicdetails .showdetail1 div.details table td .tbs,
+.col-md-10 .show-positiondetails .showdetail1 div.details table td .tbs,
+.col-md-10 .show-contactdetails .showdetail1 div.cdetails table td .tbs{padding:1.5% 1%!important;}
+
+/*--------------------------------End HRIS For New Employee------------------------------*/
+/*Progress Bar*/
+.col-md-10 .show-basicdetails #myProgress,
+.col-md-10 .show-positiondetails #myProgress, 
+.col-md-10 .show-contactdetails #myProgress{position: relative; width: 100%; height: 20px !important; background-color: #ddd; margin-bottom:2%; border-radius:5px;}
+.col-md-10 .show-basicdetails #myBar,
+.col-md-10 .show-positiondetails #myBar,
+.col-md-10 .show-contactdetails #myBar{position: absolute; height: 100%; background-color: #0b462d; border-radius:5px;}
+
+/*End Progress Bar*/
+/*------------------Side Manu for All Pages----------------------*/
+.c div.hris1 ul{margin-left:-27%; margin-top:10%;} .c div.hris1 ul li .btnmanu{ list-style: none; padding:5% 0; } 
+.hris1 ul li a{color:#000!important; margin-left:3%;} .c div.hris1 ul li{border-bottom:1px dotted #0b462d;}
+.c div.hris1 ul li:hover{ background:#0b462d;} .hris1 ul li a .btnmanu{background:none; width:100%; border:none; text-align:left;}
+.c div.hris1 ul li:hover a, .c div.hris1 ul li.active a{color:#fff!important;} .c div.hris1 ul li.active{background:#0b462d;} 
+.c div.hris1 ul li.active:hover{background:#097b4b;} .c div.hris1 ul li.active:hover a{color:#000!important;}
+button:focus{outline:none; border:none;}
+/*----------------------------------------------------------*/
+/*----------------------------------HRIS--------------------------------------*/
+/*My Detail > Basic Details(View & Modify)*/
+.c div.hris1 ul{margin-left:-27%; margin-top:10%;} .c div.hris1 ul li{ list-style: none; padding:0; border-bottom:1px dotted #0b462d;} .hris1 ul li a{color:#000!important; margin-left:5%;} .col-md-10, div.hris1{padding-top:1.5%; padding-bottom:0.5%;} .c div.hris1 ul li:hover{ background:#0b462d;}
+.c div.hris1 ul li:hover a, .c div.hris1 ul li.active a{color:#fff!important;} .c div.hris1 ul li.active{background:#0b462d;} 
+.c div.hris1 ul li.active:hover{background:#097b4b;} .c div.hris1 ul li.active:hover a{color:#000!important;}
+.col-md-10 div{float:inherit; /*z-index:-1;*/} .col-md-10 .hris-topmanu{margin-left:-2%; width:100%;} .col-md-10 .hris-topmanu ul li{float:left;} .col-md-10 .hris-topmanu ul li a{color:#fff; font-size:14px;} .col-md-10 .hris-topmanu ul li{padding:0.5% 0.7%; border-radius:5px 5px 0 0; border:1px solid #ccc; background:#0b462d; border-bottom: none;} .col-md-10 .hris-topmanu ul li.active{ background:#097b4b;} .col-md-10 .hris-topmanu ul li:hover{background:#097b4b;}
+.col-md-10 .show-basicdetails{border-radius:3px; border:1px solid #0b462d; width:100%; padding:2% 2% 2% 2%;} 
+.col-md-10 .show-basicdetails .basic div:last-child{text-align:left; width:12%; border-left:3px solid #0b462d; border-right:3px solid #0b462d; border-top:3px solid #0b462d; border-radius:5px 5px 0 0; background:#eee;}
+.col-md-10 .show-basicdetails .basic{width:100%; border-bottom:1px solid #ccc;} 
+.col-md-10 .show-basicdetails .basic div{float:left; width:88%;}  
+.col-md-10 .show-basicdetails .basic ul li{float:left; width:48%; text-align:center; padding:1% 3%; background:#eee;}
+.col-md-10 .show-basicdetails .basic ul li a{color:#000; font-size:14px;}  .col-md-10 .show-basicdetails .basic ul{margin-left:-31%;} 
+.col-md-10 .show-basicdetails .basic ul li:last-child{border-right:1px solid #eee; border-left:2px solid #0b462d;}
+.col-md-10 .show-basicdetails .basic ul li.active{background:#fff;} .col-md-10 .show-basicdetails .basic ul li:hover{background:#fff;}
+.col-md-10 .show-basicdetails .personal{width:100%; border-bottom:1px solid #ccc; margin-top:2%; padding:0.5% 0; }
+.col-md-10 .show-basicdetails .showdetail{width:100%; padding:3% 0 0 1%;}
+.col-md-10 .show-basicdetails .showdetail div{width:45%!important; float:left!important;}
+.col-md-10 .show-basicdetails .showdetail div.img{padding:2% 0; text-align:center;} .col-md-10 .show-basicdetails .showdetail div.img img{width:150px;}
+.col-md-10 .show-basicdetails .showdetail div.details{ text-align:center;} .col-md-10 .show-basicdetails .showdetail .details table{width:80%;}
+.col-md-10 .show-basicdetails .showdetail div.details table td:first-child{text-align:left; font-weight:600;}
+.col-md-10 .show-basicdetails .showdetail div.details table td:nth-child(even){font-weight:700!important;}
+.col-md-10 .show-basicdetails .showdetail div.details table td{padding:2% 2%; font-size:13px;}
+.col-md-10 .show-basicdetails .health{width:100%; border-bottom:1px solid #ccc; margin-top:2%; padding:0.5% 0; }
+.col-md-10 .show-basicdetails .showdetail div.details table td .text-box{padding:2% 1%!important;}
+.col-md-10 .show-basicdetails .showdetail div.details table td .tbs{padding:1.5% 1%!important;}
+
+/*My Detail > Position Details(View & Modify)*/
+.col-md-10 .show-positiondetails{border-radius:3px; border:1px solid #0b462d; width:100%; padding:2% 2% 2% 2%;} 
+.col-md-10 .show-positiondetails .basic div:last-child{text-align:center; width:5%; border-left:3px solid #0b462d; border-right:3px solid #0b462d; border-top:2px solid #0b462d; border-radius:5px 5px 0 0; background:#0b462d;} .col-md-10 .show-positiondetails .basic div a{color:#fff;} 
+.col-md-10 .show-positiondetails .basic{width:100%; border-bottom:1px solid #ccc;} 
+.col-md-10 .show-positiondetails .basic div{float:left; width:95%;}  
+.col-md-10 .show-positiondetails .personal{width:100%; border-bottom:1px solid #ccc; margin-top:2%; padding:0.5% 0; }
+.col-md-10 .show-positiondetails .showdetail{width:100%; padding:3% 0 0 1%;}
+.col-md-10 .show-positiondetails .showdetail div{width:50%;}
+.col-md-10 .show-positiondetails .showdetail div.details{ text-align:center;} .col-md-10 .show-positiondetails .showdetail .details table{width:80%;}
+.col-md-10 .show-positiondetails .showdetail div.details table td:first-child{text-align:left; font-weight:600;}
+.col-md-10 .show-positiondetails .showdetail div.details table td{padding:2% 2%; font-size:13px;}
+.col-md-10 .show-positiondetails .showdetail div.details table td:nth-child(even){font-weight:700!important;}
+.col-md-10 .show-positiondetails .work div:first-child{width:100%; border-bottom:1px solid #ccc; margin-top:2%; padding:0.5% 0; }
+.col-md-10 .show-positiondetails .work table{width:55%; margin-left:5%; margin-top:-3%;} 
+.col-md-10 .show-positiondetails .work table td{padding:1% 2%; font-size:14px}
+.col-md-10 .show-positiondetails .work table td:first-child{width:20%; text-align:right; font-weight:600; font-size:14px;}
+.col-md-10 .show-positiondetails .work table td:last-child p{width:text-align:left; margin-top:9%; font-size:14px;}
+
+/*My Detail > Contact Details(View & Modify)*/
+.col-md-10 .show-contactdetails{border-radius:3px; border:1px solid #0b462d; width:100%; padding:2% 2% 2% 2%;}
+.col-md-10 .show-contactdetails .basic div:last-child{text-align:left; width:12%; border-left:3px solid #0b462d; border-right:3px solid #0b462d; border-top:3px solid #0b462d; border-radius:5px 5px 0 0; background:#eee;}
+.col-md-10 .show-contactdetails .basic{width:100%; border-bottom:1px solid #ccc;} 
+.col-md-10 .show-contactdetails .basic div{float:left; width:88%;}  .col-md-10 .show-contactdetails{height:450px;}
+.col-md-10 .show-contactdetails .basic ul li{float:left; width:48%; text-align:center; padding:1% 3%; background:#eee;}
+.col-md-10 .show-contactdetails .basic ul li a{color:#000; font-size:14px;}  .col-md-10 .show-contactdetails .basic ul{margin-left:-31%;} 
+.col-md-10 .show-contactdetails .basic ul li:last-child{border-right:1px solid #eee; border-left:2px solid #0b462d;}
+.col-md-10 .show-contactdetails .basic ul li.active{background:#fff;} .col-md-10 .show-contactdetails .basic ul li:hover{background:#fff;}
+.col-md-10 .show-contactdetails .personal{width:100%; border-bottom:1px solid #ccc; margin-top:2%; padding:0.5% 0; }
+.col-md-10 .show-contactdetails .showdetail div.cdetails{ text-align:center; width:100%;}  
+.col-md-10 .show-contactdetails .showdetail div.cdetails table{width:100%;} .col-md-10 .show-contactdetails .showdetail{width:100%; margin-top:2%;}
+.col-md-10 .show-contactdetails .showdetail div.cdetails table .col td{font-weight:600; color:#FFF; background:#0b462d; padding:1% 1%;}
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td{padding:1.5% 1%; font-size:13px;}
+.col-md-10 .show-contactdetails .showdetail div.cdetails table tr{border-bottom:1px solid #ccc;}
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td a{float:left; margin-left:5%;}
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td a.edit{display:block; width:23px; height:20px; text-indent:-9999px; background-image:url('../images/edit&delete.png'); background-position:-2px -5px;} 
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td a.edit:hover { background-position: 24px -6px }
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td a.delete:hover { background-position: 29px -27px }
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td a.delete{display:block; width:23px; height:20px; text-indent:-9999px; background-image:url('../images/edit&delete.png'); background-position:0px -27px;} 
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td .text-box{padding:2.5% 1%!important; width:90%;}
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td .tbs{padding:1% 1%!important; width:95%;}
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td .tbs{padding:1.5% 1%!important;}
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td .save, 
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td .reset{font-size:12px; border:1px solid #0b462d; background:#ccc; border-radius:2px;}
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td .save:hover, 
+.col-md-10 .show-contactdetails .showdetail div.cdetails table td .reset:hover{background:#0b462d; color:#fff;}
+
+/*My Detail > Bank Details(View & Modify)*/
+.col-md-10 .show-bankdetails{height: 450px;}
+.col-md-10 .show-bankdetails{border-radius:3px; border:1px solid #0b462d; width:100%; padding:2% 2% 2% 2%;}
+.col-md-10 .show-bankdetails .basic div:last-child{text-align:center; width:5%; border-left:3px solid #0b462d; border-right:3px solid #0b462d; border-top:2px solid #0b462d; border-radius:5px 5px 0 0; background:#0b462d;} .col-md-10 .show-bankdetails .basic div a{color:#fff;} 
+.col-md-10 .show-bankdetails .basic{width:100%; border-bottom:1px solid #ccc;} 
+.col-md-10 .show-bankdetails .basic div{float:left; width:95%;}}  .col-md-10 .show-bankdetails{height:450px;}
+.col-md-10 .show-bankdetails .basic ul li{float:left; width:48%; text-align:center; padding:1% 3%; background:#eee;}
+.col-md-10 .show-bankdetails .basic ul li a{color:#000; font-size:14px;}  .col-md-10 .show-bankdetails .basic ul{margin-left:-31%;} 
+.col-md-10 .show-bankdetails .basic ul li:last-child{border-right:1px solid #eee; border-left:2px solid #0b462d;}
+.col-md-10 .show-bankdetails .basic ul li.active{background:#fff;} .col-md-10 .show-bankdetails .basic ul li:hover{background:#fff;}
+.col-md-10 .show-bankdetails .personal{width:100%; border-bottom:1px solid #ccc; margin-top:2%; padding:0.5% 0; }
+.col-md-10 .show-bankdetails .showdetail div.cdetails{ text-align:center; width:100%;}  
+.col-md-10 .show-bankdetails .showdetail div.cdetails table{width:100%;} .col-md-10 .show-bankdetails .showdetail{width:100%; margin-top:2%;}
+.col-md-10 .show-bankdetails .showdetail div.cdetails table .col td{font-weight:600; color:#FFF; background:#0b462d; padding:1% 1%;}
+.col-md-10 .show-bankdetails .showdetail div.cdetails table td{padding:1.5% 1%; font-size:13px;}
+.col-md-10 .show-bankdetails .showdetail div.cdetails table tr{border-bottom:1px solid #ccc;}
+/*--------------------------------End HRIS------------------------------------*/
+/*--------------------------------Payroll-------------------------------------*/
+/*Payroll > view payslip*/
+.col-md-10 .payroll-topmanu{border:1px solid #0b462d; width:100%; border-radius:5px; margin-bottom:1%;}
+.col-md-10 .payroll-topmanu div.payslip{width:100%; background:#0b462d; color:#fff; font-size:15px; font-weight:700; padding:0.5% 1%; margin-bottom:2%;}
+.col-md-10 .payroll-topmanu table{ width:100%; margin-bottom:2%;} .col-md-10 .payroll-topmanu table .text-box{width:50%;}
+.col-md-10 .payroll-topmanu .payroll-table{padding-left:10%;} .col-md-10 .payroll-topmanu table .text-box1{width:42%; padding:0.7% 1%; border-radius:3px;}
+.col-md-10 .payroll-btn .btn{height:34px; width:7%; padding:5px; background:#0b462d; color:#fff; border-radius:5px;}
+.col-md-10 .payroll-btn .btnc{height:33px; width:7%; padding:5px; background:#ddd; color:#000; border-radius:5px; border:1px solid #ccc;}
+.col-md-10 .payroll-btn .btn:hover, .col-md-10 .payroll-btn .btnc:hover{background:#097b4b; color:#fff;}
+/*Payroll > Form16*/
+.col-md-10 .payroll-topmanu .form16-table{margin-left:32%;}
+.col-md-10 .payroll-topmanu .form16-table table{ width:50%; margin-bottom:2%;}
+.col-md-10 .form16-btn a{width:10%; background:#0b462d; color:#fff; padding:0.7% 1%; border:1px solid #0b462d; border-radius:5px;}
+.col-md-10 .form16-btn a:hover{background:#097b4b;}
+/*Payroll > Proof Submission*/
+.col-md-10 .proofsubmission{width:100%; margin-bottom:1%; padding:0;} .col-md-10 .proofsubmission .col-md-6{float:left; padding:0;}
+.col-md-10 .proof-table2 .payslip1, .col-md-10 .proof-table3 .payslip1{font-size:14px; font-weight:700; text-transform:uppercase; margin:1% 0;}
+.col-md-10 .payroll-topmanu .proof-table{padding:0 0 0 5%;}
+.col-md-10 .payroll-topmanu .proof-table table td{font-size:13px; padding:0.3% 1%;}
+.col-md-10 .proof-table2{margin-top:2%;} .col-md-10 .proof-table3{margin-top:10%;} 
+.col-md-10 .proof-table2 p, .col-md-10 .proof-table3 p{font-size:12px;}
+/*Payroll > Investment Declaration*/
+.col-md-10 .investment{width:100%; margin-bottom:1%; padding:0;} .col-md-10 .investment .col-md-6{float:left; padding:0;}
+.col-md-10 .payroll-topmanu div.investment_d{width:100%; background:#0b462d; color:#fff; font-size:15px; font-weight:700; padding:0.5% 1%; margin-bottom:2%; text-transform:uppercase;}
+.col-md-10 .payroll-topmanu .investment-table{padding:0 0 0 5%;}
+.col-md-10 .payroll-topmanu .investment-table table td{font-size:13px; padding:0.3% 1%;}
+.col-md-10 .investment-tables .investment1{font-size:14px; font-weight:700; text-transform:uppercase; margin:1% 0;}
+.col-md-10 .investment-tables .investment-table1, 
+.col-md-10 .investment-tables .investment-table2,
+.col-md-10 .investment-tables .investment-table3,
+.col-md-10 .investment-tables .investment-table4{width:100%; border:1px solid #0b462d; border-radius:3px;}
+.col-md-10 .investment-tables .investment-table1 table, 
+.col-md-10 .investment-tables .investment-table2 table,
+.col-md-10 .investment-tables .investment-table3 table,
+.col-md-10 .investment-tables .investment-table4 table{width:100%;}
+.col-md-10 .investment-tables .investment-table1 table .col td, 
+.col-md-10 .investment-tables .investment-table2 table .col td,
+.col-md-10 .investment-tables .investment-table3 table .col td,
+.col-md-10 .investment-tables .investment-table4 table .col td{background:#0b462d; color:#fff; font-size:15px; padding:1% 1%;}
+.col-md-10 .investment-tables .investment-table1 table tr,
+.col-md-10 .investment-tables .investment-table2 table tr,
+.col-md-10 .investment-tables .investment-table3 table tr,
+.col-md-10 .investment-tables .investment-table4 table tr{border-bottom:1px solid #ccc;}
+.col-md-10 .investment-tables .investment-table1 table td,
+.col-md-10 .investment-tables .investment-table2 table td,
+.col-md-10 .investment-tables .investment-table3 table td,
+.col-md-10 .investment-tables .investment-table4 table td{padding:0.5% 1%; font-size:13px;}
+.col-md-10 .investment-tables .investment-table3 table td{width:14%;}
+.col-md-10 .investment-tables .investment-table3 table td:first-child{width:10px;}
+.col-md-10 .investment-tables .investment-table1 table td .text-box,
+.col-md-10 .investment-tables .investment-table2 table td .text-box,
+.col-md-10 .investment-tables .investment-table3 table td .text-box,
+.col-md-10 .investment-tables .investment-table4 table td .text-box{padding:0.5% 1%; height:25px; width:95%;}
+.col-md-10 .investment-tables .investment-table3 table td .tbs{padding:0.5% 1%; height:25px; width:95%;}
+.col-md-10 .investment-tables .btns .btn-submit{background:#097b4b; color:#fff; border:1px solid #097b4b; border-radius:3px; padding:0.5% 1%;}
+.col-md-10 .investment-tables .btns .btn-cancel{background:#ccc; color:#000; border:1px solid #ccc; border-radius:3px; padding:0.5% 1%;}
+.col-md-10 .investment-tables .btns .btn-submit:hover,
+.col-md-10 .investment-tables .btns .btn-cancel:hover{background:#0b462d; color:#fff;}
+/*------------------------------End Payroll-------------------------------------*/
+
+/*-----------------------------------Exit---------------------------------------*/
+/*Exit > Regination*/
+.col-md-10 .exit-topmanu{border:1px solid #0b462d; width:100%; border-radius:5px; margin-bottom:1%;} .col-md-10 .exit-topmanu{width:100%; float:left;}
+.col-md-10 .exit-topmanu div.exit{width:100%; background:#0b462d; color:#fff; font-size:15px; font-weight:700; padding:0.5% 1%; margin-bottom:2%; text-transform:uppercase;}
+.col-md-10 .exit-topmanu .exit-table1 table,
+.col-md-10 .exit-topmanu .exit-table2 table,
+.col-md-10 .exit-topmanu .exit-table3 table{ width:50%; margin-bottom:2%; float:left; font-size:15px;}
+.col-md-10 .exit-topmanu table .text-box{width:90%; padding:2%; height:30px;} 
+.col-md-10 .exit-topmanu .exit-table1 table td:first-child,
+.col-md-10 .exit-topmanu .exit-table2 table td:first-child,
+.col-md-10 .exit-topmanu .exit-table3 table td:first-child{ font-weight:600; width:45%; padding:1% 1%;}
+.col-md-10 .exit-topmanu .exit-table1 table td:last-child,
+.col-md-10 .exit-topmanu .exit-table2 table td:last-child,
+.col-md-10 .exit-topmanu .exit-table3 table td:last-child{width:100%; text-align:left; padding:1% 1%;}
+.col-md-10 .exit-topmanu .exit-table1 table td:nth-child(even),
+.col-md-10 .exit-topmanu .exit-table2 table td:nth-child(even),
+.col-md-10 .exit-topmanu .exit-table3 table td:nth-child(even){ width:10px; padding:1% 1%;}
+.col-md-10 .exit-topmanu .exit-table1,
+.col-md-10 .exit-topmanu .exit-table2,
+.col-md-10 .exit-topmanu .exit-table3{padding-left:5%; width:100%;} 
+.col-md-10 .exit-topmanu table .text-box1{width:42%; padding:0.7% 1%; border-radius:3px;}
+/*---------------------------------End Exit-------------------------------------*/
+
+/*-----------------------------------HelpDesk---------------------------------------*/
+/*HelpDesk > New Query*/
+.col-md-10 .hepldesk-topmanu{border:1px solid #0b462d; width:100%; border-radius:5px; margin-bottom:1%;} .col-md-10 .exit-topmanu{width:100%; float:left;}
+.col-md-10 .hepldesk-topmanu div.hepldesk{width:100%; background:#0b462d; color:#fff; font-size:15px; font-weight:700; padding:0.5% 1%; margin-bottom:2%; text-transform:uppercase;} .col-md-10 .hepldesk-topmanu .hepldesk-table{width:100%; height:auto; margin-bottom: 1%;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table .nq{padding:0 13%;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table .nq div{float:left; width:45%;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table .nq div:first-child{text-align:left; padding-right:10%;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table .nq div:last-child{padding-left:10%;}
+/*HelpDesk > My Query*/
+.col-md-10 div.hepldesk1{width:100%; color:#0b462d; font-size:15px; font-weight:700; margin:0 0 1% 0.2%; text-transform:uppercase;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table table{width:100%;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table table.sortable thead{background-color:#0b462d;color:#fff;font-weight:bold;cursor:default;font-size:14px;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table table td{padding:0% 1%; font-size:13px; width:14%;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table table .text-box{width:80%; border:1px solid #0ccc; border-radius:3px; color:#000; padding:0.5% 1%; height:20px; margin-top:5%;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table table td:last-child{width:150px;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table table tr:last-child{border:none;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table table tr{border-bottom:1px solid #ccc; height:50px;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table table.sortable thead td{padding:1% 0.5%!important; }
+/*HelpDesk > FAQ*/
+.col-md-10 .hepldesk-topmanu .hepldesk-table div.hepldesk2{width:100%; color:#0b462d; font-size:18px; font-weight:700; margin:2% 0 2% 1%; }
+.col-md-10 .hepldesk-topmanu .hepldesk-table .faqc div{float:left; width:40%;} .col-md-10 .hepldesk-topmanu .hepldesk-table .faqc{padding:0 0 0 5%;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table .faqc div button{width:10%;} .col-md-10 .hepldesk-topmanu .hepldesk-table .faqc .text-box{width:50%;}
+.col-md-10 .hepldesk-topmanu .hepldesk-table .faq-table{width:100%; padding:0 2%;} .faqbtn .text-box{padding:0; height:25px!important; width:8%;}
+.faqbtn{width:100%;} .faqbtn div{float:left; width:50%;} .faqbtn div.btnbtn{text-align:right;} .faqbtn div:last-child{text-align:left;}
+.faqbtn div.btnbtn .btn{padding:0px 9px; height:25px;}
+.faqbtn div.btnbtn .btn .step-backward{display:block; width:17px; height:22px; text-indent:-9999px; background-image:url('../images/btns.png'); background-position:0px 1px; background-size:95px; opacity:0.5;}
+.faqbtn div.btnbtn .btn .backward{display:block; width:21px; height:21px; text-indent:-9999px; background-image:url('../images/btns.png'); background-position:-14px 0px; background-size:95px; opacity:0.5;}
+.faqbtn div.btnbtn .btn .forward{display:block; width:23px; height:21px; text-indent:-9999px; background-image:url('../images/btns.png'); background-position:61px 0px; background-size:95px; opacity:0.5;}
+.faqbtn div.btnbtn .btn .step-forward{display:block; width:17px; height:22px; text-indent:-9999px; background-image:url('../images/btns.png'); background-position:40px 0px; opacity:0.5; background-size:95px;}
+/*---------------------------------End HelpDesk-------------------------------------*/
+/*-----------------------------------attendance---------------------------------------*/
+/*attendance > My Roster*/
+.col-md-10 .attendance-topmanu{border:1px solid #0b462d; width:100%; border-radius:5px; margin-bottom:1%;} 
+.col-md-10 .attendance-topmanu{width:100%; float:left;} .col-md-10 .attendance1{font-weight:700; font-size:14px; margin:01% 0;}
+.col-md-10 .attendance-topmanu div.attendance{width:100%; background:#0b462d; color:#fff; font-size:14px; font-weight:700; padding:0.5% 1%; margin-bottom:2%; text-transform:uppercase;} .col-md-10 .attendance-topmanu .attendance-table2{width:100%; height:auto; padding:0 1% 1% 4%;}
+.col-md-10 .attendance-topmanu .attendance-table2 table, .col-md-10 .attendance-topmanu .attendance-table1 table{width:100%;}
+.col-md-10 .attendance-topmanu .attendance-table2 table td{font-size:13px; width:10%;}
+.col-md-10 .attendance-topmanu .attendance-table2 table td:nth-child(even){width:25%;}
+.col-md-10 .attendance-topmanu .attendance-table2 table td:last-child{width:30%;} .col-md-10 .attendance-topmanu .attendance-table1{width:100%;}
+.col-md-10 .attendance-topmanu .attendance-table2 table td .btn{padding:2.1% 4%; height:30px;}
+.col-md-10 .attendance-topmanu .attendance-table1 table tr.col td{background:#0b462d; color:#FFF; padding:0.7% 1%; font-size:14px}
+.col-md-10 .attendance-topmanu .attendance-table1 table td{font-size:13px; width:27%; padding:0.5% 1%; }
+.col-md-10 .attendance-topmanu .attendance-table1 table tr{border-bottom:1px solid #ccc;}
+/*attendance > My Regularization */
+.col-md-10 .attendancereg1{font-size:14px; font-weight:700; text-transform:uppercase; margin:1% 0;}
+.col-md-10 .attendance-topmanu .attendancereg-table2{width:100%;}
+.col-md-10 .attendance-topmanu .attendancereg-table2 table{width:100%;}
+.col-md-10 .attendance-topmanu .attendancereg-table2 thead{background:#0b462d;}
+.col-md-10 .attendance-topmanu .attendancereg-table2 thead td{color:#fff; padding:0.5% 1%; font-size:14px;}
+.col-md-10 .attendance-topmanu .attendancereg-table2 thead .col1 td{color:#000; padding-bottom:1%;}
+.col-md-10 .attendance-topmanu .attendancereg-table2 td{font-size:13px; padding:0.5% 1%; width:22%;}
+.col-md-10 .attendance-topmanu .attendancereg-table2 tbody tr{border-bottom:1px solid #ccc;}
+.col-md-10 .attendancebtn{text-align:right; width:100%;} .col-md-10 .attendancebtn .btn{background:#0b462d; color:#fff; height:30px; padding:0.3% 1%;}
+.col-md-10 .attendancebtn .btn:hover{background:#097b4b;}
+/*---------------------------------End attendance-------------------------------------*/

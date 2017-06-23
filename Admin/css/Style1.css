@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*------------------header-------------------*/
+.navbar-inverse{background:#0b462d!important;}
+.navbar-nav li ul{background:#097b4b;}
+.navbar-nav li ul li{padding:8px 0px;} .dropdown-menu>li>a{color:#fff!important;}
+.navbar-nav li ul li:hover{background:#0b462d;}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{background:transparent !important;}
+.navbar-inverse .navbar-nav>li>a{color:#fff!important; text-transform:uppercase;}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover{background:#097b4b !important;}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{background:#097b4b!important;} .navbar-right li{padding-top:15px;}
+.navbar-right li a{color:#fff; font-size:15px; padding:16px 16px; text-decoration:none;}
+.navbar-right .open>a, .navbar-right .open>a:focus, .navbar-right .open>a:hover{background:#097b4b!important;}
+.navbar-right .dropdown ul{background:#097b4b!important;} .navbar-right .dropdown ul li{text-align:center; padding:8px 0px;}
+.navbar-right .dropdown ul li .text-box{border:1px solid #0b462d; border-radius:3px; width:80%;}
+.navbar-right .dropdown ul li .btn{background:#0b462d; color:#fff; border:1px solid #0b462d; border-radius:3px; width:50%; height:27px; padding:3px 6px;}
+.navbar-right .dropdown ul li:hover{background:none!important;}
+
+.header .col-md-2{ text-align:right; margin-top:1%; }
+.header .col-md-2{ margin-top:1%;} .header .col-md-2 .name{margin:8% 5% 0 0;}  .header .col-md-2 span{float:left;}
+.header .col-md-2 .imghover .submanu li{display:none;} 
+.header .col-md-2 .imghover:hover .submanu {position:absolute;  z-index:1000000; margin-left:-30%; margin-top:8%;}
+.header .col-md-2 .imghover:hover .submanu li{display:block;  margin-left:0%; padding:1% 1%; width:100px; text-align:center} 
+.header .col-md-2 .imghover .submanu li{background:#0b462d; color:#fff; list-style:none; text-align:left; text-align:center} 
+.header .col-md-2 .imghover .submanu li .btnmanu{border:none; background:#0b462d; width:100%;text-align:left!important; padding:5% 1%;}
+.header .col-md-2 .imghover .submanu li .btnmanu:hover {background:#097b4b;}
+.header .col-md-2 .imghover .submanu li a .btnmanu:hover{color:#fff;} .header .col-md-2 .imghover .submanu li a{color:#fff;}
+.header .col-md-2 .imghover .submanu li.te{border-bottom: 10px solid #0b462d; border-left: 10px solid transparent; border-right: 10px solid transparent;	background:none; position: absolute; right: 37px; top: -12px;  width:10%;}
+/*----------------End header-----------------*/
