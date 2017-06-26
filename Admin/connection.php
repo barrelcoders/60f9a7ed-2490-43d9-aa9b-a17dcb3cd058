@@ -1,13 +1,18 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "gs";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+
+require_once('../classes/MySQLiDB.php');
+
+
+$db=null;
+
+if(MySQLiDB::getInstance()){
+    $db = MySQLiDB::getInstance()
+}
+else{
+    $db = new MySQLiDB ('localhost', 'root', '', 'barrel_schoolerp');
+}
+
+$manager = new QueryManager();
+
 ?>

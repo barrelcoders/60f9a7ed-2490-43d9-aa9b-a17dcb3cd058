@@ -1,11 +1,17 @@
 <?php
-error_reporting(0);
-$Con = mysql_connect("localhost","dpsfbd_info","b_l=-!&(B_g9");
-if (!$Con)
-  {
-  die('Could not connect: ' . mysql_error());
-  }
-mysql_select_db("dpsfbd_db", $Con);
+error_reporting(E_ALL);
+
+require_once('classes/MySQLiDB.php');
+require_once('classes/QueryManager.php');
+
+$db= MySQLiDB::getInstance();
+
+if(!$db){
+    $db = new MySQLiDB ('localhost', 'root', '', 'barrel_schoolerp');
+}
+
+$manager = new QueryManager();
+
 $SchoolName="Delhi Public School";
 $SchoolIncidentMailId="incident@dpsfbd.info";
 $PrincipalMailId="principal@dpsfbd.info";
