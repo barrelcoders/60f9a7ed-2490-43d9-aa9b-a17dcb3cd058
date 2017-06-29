@@ -90,58 +90,7 @@
 </nav>
 <!--========== END app navbar -->
 
-<!-- APP ASIDE ==========-->
-<aside id="menubar" class="menubar light">
-  <div class="app-user">
-    <div class="media">
-      <div class="media-left">
-        <div class="avatar avatar-md avatar-circle">
-          <a href="javascript:void(0)">
-			<!--<img class="img-responsive" src="../assets/images/221.jpg" alt="avatar"/>-->
-			<i class="fa fa-user" style="font-size: 50px;color: #000;"></i>
-		  </a>
-        </div><!-- .avatar -->
-      </div>
-      <div class="media-body">
-        <div class="foldable">
-          <h5><a href="javascript:void(0)" class="username"><?php echo $_SESSION['StudentName'];?></a></h5>
-          <ul>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropdown-toggle usertitle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <small>Student</small>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu animated flipInY">
-                <li>
-                  <a class="text-color" href="settings.html">
-                    <span class="m-r-xs"><i class="fa fa-newspaper-o"></i></span>
-                    <span>News</span>
-                  </a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <a class="text-color" href="logout.html">
-                    <span class="m-r-xs"><i class="fa fa-power-off"></i></span>
-                    <span>Logout</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div><!-- .media-body -->
-    </div><!-- .media -->
-  </div><!-- .app-user -->
-
-  <div class="menubar-scroll">
-    <div class="menubar-scroll-inner">
-		<?php include (__DIR__.'/SideMenu.php')?>
-	</div><!-- .menubar-scroll-inner -->
-  </div><!-- .menubar-scroll -->
-</aside>
-<!--========== END app aside -->
-
-
+<?php include (__DIR__.'/SideMenu.php')?>
 <!-- APP MAIN ==========-->
 <main id="app-main" class="app-main">
   <div class="wrap">
@@ -151,22 +100,16 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="mail-toolbar m-b-lg">								
-							<div class="btn-group" role="group">
+							<!--<div class="btn-group" role="group">
 								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter <span class="caret"></span></button>
 								<ul class="dropdown-menu">
 									<li><a href="#">time</a></li>
 									<li><a href="#">importance</a></li>
 								</ul>
-							</div>
+							</div>-->
 
 							<div class="btn-group" role="group">
-								<a href="#" class="btn btn-default"><i class="fa fa-trash"></i></a>
-								<a href="#" class="btn btn-default"><i class="fa fa-refresh"></i></a>
-							</div>
-
-							<div class="btn-group pull-right" role="group">
-								<a href="#" class="btn btn-default"><i class="fa fa-chevron-left"></i></a>
-								<a href="#" class="btn btn-default"><i class="fa fa-chevron-right"></i></a>
+								<a href="javascript:location.reload();" class="btn btn-default"><i class="fa fa-refresh"></i></a>
 							</div>
 						</div>
 					</div>
