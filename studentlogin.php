@@ -100,7 +100,7 @@ if(isset($_POST["txtStudentUsername"]) && isset($_POST["txtStudentPassword"])){
 </head>
 <body class="simple-page">
 	<div id="back-to-home">
-		<a href="javascript:void(0);" class="btn btn-outline btn-default"><i class="fa fa-home animated zoomIn"></i></a>
+		<a href="index.php" class="btn btn-outline btn-default"><i class="fa fa-home animated zoomIn"></i></a>
 	</div>
 	<div class="simple-page-wrap">
 		<div class="simple-page-logo animated swing">
