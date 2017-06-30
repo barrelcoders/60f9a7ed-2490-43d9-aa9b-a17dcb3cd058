@@ -1,13 +1,7 @@
 ﻿<?php require_once(__DIR__.'/../include/connection.php');?>
-<?php include '../AppConf.php';?>
 <?php
 	session_start();
 	if(isset($_REQUEST["srno"]) && intVal($_REQUEST["srno"]) != 0){
-		$studentClass = $_SESSION['StudentClass'];
-		$studentRollNo = $_SESSION['StudentRollNo'];
-		
-		$studentClass= $_SESSION['StudentClass'];
-		$studentRollNo = $_SESSION['StudentRollNo'];
 		$notice = $db->rawQueryOne($manager->query['NoticeDetailByID'], Array($_REQUEST["srno"]));
 	}
 
@@ -43,7 +37,7 @@
 <body class="menubar-left menubar-unfold menubar-light theme-primary">
 
 <!-- APP MAIN ==========-->
-<main id="app-main" class="app-main">
+<main id="app-main" class="app-main" style="margin-left: 0">
   <div class="wrap">
 	<section class="app-content">
 		<div class="m-b-lg nav-tabs-horizontal">
@@ -76,11 +70,7 @@
 </div><!-- .wrap -->
   <!-- APP FOOTER -->
   <div class="wrap p-t-0">
-    <footer class="app-footer">
-      <div class="clearfix">
-        <div class="copyright pull-left">Copyright barrel-edu &copy; 2017</div>
-      </div>
-    </footer>
+    <?php include (__DIR__.'/Footer.php')?>
   </div>
   <!-- /#app-footer -->
 </main>

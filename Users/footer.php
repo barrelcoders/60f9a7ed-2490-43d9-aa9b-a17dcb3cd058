@@ -1,10 +1,10 @@
-div class="wrapper col5">
-  <div id="copyright" style="width: 1347px; height: 32px">
-    
-    <p align="center"><font color="#FFFFFF">Powered By Online School Planet 
-	|
-	</font>   <a target="_blank" href="http://www.eduworldtech.com" title="Online School Planet">
-	<font color="#FFFFFF">Education ERP Platform</font></a></p>
-    <br class="clear" />
+<footer class="app-footer">
+  <div class="clearfix">
+	<ul class="footer-menu pull-right">
+	  <li><a href="javascript:void(0)">Careers</a></li>
+	  <li><a href="javascript:void(0)">Privacy Policy</a></li>
+	  <li><a href="javascript:void(0)">Feedback <i class="fa fa-angle-up m-l-md"></i></a></li>
+	</ul>
+	<div class="copyright pull-left">Copyright barrel-edu &copy; 2017</div>
   </div>
-</div>
+</footer>

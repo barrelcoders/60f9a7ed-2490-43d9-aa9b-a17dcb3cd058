@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 
 require_once(__DIR__.'/../classes/MySQLiDB.php');
 require_once(__DIR__.'/../classes/QueryManager.php');
+require_once(__DIR__.'/config.php');
 
 $db= MySQLiDB::getInstance();
 

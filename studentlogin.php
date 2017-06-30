@@ -11,11 +11,11 @@ else{
     session_start(); 
 }
 
-if(isset($_POST["txtStudentUsername"]) && isset($_POST["txtStudentPassword"])){ 
-    $studentUsername=$_POST["txtStudentUsername"];
+if(isset($_POST["txtstudentAdmissionNo"]) && isset($_POST["txtStudentPassword"])){ 
+    $studentAdmissionNo=$_POST["txtstudentAdmissionNo"];
     $studentPassword=$_POST["txtStudentPassword"];
-    if ($studentUsername !="" && $studentPassword !="") {
-        $student = $db->rawQueryOne($manager->query['StudentDetailsByAdmissionNo'], Array($studentUsername));
+    if ($studentAdmissionNo !="" && $studentPassword !="") {
+        $student = $db->rawQueryOne($manager->query['StudentDetailsByAdmissionNo'], Array($studentAdmissionNo));
    	    if($student){
             $dbPassword=$student['spassword'];
             $studentName=$student['sname'];
@@ -25,7 +25,7 @@ if(isset($_POST["txtStudentUsername"]) && isset($_POST["txtStudentPassword"])){
             
             if ($studentPassword==$dbPassword)
    			{
-   				$_SESSION['userid']=$studentUsername;
+   				$_SESSION['userid']=$studentAdmissionNo;
    				$_SESSION['StudentName']=$studentName;
    				$_SESSION['StudentClass']=$studentClass;
    				$_SESSION['StudentRollNo']=$studentRollNo;
@@ -113,7 +113,7 @@ if(isset($_POST["txtStudentUsername"]) && isset($_POST["txtStudentPassword"])){
 		<h4 class="form-title m-b-xl text-center">STUDENT LOGIN</h4>
 		<form action method="post">
 			<div class="form-group">
-				<input name="txtStudentUsername" id="txtStudentUsername" type="text" class="form-control" placeholder="Username">
+				<input name="txtstudentAdmissionNo" id="txtstudentAdmissionNo" type="text" class="form-control" placeholder="Username">
 			</div>
 
 			<div class="form-group">

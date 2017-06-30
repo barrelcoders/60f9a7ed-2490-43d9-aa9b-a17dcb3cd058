@@ -21,7 +21,7 @@
               </a>
 			  <ul class="dropdown-menu animated flipInY"> 
 				<li>
-                  <a class="text-color" href="MyProfile.php">
+                  <a class="text-color" href="MyProfile.php?id=<?php echo $_SESSION['userid'];?>">
                     <span class="m-r-xs"><i class="fa fa-user"></i></span>
                     <span>Profile</span>
                   </a>

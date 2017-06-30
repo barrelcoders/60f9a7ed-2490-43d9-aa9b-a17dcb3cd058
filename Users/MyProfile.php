@@ -1,1211 +1,289 @@
-<?php include '../connection.php';?>
-
-
-
 <?php
-
-session_start();
-
-$StudentClass = $_SESSION['StudentClass'];
-
-$sadmission= $_SESSION['userid'];
-
-if ($sadmission== "")
-
-{
-
-	echo "<br><br><center><b>Your session expired ! or not logged in please login again!";
-
-	exit();
-
-}
-
-//echo "Class:" . $StudentClass . " , RollNo:" . $StudentRollNo;
-
-
-
-
-
-//$sclass=$_REQUEST['StudentClass'];
-
-
-
-//$srollno=$_REQUEST['StudentRollNo'];
-
-
-
-	$ssql="SELECT `srno`, `sname`, `DOB`, `Sex`, `Category`, `Nationality`, `sadmission`, `sclass`, `srollno`, `LastSchool`, `sfathername`, `FatherEducation`, `FatherOccupation`, `MotherName`, `MotherEducation`, `Address`, `smobile`, `simei`, `suser`, `spassword`, `email`, `GCMAccountId` from student_master where `sclass`='$StudentClass' and `sadmission`='$sadmission'";
-
-	
-
-	$rs= mysql_query($ssql);
-
-
-
-	while($row = mysql_fetch_row($rs))
-
+	require_once(__DIR__.'/../include/connection.php');
+	session_start();
+	if(!isset($_SESSION['userid']) || !isset($_GET['id']))
 	{
-
-
-
-					$srno=$row[0];
-
-
-
-					$sname=$row[1];
-
-
-
-					$DOB=$row[2];
-
-
-
-					$Sex=$row[3];
-
-
-
-					$Category=$row[4];
-
-
-
-					$Nationality=$row[5];
-
-
-
-					$sadmission=$row[6];
-
-
-
-					$Class1=$row[7];
-
-
-
-					$srollNo=$row[8];
-
-
-
-					$sfathername=$row[10];
-
-
-
-					$FatherEducation=$row[11];
-
-
-
-					$FatherOccupation=$row[12];
-
-
-
-					$MotherName=$row[13];
-
-
-
-					$MotherEducation=$row[14];
-
-
-
-					$Address=$row[15];
-
-
-
-					$smobile=$row[16];
-
-
-
-					$simei=$row[17];
-
-
-
-					$suser=$row[18];
-
-
-
-					$spassword=$row[19];
-
-
-
-					$email=$row[20];
-
-
-
+		echo "<br><br><center><b>Session has bee expired<br>Click <a href='../studentlogin.php'>here</a> to re-login!";
+		exit();
 	}
-
-
-
-
-
-
-
-
-
-
-
-	$sql = "SELECT distinct `class` FROM `class_master`";
-
-
-
-   $result = mysql_query($sql, $Con);
-
-
-
-   
-
-
-
-
-
-
-
-if ($_REQUEST["txtName"] !="")
-
-{
-
-
-
-	$srno=$_REQUEST["SrNo"];
-	$Name=$_REQUEST["txtName"];
-	$DOB=$_REQUEST["txtDOB"];
-	$Sex=$_REQUEST["txtSex"];
-	$Category=$_REQUEST["txtCategory"];
-	$Nationality=$_REQUEST["txtNationality"];
-	$Admission=$_REQUEST["txtAdmission"];
-	$Class=$_REQUEST["cboClass"];
-	$RollNo=$_REQUEST["txtRollNo"];
-	$FatherName=$_REQUEST["txtFatherName"];
-	$FatherEducation=$_REQUEST["txtFatherEducation"];
-	$FatherOccupation=$_REQUEST["txtFatherOccupation"];
-	$MotherName=$_REQUEST["txtMotherName"];
-	$MotherEducation=$_REQUEST["txtMotherEducation"];
-	$Address=$_REQUEST["txtAddress"];
-	$Mobile=$_REQUEST["txtMobile"];
-	$Imei=$_REQUEST["txtImei"];
-	$UserId=$_REQUEST["txtUserId"];
-	$Password=$_REQUEST["txtPassword"];
-	$Email=$_REQUEST["txtEmail"];
-
-
-
-			$ssql="UPDATE `student_master` SET `FatherEducation`='$FatherEducation',`FatherOccupation`='$FatherOccupation',`MotherEducation`='$MotherEducation',`Address`='$Address',`smobile`='$Mobile',`simei`='$Imei',`spassword`='$Password',`email`='$Email' WHERE `sadmission` = '$Admission'";
-
-			mysql_query($ssql) or die(mysql_error());
-			$ssql1="UPDATE `user_master` SET `smobile`='$Mobile',`simei`='$Imei',`spassword`='$Password',`email`='$Email' WHERE `sadmission` = '$Admission'";
-			mysql_query($ssql1) or die(mysql_error());
-			
-			echo "<br><center> <b>Updated Successfully!";
-
-			exit();	
-			}
-
-			?>
 	
-			<script language="javascript">
-
-			function Validate()
-
-			{
-
-			if (document.get
-			ById("txtMobile").value=="")
-
-			{
-
-			alert("Mobile No is mandatory");
-
-			return;
+	if($_SESSION['userid'] != $_GET['id']){
+		echo "<br><br><center><b>You are unauthorised to view this page!";
+		exit();
+	}
+	
+	if(isset($_POST['btnSubmit']) && isset($_SESSION['userid'])){
+		$result = $db->rawQueryOne($manager->query['UpdateStudentSelfDetails'], Array($_POST['txtFatherEducation'], $_POST['txtFatherOccupation'], $_POST['txtMotherEducation'], 
+		$_POST['txtStudentAddress'], $_POST['txtMobile'], $_POST['txtIMEI'], $_POST['txtPassword'], $_POST['txtEmail'], $_SESSION['userid']));
+		if ($result){
+			$result = $db->rawQueryOne($manager->query['UpdateStudentSelfLoginDetails'], Array($_POST['txtMobile'], $_POST['txtIMEI'], $_POST['txtPassword'], $_POST['txtEmail'], $_SESSION['userid']));
+			if ($result){
+				echo "<script>alert('Information updated successfully');</script>";
 			}
-
-			if (isNaN(document.getElementById("txtMobile").value)==true)
+		}
+	}
+	
+	$student = $db->rawQueryOne($manager->query['StudentFullDetailsByAdmissionNo'], Array($_SESSION['userid']));
+	
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="description" content="Admin, Dashboard, Bootstrap" />
+	<link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+	<title>barrel-edu :: Student</title>
+	
+	<link rel="stylesheet" href="../libs/bower/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../libs/bower/material-design-iconic-font/dist/css/material-design-iconic-font.css">
+	<!-- build:css ../assets/css/app.min.css -->
+	<link rel="stylesheet" href="../libs/bower/animate.css/animate.min.css">
+	<link rel="stylesheet" href="../libs/bower/fullcalendar/dist/fullcalendar.min.css">
+	<link rel="stylesheet" href="../libs/bower/perfect-scrollbar/css/perfect-scrollbar.css">
+	<link rel="stylesheet" href="../assets/css/bootstrap.css">
+	<link rel="stylesheet" href="../assets/css/core.css">
+	<link rel="stylesheet" href="../assets/css/app.css">
+	<!-- endbuild -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
+	<link rel="stylesheet" type="text/css" href="../libs/bower/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="../libs/bower/switchery/dist/switchery.min.css">
+	<link rel="stylesheet" type="text/css" href="../libs/bower/lightbox2/dist/css/lightbox.min.css">
+	<script src="../libs/bower/breakpoints.js/dist/breakpoints.min.js"></script>
+	<script language="javascript">
+		Breakpoints();
+		function Validate()			
+		{			
+			if (document.getById("txtMobile").value=="")			
+			{			
+				alert("Mobile No is mandatory");			
+				return;
+			}			
+			if(isNaN(document.getElementById("txtMobile").value)==true)
 			{
-			alert("Mobile No should be numeric");
-
-
-
-		return;
-
-
-
-	}
-
-
-
-	if (document.getElementById("txtAddress").value=="")
-
-
-
-	{
-
-
-
-		alert("Address is mandatory");
-
-		return;
-
-	}
-
-
-	document.getElementById("frmMyProfile").submit();
-
-}
-
-
-
-</script>
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<title>Daily Classwork and Homework</title>
-
-<link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
-
-<script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
-<script type="text/javascript" src="layout/scripts/jquery.slidepanel.setup.js"></script>
-<style>
-.auto-style2(border:none;)
-</style>
+				alert("Mobile No should be numeric");		
+				return;	
+			}	
+			if (document.getElementById("txtAddress").value=="")	
+			{		
+				alert("Address is mandatory");		
+				return;	
+			}
+			document.getElementById("frmStudentProfile").submit();
+		}
+	</script>
 </head>
-<body>
+	
+<body class="menubar-left menubar-unfold menubar-light theme-primary">
+<!--============= start main area -->
 
-<!-- ####################################################################################################### -->
-  <table width="100%" style="border-width: 0px"> 
+<!-- APP NAVBAR ==========-->
+<nav id="app-navbar" class="navbar navbar-inverse navbar-fixed-top primary">
+  
+  <!-- navbar header -->
+  <div class="navbar-header">
+    <button type="button" id="menubar-toggle-btn" class="navbar-toggle visible-xs-inline-block navbar-toggle-left hamburger hamburger--collapse js-hamburger">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+    </button>
+    <button type="button" class="navbar-toggle navbar-toggle-right collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="zmdi zmdi-hc-lg zmdi-more"></span>
+    </button>
 
-<tr>
-
-<td style="border-style: none; border-width: medium">
-<div class="wrapper col0">
-  <div id="topbar">
-    <div id="loginpanel">
-      <ul>
-        <li class="left">Welcome <?php echo $_SESSION['StudentName'];?></li>
-        <li class="right" id="toggle"><a id="slideit" href="#slidepanel"></a></li>
+    <a href="javascript:window.reload();" onclick="" class="navbar-brand">
+      <span class="brand-icon"><i class="fa fa-users"></i></span>
+      <span class="brand-name">barrel-edu</span>
+    </a>
+  </div><!-- .navbar-header -->
+  
+  <div class="navbar-container container-fluid">
+    <div class="collapse navbar-collapse" id="app-navbar-collapse">
+      <ul class="nav navbar-toolbar navbar-toolbar-left navbar-left">
+        <li class="hidden-float hidden-menubar-top">
+          <a href="javascript:void(0)" role="button" id="menubar-fold-btn" class="hamburger hamburger--arrowalt is-active js-hamburger">
+            <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+          </a>
+        </li>
+        <li>
+          <h5 class="page-title hidden-menubar-top hidden-float">Profile</h5>
+        </li>
       </ul>
     </div>
-    <br class="clear" />
+  </div><!-- navbar-container -->
+</nav>
+<!--========== END app navbar -->
+
+<?php include (__DIR__.'/SideMenu.php')?>
+<!-- APP MAIN ==========-->
+<main id="app-main" class="app-main">
+  <div class="wrap">
+	<section class="app-content">
+		<div class="widget">
+			<header class="widget-header">
+				<h4 class="widget-title"><?php echo $student['sname'];?></h4>
+			</header><!-- .widget-header -->
+			<hr class="widget-separator">
+			<div class="row">
+				<form action="" method="post" id="frmStudentProfile">
+				<div class="col-md-6">
+					<div class="widget-body">
+							<div class="form-group">	
+								<label for="txtName">Name</label>
+								<div>
+									<input readonly class="form-control input-lg" type="text" id="txtName" name="txtName" value="<?php echo $student['sname'];?>" placeholder="Name">
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">
+								<label for="txtDOB">Date of Birth</label>
+								<div class="input-group date" data-plugin="datetimepicker">
+									<input readonly type="text" class="form-control" id="txtDOB" name="txtDOB" value="<?php echo $student['DOB']?>" />
+									<span class="input-group-addon bg-info text-white">
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="txtGender" >Gender</label>
+								<div>
+									<input readonly class="form-control input-lg" type="text" id="txtGender" name="txtGender" value="<?php echo $student['Sex'];?>" placeholder="Name">
+								</div><!-- END column -->
+							</div><!-- .form-group -->
+							<div class="form-group">
+								<label for="txtCategory" >Category</label>
+								<div>
+									<input readonly class="form-control input-lg" type="text" id="txtCategory" name="txtCategory" value="<?php echo $student['Category'];?>" placeholder="Name">
+								</div><!-- END column -->
+							</div><!-- .form-group -->
+							<div class="form-group">	
+								<label for="txtNationality">Nationality</label>
+								<div>
+									<input readonly class="form-control input-lg" type="text" id="txtNationality" name="txtNationality" value="<?php echo $student['Nationality'];?>" placeholder="Nationality">
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">	
+								<label for="txtAdmissionNumber">Admission Number</label>
+								<div>
+									<input readonly class="form-control input-lg" type="text" id="txtAdmissionNumber" name="txtAdmissionNumber" value="<?php echo $student['sadmission'];?>" placeholder="Admission Number">
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">	
+								<label for="txtClass">Class</label>
+								<div >
+									<input readonly class="form-control input-lg" type="text" id="txtClass" name="txtClass" value="<?php echo $student['sclass'];?>" placeholder="Class">
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">	
+								<label for="txtRollNo">Roll Number</label>
+								<div >
+									<input readonly class="form-control input-lg" type="text" id="txtRollNo" name="txtRollNo" value="<?php echo $student['srollno'];?>" placeholder="Roll Number">
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">	
+								<label for="txtFatherName">Father's Name</label>
+								<div >
+									<input readonly class="form-control input-lg" type="text" id="txtFatherName" name="txtFatherName" value="<?php echo $student['sfathername'];?>" placeholder="Father's Name">
+								</div>
+							</div><!-- .form-group -->
+							
+							<div class="form-group">	
+								<label for="txtMotherName">Mother's Name</label>
+								<div >
+									<input readonly class="form-control input-lg" type="text" id="txtMotherName" name="txtMotherName" value="<?php echo $student['MotherName'];?>" placeholder="Mother's Name">
+								</div>
+							</div><!-- .form-group -->
+					</div><!-- .widget-body -->
+				</div><!-- END column -->
+				<div class="col-md-6">
+					<div class="widget-body">
+							<div class="form-group">	
+								<label for="txtFatherEducation">Father's Education</label>
+								<div >
+									<input class="form-control input-lg" type="text" id="txtFatherEducation" name="txtFatherEducation" value="<?php echo $student['FatherEducation'];?>" placeholder="Father's Education">
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">	
+								<label for="txtFatherOccupation">Father's Occupation</label>
+								<div >
+									<input class="form-control input-lg" type="text" id="txtFatherOccupation" name="txtFatherOccupation" value="<?php echo $student['FatherOccupation'];?>" placeholder="Father's Occupation">
+								</div>
+							</div>
+							<div class="form-group">	
+								<label for="txtMotherEducation">Mother's Education</label>
+								<div >
+									<input class="form-control input-lg" type="text" id="txtMotherEducation" name="txtMotherEducation" value="<?php echo $student['MotherEducation'];?>" placeholder="Mother's Education">
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">	
+								<label for="txtStudentAddress">Student Address</label>
+								<div >
+									<textarea id="txtStudentAddress" name="txtStudentAddress" maxlength="140" class="form-control" data-plugin="maxlength" data-options="{ alwaysShow: true, threshold: 10, warningClass: 'label label-warning', limitReachedClass: 'label label-danger',
+									placement: 'bottom', message: 'used %charsTyped% of %charsTotal% chars.' }" placeholder="you have 140 characters"><?php echo $student['Address'];?></textarea>
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">	
+								<label for="txtMobile">Mobile Number</label>
+								<div >
+									<input class="form-control input-lg" type="text" id="txtMobile" name="txtMobile" value="<?php echo $student['smobile'];?>" placeholder="Mobile Number">
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">	
+								<label for="txtIMEI">IMEI</label>
+								<div >
+									<input class="form-control input-lg" type="text" id="txtIMEI" name="txtIMEI" value="<?php echo $student['simei'];?>" placeholder="IMEI">
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">	
+								<label for="txtPassword">Password</label>
+								<div >
+									<input type="password" class="form-control input-lg" id="txtPassword" name="txtPassword" value="<?php echo $student['spassword'];?>" placeholder="Password">
+								</div>
+							</div><!-- .form-group -->
+							<div class="form-group">
+								<label for="txtEmail">Email</label>
+								<input type="text" data-plugin="tagsinput" data-role="tagsinput" id="txtEmail" name="txtEmail" class="form-control" value="<?php echo $student['email'];?>" placeholder="add more.." style="display: none;">
+							</div>
+							<button type="submit" name="btnSubmit" class="btn btn-primary btn-md" onclick="Validate();" onsubmit="Validate();">Submit</button>
+					</div><!-- .widget-body -->
+				</div><!-- END column -->
+				</form>
+			</div>
+		</div>
+	</section><!-- .app-content -->
+</div><!-- .wrap -->
+ <!-- APP FOOTER -->
+  <div class="wrap p-t-0">
+    <?php include (__DIR__.'/Footer.php')?>
   </div>
-</div>
-
-<div class="wrapper col1">
-  <div id="header">
-    <div id="logo">
-      <h1><img src="../../Admin/images/logo.png" height="76" width="300" ></img></h1>
-    
-    </div>
-    
-    <div id="topnav">
-      <ul>
-        <li class="active"><a href="Notices.php">Home</a></li>
-        <li><a href="Notices.php">Events and Notices</a></li>
-        <li><a href="News.php">News</a></li>
-		<li><a href="logoff.php">Logout</li>
-        <li class="last"></li>
-      </ul>
-    </div>
-    <br class="clear" />
-    <br>
-  </div>
-</div>
-</div>
-
-
-    
-<!-- ####################################################################################################### -->
-
-<div class="wrapper col2">
-  <div id="breadcrumb">
-    <ul>
-      <li class="first">You Are Here</li>
-      <li>»</li>
-      <li><a href="Notices.php">Home</a></li>
-      <li>»</li>
-		<li class="current"><a href="#">My Profile</a></li>
-    </ul>
-  </div>
-</div>
-
-
-<!-- ######################################Div for News ################################################################# -->
-
-<!--<div class="wrapper col6">
-  <div id="breadcrumb">
-   
-    <font size="3" face="cambria"><b><marquee> Welcome to School Information System ! </b></marquee></font>
-    
-  </div>
-</div>-->
-
-</td>
-
-</tr>
-
-</table>
-
-<table width="100%" border="0">
-			<tr>
-				<td>
-				
-	 <div id="column"><?php include 'SideMenu.php'; ?></div>
-    </td>
-    
-    
-<!-- #########################################Navigation TD Close ############################################################## -->    
-
-<!-- #########################################Content TD Open ############################################################## -->    
-
-
-				<td>
-			
-    
-<div>
-  <div>
-    <div>
-     
-
-
-
-
-<b>
-
-
-
-<table style="width: 100%" class="auto-style5">
-
-
-
-<form name="frmMyProfile" id="frmMyProfile" method="post" action="../Users3/MyProfile.php">
-
-
-
-<input type="hidden" name="SrNo" id="SrNo" value="<?php echo $SrNo; ?>">
-
-
-
-	<tr>
-
-
-
-		<td class="auto-style3" colspan="6" style="border-style:solid; border-width:1px;  background-color:#006400">
-		
-		<p align="center" style="color:#FFFFFF";>
-
-		<font face="Cambria"><strong>STUDENT DETAILS</strong></font></td>
-
-
-
-	</tr>
-
-
-
-	<tr>
-
-
-
-		<td style="width: 1140px; height: 24px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style4">
-
-		<font face="Cambria"><b>Name</b></font></td>
-		
-
-
-
-		<td style="width: 314px; height: 24px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style41">
-
-
-
-		<input name="txtName" id="txtName" type="text" value="<?php echo $sname; ?>" readonly="readonly" class="auto-style2" style="border:none"></td>
-
-
-
-		<td style="width: 414px; height: 24px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style27">
-
-
-
-		<font face="Cambria">Date of Birth</font></td>
-
-
-
-		<td style="width: 394px; height: 24px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style41">
-
-
-
-		<input name="txtDOB" id="txtDOB" type="text" value="<?php echo $DOB; ?>" readonly="readonly" class="auto-style2" style="width: 124px"></td>
-
-
-
-		<td style="width: 524px; height: 24px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style27">
-
-
-
-		<font face="Cambria">Gender</font></td>
-
-
-
-		<td style="width: 524px; height: 24px; border-left-style:none; border-left-width:medium; border-right-style:solid; border-right-width:1px; border-bottom-style:none; border-bottom-width:medium" class="auto-style41">
-
-
-
-		<input name="txtSex" id="txtSex" type="text" value="<?php echo $Sex; ?>" readonly="readonly" class="auto-style2"></td>
-
-
-
-	</tr>
-
-
-
-	<tr>
-
-
-
-		<td style="width: 1140px; height: 21px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style4"></td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 314px; height: 21px" class="auto-style41">
-
-
-
-		</td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 414px; height: 21px" class="auto-style4">
-
-
-
-		</td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 394px; height: 21px" class="auto-style41">
-
-
-
-		</td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 524px; height: 21px" class="auto-style41">
-
-
-
-		</td>
-
-
-
-		<td style="width: 524px; height: 21px; border-left-style:none; border-left-width:medium; border-right-style:solid; border-right-width:1px; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style41">
-
-
-
-		</td>
-
-
-
-	</tr>
-
-
+  <!-- /#app-footer -->
+</main>
+<!--========== END app main -->
 
 	
 
+	<!-- build:js ../assets/js/core.min.js -->
+	<script src="../libs/bower/jquery/dist/jquery.js"></script>
+	<script src="../libs/bower/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../libs/bower/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+	<script src="../libs/bower/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+	<script src="../libs/bower/jquery-slimscroll/jquery.slimscroll.js"></script>
+	<script src="../libs/bower/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../libs/bower/PACE/pace.min.js"></script>
+	<!-- endbuild -->
 
-
-	<tr>
-
-
-
-		<td style="width: 1140px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style4">
-
-		<font face="Cambria">Category</font></td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 314px" class="auto-style41">
-
-
-
-		<input name="txtCategory" id="txtCategory" type="text" value="<?php echo $Category; ?>" readonly="readonly" class="auto-style2"></td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 414px" class="auto-style27">
-
-
-
-		<font face="Cambria">Nationality</font></td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 394px" class="auto-style41">
-
-
-
-		<input name="txtNationality" id="txtNationality" type="text" value="<?php echo $Nationality; ?>" style="height: 22px; width: 122px;" readonly="readonly" class="auto-style2"></td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 524px" class="auto-style41">
-
-
-
-		<font face="Cambria">&nbsp;</font></td>
-
-
-
-		<td style="width: 524px; border-left-style:none; border-left-width:medium; border-right-style:solid; border-right-width:1px; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style41">
-
-
-
-		<font face="Cambria">&nbsp;</font></td>
-
-
-
-	</tr>
-
-
-
+	<!-- build:js ../assets/js/app.min.js -->
+	<script src="../assets/js/library.js"></script>
+	<script src="../assets/js/plugins.js"></script>
+	<script src="../assets/js/app.js"></script>
+	<!-- endbuild -->
+	<script src="../libs/bower/moment/moment.js"></script>
+	<script src="../libs/bower/fullcalendar/dist/fullcalendar.min.js"></script>
+	<script src="../assets/js/fullcalendar.js"></script>
+	<script src="../libs/bower/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../libs/bower/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+	<script src="../libs/bower/switchery/dist/switchery.min.js"></script>
 	
-
-
-
-	<tr>
-
-
-
-		<td style="width: 1140px; height: 21px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style4"></td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 314px; height: 21px" class="auto-style41">
-
-
-
-		</td>
-
-
-
-	
-
-
-
-		<td style="border-style:none; border-width:medium; width: 414px; height: 21px" class="auto-style41">
-
-
-
-		</td>
-
-
-
-	
-
-
-
-		<td style="border-style:none; border-width:medium; width: 394px; height: 21px" class="auto-style41">
-
-
-
-		</td>
-
-
-
-	
-
-
-
-		<td style="border-style:none; border-width:medium; width: 524px; height: 21px" class="auto-style41">
-
-
-
-		</td>
-
-
-
-	
-
-
-
-		<td style="width: 524px; height: 21px; border-left-style:none; border-left-width:medium; border-right-style:solid; border-right-width:1px; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style41">
-
-
-
-		</td>
-
-
-
-	
-
-
-
-	</tr>
-
-
-
-	
-
-
-
-	<tr>
-
-
-
-		<td style="width: 1140px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:solid; border-bottom-width:1px" class="auto-style2">
-
-		<font face="cambria">Admission No.</font></td>
-
-
-
-		<td style="width: 314px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:solid; border-bottom-width:1px" class="auto-style41">
-
-
-
-
-
-
-
-		<input type="text" name="txtAdmission" id="txtAdmission" size="15" value="<?php echo $sadmission; ?>" readonly="readonly" class="auto-style2" style="width: 164px"></td>
-
-
-
-		<td style="width: 414px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:solid; border-bottom-width:1px" class="auto-style27">
-
-
-
-
-
-
-
-		<font face="Cambria">Class</font></td>
-
-
-
-		<td style="width: 394px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:solid; border-bottom-width:1px" class="auto-style41">
-
-
-
-
-
-
-
-		<input name="cboClass" id="cboClass" type="text" value="<?php echo $StudentClass; ?>" readonly="readonly" class="auto-style2" style="width: 123px" ></td>
-
-
-
-		<td style="width: 524px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:solid; border-bottom-width:1px" class="auto-style27">
-
-
-
-
-
-
-
-		<font face="Cambria">Roll No.</font></td>
-
-
-
-		<td style="width: 524px; border-left-style:none; border-left-width:medium; border-right-style:solid; border-right-width:1px; border-top-style:none; border-top-width:medium; border-bottom-style:solid; border-bottom-width:1px" class="auto-style41">
-
-
-
-
-
-
-
-		<input name="txtRollNo" id="txtRollNo" type="text" value="<?php echo $srollNo; ?>" readonly="readonly" class="auto-style2"></td>
-
-
-
-	</tr>
-
-
-
-	
-
-
-
-	<tr>
-
-
-
-		<td class="auto-style50" colspan="6" style="border-bottom-style: solid; border-bottom-width: 1px">
-
-		<font face="Cambria">&nbsp;</font></td>
-
-
-
-	</tr>
-
-
-
-	
-
-
-
-	<tr>
-
-
-
-		<td class="auto-style29" colspan="6" style="border-style:solid; border-width:1px; background-color: #006400">
-
-
-
-		<p align="center" style="color:#FFFFFF";>
-
-
-
-		<font face="Cambria">
-
-
-
-		<strong>FAMILY DETAILS</strong></font></td>
-
-
-
-	</tr>
-
-
-
-	<tr>
-
-
-
-		<td class="auto-style16" style="width: 1140px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium">
-
-
-
-		<font face="Cambria">Father Name</font></td>
-
-
-
-		<td class="auto-style1" style="width: 314px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium">
-
-
-
-
-
-
-
-		<input name="txtFatherName" id="txtFatherName" type="text" value="<?php echo $sfathername; ?>" readonly="readonly" style="width: 154px" class="auto-style2"></td>
-
-
-
-		<td class="auto-style25" style="width: 414px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium">
-
-
-
-
-
-
-		<font face="Cambria">Father Education</font></td>
-
-
-
-		<td class="style5" style="width: 394px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium">
-
-
-
-
-
-
-
-		<input name="txtFatherEducation" id="txtFatherEducation" type="text" value="<?php echo $FatherEducation; ?>" style="width: 153px" class="auto-style2"></td>
-
-
-
-		<td class="auto-style25" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium">
-
-
-
-
-
-
-
-		<font face="Cambria">Father Occupation</font></td>
-
-
-
-		<td class="auto-style19" style="border-left-style: none; border-left-width: medium; border-right-style: solid; border-right-width: 1px; border-bottom-style: none; border-bottom-width: medium">
-
-
-
-
-
-
-
-		<input name="txtFatherOccupation" id="txtFatherOccupation" type="text" value="<?php echo $FatherOccupation; ?>" style="width: 153px" class="auto-style2"></td>
-
-
-
-	</tr>
-
-
-
-	
-
-
-
-	<tr>
-
-
-
-		<td style="border-left-style:solid; border-left-width:1px; border-right-style:solid; border-right-width:1px; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style17" colspan="6">
-
-
-
-		<font face="Cambria">&nbsp;</font></td>
-
-
-
-	</tr><tr>
-
-
-
-	
-
-
-
-	
-
-
-
-		<td style="width: 1140px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style17">
-
-		<font face="Cambria">Mother Name</font></td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 314px">
-
-
-
-		<input name="txtMotherName" id="txtMotherName" type="text" value="<?php echo $MotherName; ?>" readonly="readonly" style="width: 153px" class="auto-style2"></td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 414px" class="auto-style25">
-
-
-
-		<font face="Cambria">Mother Education</font></td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 394px">
-
-
-
-		<input name="txtMotherEducation" id="txtMotherEducation" type="text" value="<?php echo $MotherEducation; ?>" style="width: 151px" class="auto-style2"></td>
-
-
-
-		<td style="border-style:none; border-width:medium; width: 524px" class="auto-style2">
-
-
-
-		&nbsp;</td>
-
-
-
-		<td style="width: 524px; border-left-style:none; border-left-width:medium; border-right-style:solid; border-right-width:1px; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style20">
-
-
-
-		<font face="Cambria">&nbsp;</font></td>
-
-
-
-	</tr>
-
-
-
-	
-
-
-
-	<tr>
-
-
-
-	
-
-
-
-	
-
-
-
-		<td style="border-left-style:solid; border-left-width:1px; border-right-style:solid; border-right-width:1px; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style17" colspan="6">
-
-		<font face="Cambria">&nbsp;</font></td>
-
-
-
-	</tr>
-
-
-
-	
-
-
-
-	<tr>
-
-
-
-		<td style="width: 1140px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:solid; border-bottom-width:1px" class="auto-style17">
-
-
-
-		<font face="Cambria">Student Address</font></td>
-
-
-
-		<td class="auto-style2" colspan="5" style="border-left-style: none; border-left-width: medium; border-right-style: solid; border-right-width: 1px; border-top-style: none; border-top-width: medium; border-bottom-style: solid; border-bottom-width: 1px">
-
-
-
-		<font face="Cambria">
-
-
-
-		<textarea name="txtAddress" id="txtAddress" rows="4" class="auto-style23" style="width: 384px" cols="20"><?php echo $Address; ?></textarea></font></td>
-
-
-
-	</tr>
-
-
-
-	
-
-
-
-<tr>
-
-
-
-		<td class="auto-style35" style="border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium" colspan="6">
-
-
-
-		&nbsp;</td>
-
-
-
-	</tr>
-
-
-
-<tr>
-
-
-
-		<td class="auto-style22" colspan="6" style="border-style:solid; border-width:1px; background-color: #006400">
-
-
-
-		<p align="center" style="color:#FFFFFF";>
-
-
-
-		<font face="Cambria">
-
-
-
-		<strong>LOGIN CREDENTIALS</strong></font></td>
-
-
-
-	</tr>
-
-
-
-<tr>
-
-
-
-		<td class="auto-style2" style="width: 1140px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium">
-
-
-
-		Mobile</td>
-
-
-
-		<td class="auto-style1" colspan="2" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium">
-
-
-
-		<input name="txtMobile" id="txtMobile" type="text" value="<?php echo $smobile; ?>" style="width: 155px" class="auto-style2" readonly><span class="auto-style2"><br></span></td>
-<td style="width: 1140px; height: 24px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium" class="auto-style4">
-
-
-		<td class="auto-style25" style="width: 394px; border-left-style:none; border-left-width:medium; border-right-style:none; border-right-width:medium; border-bottom-style:none; border-bottom-width:medium">
-
-
-
-		<font face="Cambria">IMEI</font></td>
-
-
-
-		<td class="auto-style19" colspan="2" style="border-left-style: none; border-left-width: medium; border-right-style: solid; border-right-width: 1px; border-bottom-style: none; border-bottom-width: medium">
-
-
-
-		<input name="txtImei" id="txtImei" type="text" value="<?php echo $simei; ?>" style="width: 154px" class="auto-style2" readonly></td>
-
-
-
-	</tr>
-
-
-
-<tr>
-
-
-
-		<td class="auto-style28" style="border-left-style:solid; border-left-width:1px; border-right-style:solid; border-right-width:1px; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium" colspan="6">
-
-
-
-		&nbsp;</td>
-
-
-
-	</tr>
-
-
-
-<tr>
-
-
-
-		<td class="auto-style1" style="width: 1140px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium">
-
-
-
-		Password</td>
-
-
-
-		<td class="auto-style19" colspan="5" style="border-left-style: none; border-left-width: medium; border-right-style: solid; border-right-width: 1px; border-top-style: none; border-top-width: medium; border-bottom-style: none; border-bottom-width: medium">
-
-
-
-		<input name="txtPassword" id="txtPassword" type="text" value="<?php echo $spassword; ?>" style="width: 154px" class="auto-style2" readonly></td>
-
-
-
-	</tr>
-
-
-
-<tr>
-
-
-
-		<td class="auto-style1" style="width: 1140px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium">
-
-
-
-		&nbsp;</td>
-
-
-
-		<td class="auto-style19" colspan="5" style="border-left-style: none; border-left-width: medium; border-right-style: solid; border-right-width: 1px; border-top-style: none; border-top-width: medium; border-bottom-style: none; border-bottom-width: medium">
-
-
-
-		&nbsp;</td>
-
-
-
-	</tr>
-
-
-
-	<tr>
-
-
-
-		<td class="auto-style1" style="width: 1140px; border-left-style:solid; border-left-width:1px; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:solid; border-bottom-width:1px">
-
-
-
-		Email Id</td>
-
-
-
-		<td class="auto-style19" colspan="5" style="border-left-style: none; border-left-width: medium; border-right-style: solid; border-right-width: 1px; border-top-style: none; border-top-width: medium; border-bottom-style: solid; border-bottom-width: 1px">
-
-
-
-		<input name="txtEmail" id="txtEmail" type="text" value="<?php echo $email; ?>" style="width: 332; height:25" class="auto-style2" readonly></td>
-
-
-
-	</tr>
-
-
-
-	<tr>
-
-
-
-		<td class="auto-style32" style="border-style:none; border-width:medium; " colspan="6">
-
-
-
-		&nbsp;</td>
-
-
-
-	</tr>
-
-
-
-	<tr>
-
-
-
-		<td colspan="6" class="style2" style="border-left:medium none #808080; border-right-style:none; border-right-width:medium; border-top-style:none; border-top-width:medium; border-bottom-style:none; border-bottom-width:medium">
-
-
-
-		<input name="Submit1" type="button" value="Submit" onclick="Javascript:Validate();" class="auto-style26"></td>
-
-
-
-	</tr>
-
-
-
-	</form>
-
-
-
-</table>
-
-
-
-
-
-
-
-		</td>
-
-<!--####################################Content TD close ################################################### -->
-    
-</tr>
-
-</table>
-
-<div class="wrapper col5">
-  <div id="copyright" style="width: 1347px; height: 32px">
-    
-    <p align="center"><font color="#FFFFFF">Powered By Online School Planet 
-	|
-	</font>   <a target="_blank" href="http://www.eduworldtech.com" title="Online School Planet">
-	<font color="#FFFFFF">Education ERP Platform</font></a></p>
-    <br class="clear" />
-  </div>
-</div>
 </body>
 </html>
+
