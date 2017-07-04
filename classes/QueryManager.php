@@ -28,6 +28,32 @@ class QueryManager {
 														   EmergencyContactDetail2, EWSCategory, BirthPlace, MotherTongue, PreviousSchoolClass FROM student_master WHERE sadmission = ?";
 	   $this->query['UpdateStudentSelfDetails'] = "UPDATE student_master SET FatherEducation=?, FatherOccupation=?, MotherEducation=?, Address=?, smobile=?, simei=?, spassword=?, email=? WHERE sadmission = ?";
 	   $this->query['UpdateStudentSelfLoginDetails'] = "UPDATE user_master SET smobile=?, simei=?, spassword=?, email=? WHERE sadmission = ?";
-    }
+	   $this->query['TodayHomeworkByClassAndStatus'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
+														a.homeworkdate=b.classworkdate AND a.subject=b.subject AND a.homeworkdate=curdate() AND a.sclass=? AND a.Status=?";
+	   $this->query['YesterdayClassworkHomeworkByClass'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
+														a.homeworkdate=b.classworkdate AND a.subject=b.subject AND a.homeworkdate=curdate()-1 AND a.sclass=?";// AND a.Status=?
+	   
+	   $this->query['SubjectsByClass'] = "SELECT DISTINCT subject FROM subject_master WHERE class=?";
+	   
+	   $this->query['HomeworkBySubject'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
+														a.homeworkdate=b.classworkdate AND a.subject=b.subject AND a.subject=?";
+	   $this->query['HomeworkWithoutSubjectAndDate'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
+														a.homeworkdate=b.classworkdate AND a.subject=b.subject";
+														
+	   $this->query['HomeworkBySubjectAndFromDate'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
+														a.homeworkdate=b.classworkdate AND a.subject=b.subject AND a.subject=? AND a.homeworkdate >= ?";
+	   $this->query['HomeworkBySubjectAndToDate'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
+														a.homeworkdate=b.classworkdate AND a.subject=b.subject AND a.subject=? AND a.homeworkdate <= ?";
+	   $this->query['HomeworkBySubjectAndFromAndToDate'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
+														a.homeworkdate=b.classworkdate AND a.subject=b.subject AND a.subject=? AND a.homeworkdate BETWEEN ? and ?";
+														
+	   $this->query['HomeworkByFromDate'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
+														a.homeworkdate=b.classworkdate AND a.subject=b.subject AND a.homeworkdate >= ?";
+	   $this->query['HomeworkByToDate'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
+														a.homeworkdate=b.classworkdate AND a.subject=b.subject AND a.homeworkdate <= ?";
+	   $this->query['HomeworkByFromAndToDate'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
+														a.homeworkdate=b.classworkdate AND a.subject=b.subject AND a.homeworkdate BETWEEN ? and ?";
+	   
+	}
 }
 ?>

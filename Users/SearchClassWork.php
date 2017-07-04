@@ -1,501 +1,267 @@
-<?php include '../connection.php';?>
+<?php 
+	require_once('../include/connection.php');
 
-
-
-
-<?php
-
-session_start();
-
-
-
-$class = $_SESSION['StudentClass'];
-
-$StudentRollNo = $_SESSION['StudentRollNo'];
-
-
-
-//$ssql="SELECT DISTINCT DATE_FORMAT( `attendancedate` , '%M-%Y' ) MonthYear FROM `attendance`";
-
-
-
-$ssql="SELECT DISTINCT `subject` subject FROM `subject_master` where `class`='$class'" ;
-
-
-
-$rsAttan= mysql_query($ssql);
-
-$num_rows=0;
-
-
-
-
-
-?>
-
-<script language ="javascript">
-
-	
-
-	function Validate1()
-
+	session_start();
+	if(!isset($_SESSION['StudentClass']))
 	{
-
-		if (document.getElementById("cboSearchSubject").value=="Select One")
-
-		{
-
-			alert ("Please select Subject for Search!");
-
-			return;
-
-		}
-
-		document.getElementById("frmSearch").submit();		
-
+		echo "<br><br><center><b>Session has bee expired<br>Click <a href='../studentlogin.php'>here</a> to re-login!";
+		exit();
 	}
+	
+	$class=$_SESSION['StudentClass'];
+	$subjects = $db->rawQuery($manager->query['SubjectsByClass'], array($class));
+	
+	$homeworks = array();
+	
+	if(isset($_POST['btnSubmit'])){
+		$selectedSubjects = $_POST['slSubjects'];
+		$fromDate = date('Y-m-d', strtotime($_POST['txtFromDate']));
+		$toDate = date('Y-m-d', strtotime($_POST['txtToDate']));
+		
+		if($fromDate == "1970-01-01"){
+			$fromDate = "";
+		}
+		
+		if($toDate == "1970-01-01"){
+			$toDate = "";
+		}
+		
+		if($selectedSubjects == "All"){
+			if($fromDate == "" && $toDate == ""){
+				$homeworks = $db->rawQuery($manager->query['HomeworkWithoutSubjectAndDate']);
+			}
+			else if($fromDate != "" && $toDate == ""){
+				$homeworks = $db->rawQuery($manager->query['HomeworkByFromDate'], array($fromDate));
+			}
+			else if($fromDate == "" && $toDate != ""){
+				$homeworks = $db->rawQuery($manager->query['HomeworkByToDate'], array($toDate));
+			}
+			else if($fromDate != "" && $toDate != ""){
+				$homeworks = $db->rawQuery($manager->query['HomeworkByFromAndToDate'], array($fromDate, $toDate));
+			}
+		}
+		else{
+			if($fromDate == "" && $toDate == ""){
+				$homeworks = $db->rawQuery($manager->query['HomeworkBySubject'], array($selectedSubjects));
+			}
+			else if($fromDate != "" && $toDate == ""){
+				$homeworks = $db->rawQuery($manager->query['HomeworkBySubjectAndFromDate'], array($selectedSubjects, $fromDate));
+				
+			}
+			else if($fromDate == "" && $toDate != ""){
+				$homeworks = $db->rawQuery($manager->query['HomeworkBySubjectAndToDate'], array($selectedSubjects, $toDate));
+				
+			}
+			else if($fromDate != "" && $toDate != ""){
+				$homeworks = $db->rawQuery($manager->query['HomeworkBySubjectAndFromAndToDate'], array($selectedSubjects, $fromDate, $toDate));
+			}
+		}
+	}
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+		<meta name="description" content="Admin, Dashboard, Bootstrap" />
+		<link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+		<title>barrel-edu :: Student</title>
+		
+		<link rel="stylesheet" href="../libs/bower/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../libs/bower/material-design-iconic-font/dist/css/material-design-iconic-font.css">
+		<!-- build:css ../assets/css/app.min.css -->
+		<link rel="stylesheet" href="../libs/bower/animate.css/animate.min.css">
+		<link rel="stylesheet" href="../libs/bower/fullcalendar/dist/fullcalendar.min.css">
+		<link rel="stylesheet" href="../libs/bower/perfect-scrollbar/css/perfect-scrollbar.css">
+		<link rel="stylesheet" href="../assets/css/bootstrap.css">
+		<link rel="stylesheet" href="../assets/css/core.css">
+		<link rel="stylesheet" href="../assets/css/app.css">
+		<!-- endbuild -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
+		<script src="../libs/bower/breakpoints.js/dist/breakpoints.min.js"></script>
+		<script language="javascript">
+			Breakpoints();
+			function showNews(id) {
+				var myWindow = window.open("ShowNews.php?srno=" + id ,"","width=500,height=500");
+			}
+		</script>
+	</head>
+	<body class="menubar-left menubar-unfold menubar-light theme-primary">
+	<!--============= start main area -->
 
-	function Validate2()
+	<!-- APP NAVBAR ==========-->
+	<nav id="app-navbar" class="navbar navbar-inverse navbar-fixed-top primary">
+	  
+	  <!-- navbar header -->
+	  <div class="navbar-header">
+		<button type="button" id="menubar-toggle-btn" class="navbar-toggle visible-xs-inline-block navbar-toggle-left hamburger hamburger--collapse js-hamburger">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+		</button>
 
-	{			if (document.getElementById("cboSearchSubject").value=="Select One")		{			alert ("Please select Subject for Search!");			return;		}
+		<button type="button" class="navbar-toggle navbar-toggle-right collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="zmdi zmdi-hc-lg zmdi-more"></span>
+		</button>
+
+		<button type="button" class="navbar-toggle navbar-toggle-right collapsed" data-toggle="collapse" data-target="#navbar-search" aria-expanded="false">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="zmdi zmdi-hc-lg zmdi-search"></span>
+		</button>
+
+		<a href="javascript:window.reload();" onclick="" class="navbar-brand">
+		  <span class="brand-icon"><i class="fa fa-users"></i></span>
+		  <span class="brand-name">barrel-edu</span>
+		</a>
+	  </div><!-- .navbar-header -->
+	  
+	  <div class="navbar-container container-fluid">
+		<div class="collapse navbar-collapse" id="app-navbar-collapse">
+		  <ul class="nav navbar-toolbar navbar-toolbar-left navbar-left">
+			<li class="hidden-float hidden-menubar-top">
+			  <a href="javascript:void(0)" role="button" id="menubar-fold-btn" class="hamburger hamburger--arrowalt is-active js-hamburger">
+				<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+			  </a>
+			</li>
+			<li>
+			  <h5 class="page-title hidden-menubar-top hidden-float">Search Homework</h5>
+			</li>
+		  </ul>
+		</div>
+	  </div><!-- navbar-container -->
+	</nav>
+	<!--========== END app navbar -->
+
+	<?php include (__DIR__.'/SideMenu.php')?>
+	<!-- APP MAIN ==========-->
+	<main id="app-main" class="app-main">
+	  <div class="wrap">
+		<section class="app-content">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="m-b-lg docs">
+						<div class="btn-group" role="group">
+							<a href="Classwork.php" class="btn btn-default">Today</a>
+							<a href="YesterdayClassWork.php" class="btn btn-default">Yesterday</a>
+							<a href="SearchClassWork.php" class="btn btn-default">Search Previous</a>
+						</div>
+					</p>
+
+					<div class="widget p-lg">
+						<h4 class="m-b-lg"></h4>
+
+						
+					</div>
+					
+					<div class="widget">
+						<header class="widget-header">
+							<h4 class="widget-title">Basic Example</h4>
+						</header><!-- .widget-header -->
+						<hr class="widget-separator">
+						<div class="widget-body">
+							<div class="m-b-lg">
+							</div>
+							<form method="post" action="" id="frmSearch">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label for="slSubjects">Select Class</label>
+											<select size="1" name="slSubjects" id="slSubjects" class="form-control" >
+												<option value="All">All</option>
+												<?php foreach($subjects as $items){ ?>
+													<option value="<?php echo $items['subject']; ?>"><?php echo $items['subject']; ?></option>
+												<?php } ?>
+											</select>
+										</div>
+									</div>										
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="txtFromDate">From</label>
+											<div class="input-group date" data-plugin="datetimepicker">
+												<input type="text" class="form-control" id="txtFromDate" name="txtFromDate" />
+												<span class="input-group-addon bg-info text-white">
+													<span class="glyphicon glyphicon-calendar"></span>
+												</span>
+											</div>
+										</div>
+									</div>	
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="txtToDate">To</label>
+											<div class="input-group date" data-plugin="datetimepicker">
+												<input type="text" class="form-control" id="txtToDate" name="txtToDate" />
+												<span class="input-group-addon bg-info text-white">
+													<span class="glyphicon glyphicon-calendar"></span>
+												</span>
+											</div>
+										</div>
+									</div>									
+								</div> 
+								<button type="submit" class="btn btn-primary btn-md" name="btnSubmit">Search</button>
+							</form>
+							<br>
+							<br>
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<th>S. No.</th>
+										<th>Subject</th>
+										<th>Date</th>
+										<th>Today's Homework</th>
+										<th>Today's Classwork</th>
+									</tr>
+									<?php 
+										$SNo = 1;
+										foreach ($homeworks as $item) { ?>
+										<tr>
+											<td><?php echo $SNo; ?></td>
+											<td><?php echo $item['subject']; ?></td>
+											<td><?php echo date('d-M-Y', strtotime($item['date'])); ?></td>
+											<td><?php echo $item['homework']; ?></td>
+											<td><?php echo $item['classwork']; ?></td>
+										</tr>
+									<?php 
+										$SNo++;
+									} ?>
+								</tbody>
+							</table>
+						</div><!-- .widget-body -->
+					</div>
+				</div><!-- END column -->
+			</div><!-- .row -->
+		</section><!-- .app-content -->
+	</div><!-- .wrap -->
+
+	  <!-- APP FOOTER -->
+	  <div class="wrap p-t-0">
+		<?php include (__DIR__.'/Footer.php')?>
+	  </div>
+	  <!-- /#app-footer -->
+	</main>
+	<!--========== END app main -->
 
 		
 
-		if (document.getElementById("txtFromDate").value=="From Date")
-
-		{
-
-			alert ("Please select From Date for Search!");
-
-			return;
-
-		}
-
-		if (document.getElementById("txtToDate").value=="To Date")
-
-		{
-
-			alert ("Please select To Date for Search!");
-
-			return;
-
-		}
-
-		document.getElementById("frmSearch").submit();		
-
-	}
-
-</script>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--
-Template Name: School Education
-Author: <a href="http://www.os-templates.com/">OS Templates</a>
-Author URI: http://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: http://www.os-templates.com/template-terms
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<title>Daily Classwork and Homework</title>
-<link rel="stylesheet" type="text/css" href="tcal.css" />
-<script type="text/javascript" src="tcal.js"></script>
-	
-<link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
-
-
-
-
-<script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
-<script type="text/javascript" src="layout/scripts/jquery.slidepanel.setup.js"></script>
-<style>
-<!--
-.auto-style32 {
-
-	border-color: #000000;
-
-	border-width: 0px;
-
-	border-collapse: collapse;
-
-	font-family: Cambria;
-
-}
-
-.auto-style35 {
-
-	border-style: solid;
-
-	border-width: 1px;
-
-	font-family: Cambria;
-
-	text-align: center;
-
-}
-
-
-
-
-
-.style8 {
-
-	border-style: solid;
-
-	border-width: 1px;
-
-	font-family: Cambria;
-
-}
-
-
-
-.auto-style1 {
-	border-width: 1px;
-	color: #000000;
-	font-family: Cambria;
-	font-size: 15px;
-}
-
-.auto-style2 {
-	border-width: 1px;
-	font-family: Cambria;
-	font-size: 15px;
-	font-style: normal;
-	text-decoration: none;
-	color: #000000;
-}
-
-.style1 {
-
-	text-align: center;
-
-	color: #0000FF;
-
-}
-
-.auto-style3 {
-	color: #000000;
-}
--->
-</style>
-</head>
-<body>
-<!--
-<div class="wrapper col0">
-  <div id="topbar">
-    <div id="slidepanel">
-      <div class="topbox">
-        <h2>Nullamlacus dui ipsum</h2>
-        <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
-        <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      </div>
-      <div class="topbox">
-        <h2>Teachers Login Here</h2>
-        <form action="#" method="post">
-          <fieldset>
-            <legend>Teachers Login Form</legend>
-            <label for="teachername">Username:
-              <input type="text" name="teachername" id="teachername" value="" />
-            </label>
-            <label for="teacherpass">Password:
-              <input type="password" name="teacherpass" id="teacherpass" value="" />
-            </label>
-            <label for="teacherremember">
-              <input class="checkbox" type="checkbox" name="teacherremember" id="teacherremember" checked="checked" />
-              Remember me</label>
-            <p>
-              <input type="submit" name="teacherlogin" id="teacherlogin" value="Login" />
-              &nbsp;
-              <input type="reset" name="teacherreset" id="teacherreset" value="Reset" />
-            </p>
-          </fieldset>
-        </form>
-      </div>
-      <div class="topbox last">
-        <h2>Pupils Login Here</h2>
-        <form action="#" method="post">
-          <fieldset>
-            <legend>Pupils Login Form</legend>
-            <label for="pupilname">Username:
-              <input type="text" name="pupilname" id="pupilname" value="" />
-            </label>
-            <label for="pupilpass">Password:
-              <input type="password" name="pupilpass" id="pupilpass" value="" />
-            </label>
-            <label for="pupilremember">
-              <input class="checkbox" type="checkbox" name="pupilremember" id="pupilremember" checked="checked" />
-              Remember me</label>
-            <p>
-              <input type="submit" name="pupillogin" id="pupillogin" value="Login" />
-              &nbsp;
-              <input type="reset" name="pupilreset" id="pupilreset" value="Reset" />
-            </p>
-          </fieldset>
-        </form>
-      </div>
-      <br class="clear" />
-    </div>
-    <div id="loginpanel">
-      <ul>
-        <li class="left">Log In Here &raquo;</li>
-        <li class="right" id="toggle"><a id="slideit" href="#slidepanel">Administration</a><a id="closeit" style="display:none;" href="#slidepanel">Close Panel</a></li>
-      </ul>
-    </div>
-    <br class="clear" />
-  </div>
-</div>
--->
-<!-- ####################################################################################################### -->
- <table width="100%" style="border-width: 0px"> 
-
-<tr>
-
-<td style="border-style: none; border-width: medium">
-<div class="wrapper col1">
-  <div id="header">
-    <div id="logo">
-      <h1><img src="../../Admin/images/logo.png" height="76" width="300" ></img></h1>
-    
-    </div>
-    
-    <div id="topnav">
-      <ul>
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="Notices.php">Events and Notices</a></li>
-        <li><a href="News.php">News</a></li>
-		<li><a href="logoff.php">Logout</li>
-        <li class="last"></li>
-      </ul>
-    </div>
-    <br class="clear" />
-  </div>
-</div>
-</div>
-
-
-    
-<!-- ####################################################################################################### -->
-
-<div class="wrapper col2">
-  <div id="breadcrumb">
-    <ul>
-      <li class="first">You Are Here</li>
-      <li>»</li>
-      <li><a href="Notices.php">Home</a></li>
-      <li>»</li>
-		<li class="current"><a href="#">Search Classwork</a></li>
-    </ul>
-  </div>
-</div>
-
-
-<!-- ######################################Div for News ################################################################# -->
-
-<div class="wrapper col6">
-  <div id="breadcrumb">
-   
-    <font size="3" face="cambria"><b><marquee> Welcome to School Information System ! </b></marquee></font>
-    
-  </div>
-</div>
-
-</td>
-
-</tr>
-
-</table>
-
-<table width="100%" border="0">
-			<tr>
-				<td>
-				
-	 <div id="column"><?php include 'SideMenu.php'; ?></div>
-    </td>
-    
-    
-<!-- #########################################Navigation TD Close ############################################################## -->    
-
-<!-- #########################################Content TD Open ############################################################## -->    
-
-
-				<td>
-			
-    
-<div>
-  <div>
-    <div>
-     
-
-
-
-		<b>
-		<table border="1" width="100%" cellspacing="1" style="border-width:0px; border-collapse: collapse" height="80" bordercolor="#000000" id="table7">
-
-	<tr>
-
-		<td bgcolor="#0093A8" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium">
-
-		<p style="margin-left: 10px">
-
-		<span style="font-family:Cambria;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">
-
-		Search Previous Class Work</span></td>
-
-	</tr>
-
-	<tr>
-
-		<td style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium">
-
-		<table border="1" width="100%" id="table8"  0px" bordercolor="#000000">
-
-			<tr>
-
-				<td width="129" height="35" align="center"  bgcolor="#FFFFFF">
-
-				<a href="Classwork.php">
-
-				<font color="#000000" face="Cambria">
-
-				<span style="text-decoration: none">Class Work</span></font></a></td>
-
-				<td width="129" height="35" align="center"  bgcolor="#FFFFFF">
-
-				<font face="Cambria">
-
-				<a href="SearchClassWork.php">
-
-				<span style="text-decoration: none"><font color="#000000">Search Previous</font></span></a></font></td>
-
-				<td height="35" align="center"  bgcolor="#FFFFFF">
-
-				<p align="right">
-
-				&nbsp;</td>
-
-			</tr>
-
-		</table>
-
-		<table border="0" width="100%" style="border-collapse: collapse" id="table9">
-
-		<form name="frmSearch" id="frmSearch" method ="post" action="SearchResultClassWork.php">
-
-			<tr>
-
-				<td height="35" width="278" align="left">
-
-				<p style="margin-left: 40px">
-
-				<span style="font-family:Cambria;font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:#000000">
-
-				Select Subject</span></td>
-
-				<td height="35" width="278" align="left">
-
-				<select size="1" name="cboSearchSubject" id="cboSearchSubject">
-
-				<option selected value="Select One">Select One</option>
-
-				<option value="All">All</option>
-
-
-
-				<?php
-
-					while($row = mysql_fetch_row($rsAttan))
-
-					{
-
-						$subject=$row[0];						
-
-				?>
-
-					<option value="<?php echo $subject; ?>"><?php echo $subject; ?></option>
-
-				<?php } ?>
-
-				</select></td>
-
-				<td height="35" width="837" align="center">
-
-				<p align="left">
-
-				</td>
-
-			</tr>
-
-			
-
-				
-
-			<tr>
-
-				<td height="35" width="278" align="left">
-
-				<p style="margin-left: 40px">
-
-				<span style="font-family:Cambria;font-size:12pt;font-weight:bold;font-style:normal;text-decoration:none;color:#000000">
-
-				Select Date</span></td>
-
-				<td height="35" width="278" align="left">
-
-				<input type="text" name="txtFromDate" id="txtFromDate" size="15" value="From Date" class="tcal">  
-
-				<input type="text" name="txtToDate" id="txtToDate" size="15" value="To Date" class="tcal"></td>
-
-				<td height="35" width="279" align="center">
-
-				<p align="left">
-
-				<font face="Cambria">
-
-			
-
-				<input type="button" value="Submit" name="B1" onclick ="Javascript:Validate2();"></font></td>
-
-				
-
-			</tr>
-
-			
-
-			
-
-			</form>
-
-		</table>
-
-		</td>
-
-	</tr>
-
-</table>
-
-
-
-
-
-
-
-				</td>
-
-<!--####################################Content TD close ################################################### -->
-    
-</tr>
-
-</table>
-
-<div class="wrapper col5">
-  <div id="copyright" style="width: 1347px; height: 32px">
-    
-    <p align="center"><font color="#FFFFFF">Powered By Online School Planet |
-	</font>   <a target="_blank" href="http://www.eduworldtech.com" title="Online School Planet">
-	<font color="#FFFFFF">Education ERP Platform</font></a></p>
-    <br class="clear" />
-  </div>
-</div>
+	<!-- build:js ../assets/js/core.min.js -->
+	<script src="../libs/bower/jquery/dist/jquery.js"></script>
+	<script src="../libs/bower/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../libs/bower/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+	<script src="../libs/bower/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+	<script src="../libs/bower/jquery-slimscroll/jquery.slimscroll.js"></script>
+	<script src="../libs/bower/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../libs/bower/PACE/pace.min.js"></script>
+	<!-- endbuild -->
+
+	<!-- build:js ../assets/js/app.min.js -->
+	<script src="../assets/js/library.js"></script>
+	<script src="../assets/js/plugins.js"></script>
+	<script src="../assets/js/app.js"></script>
+	<!-- endbuild -->
+	<script src="../libs/bower/moment/moment.js"></script>
+	<script src="../libs/bower/fullcalendar/dist/fullcalendar.min.js"></script>
+	<script src="../assets/js/fullcalendar.js"></script>
 </body>
 </html>

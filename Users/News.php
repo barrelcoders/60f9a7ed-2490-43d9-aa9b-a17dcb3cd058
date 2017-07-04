@@ -9,11 +9,6 @@
 	$news = $db->rawQuery($manager->query['News']);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-
-
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -43,7 +38,6 @@
 		}
 	</script>
 </head>
-	
 <body class="menubar-left menubar-unfold menubar-light theme-primary">
 <!--============= start main area -->
 
