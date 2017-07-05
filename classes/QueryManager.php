@@ -54,6 +54,12 @@ class QueryManager {
 	   $this->query['HomeworkByFromAndToDate'] = "SELECT a.sclass, a.subject, a.homework,  b.classwork , a.homeworkdate as date FROM homework_master a, classwork_master b WHERE 
 														a.homeworkdate=b.classworkdate AND a.subject=b.subject AND a.homeworkdate BETWEEN ? and ?";
 	   
+		$this->query['Classes'] = "SELECT distinct class FROM class_master";
+		$this->query['AttendanceMonthYearsByRollNoAndClass'] = "SELECT DISTINCT DATE_FORMAT( attendancedate , '%M-%Y' ) as monthyear FROM attendance WHERE srollno=? AND sclass=?";
+		$this->query['AttendancePresentCountByMonthYearAndRollNoAndClass'] = "select count(distinct attendancedate) as count from attendance where attendance='P' and DATE_FORMAT( attendancedate , '%M-%Y' )=? and srollno=? AND sclass=?";
+		$this->query['AttendanceAbsentCountByMonthYearAndRollNoAndClass'] = "select count(distinct attendancedate) as count from attendance where attendance='L' and DATE_FORMAT( attendancedate , '%M-%Y' )=? and srollno=? AND sclass=?";
+		$this->query['AttendanceWorkingDaysCountByMonthYearAndClass'] = "select count(distinct attendancedate) as count from attendance where DATE_FORMAT( attendancedate , '%M-%Y' )=? AND sclass=?";
+		$this->query['LatecomersByClassAndRollNo'] ="SELECT Date, Reason, Time FROM late_comers where (Class=? and Rollno=?) order by Date desc";
 	}
 }
 ?>

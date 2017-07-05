@@ -147,16 +147,10 @@
 							<a href="SearchClassWork.php" class="btn btn-default">Search Previous</a>
 						</div>
 					</p>
-
-					<div class="widget p-lg">
-						<h4 class="m-b-lg"></h4>
-
-						
-					</div>
 					
 					<div class="widget">
 						<header class="widget-header">
-							<h4 class="widget-title">Basic Example</h4>
+							<h4 class="widget-title">Search Homework</h4>
 						</header><!-- .widget-header -->
 						<hr class="widget-separator">
 						<div class="widget-body">
