@@ -1,356 +1,166 @@
-<?php include '../connection.php';?>
-
-
-
 <?php
-session_start();
 
-$StudentName = $_SESSION['StudentName'];
+	require_once('../include/connection.php');
 
-
-$StudentClass = $_SESSION['StudentClass'];
-$StudentRollNo = $_SESSION['StudentRollNo'];
-
-
-$class=$_SESSION['StudentClass'];
-
-
-$ssql="SELECT `srno` , `holiday` , DATE_FORMAT(`HolidayDate`,'%d-%M-%Y') as `HolidayDate` ,`class` FROM `school_holidays` where `Class`='$class' or `Class`='All'  order by Date(`HolidayDate`)";
-
-
-$rs= mysql_query($ssql);
-$num_rows=0;
-
-
+	session_start();
+	if(!isset($_SESSION['userid']))
+	{
+		echo "<br><br><center><b>Session has bee expired<br>Click <a href='../studentlogin.php'>here</a> to re-login!";
+		exit();
+	}
+	
+	$name = $_SESSION['StudentName'];
+	$class = $_SESSION['StudentClass'];
+	$roll_no= $_SESSION['StudentRollNo'];
+	$holidays = $db->rawQuery($manager->query['SchoolHolidaysByClassOrWithoutClass'], array($class));
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--
-Template Name: School Education
-Author: <a href="http://www.os-templates.com/">OS Templates</a>
-Author URI: http://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: http://www.os-templates.com/template-terms
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<title>Holiday List</title>
-
-<link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
-
-<script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
-<script type="text/javascript" src="layout/scripts/jquery.slidepanel.setup.js"></script>
-<style>
-<!--
-.auto-style32 {
-
-	border-color: #000000;
-
-	border-width: 0px;
-
-	border-collapse: collapse;
-
-	font-family: Cambria;
-
-}
-
-.auto-style35 {
-
-	border-style: solid;
-
-	border-width: 1px;
-
-	font-family: Cambria;
-
-	text-align: center;
-
-}
-
-
-
-
-
-.style8 {
-
-	border-style: solid;
-
-	border-width: 1px;
-
-	font-family: Cambria;
-
-}
-
-
-
-.auto-style1 {
-	border-width: 1px;
-	color: #000000;
-	font-family: Cambria;
-	font-size: 15px;
-}
-
-.auto-style2 {
-	border-width: 1px;
-	font-family: Cambria;
-	font-size: 15px;
-	font-style: normal;
-	text-decoration: none;
-	color: #000000;
-}
-
-.style1 {
-
-	text-align: center;
-
-	color: #0000FF;
-
-}
-
-.auto-style3 {
-	color: #000000;
-}
--->
-</style>
-</head>
-<body>
-<!--
-<div class="wrapper col0">
-  <div id="topbar">
-    <div id="slidepanel">
-      <div class="topbox">
-        <h2>Nullamlacus dui ipsum</h2>
-        <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi penas dapibulum orna. Urnaultrices quis curabitur phasellentesque congue magnis vestibulum quismodo nulla et feugiat. Adipisciniapellentum leo ut consequam ris felit elit id nibh sociis malesuada.</p>
-        <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-      </div>
-      <div class="topbox">
-        <h2>Teachers Login Here</h2>
-        <form action="#" method="post">
-          <fieldset>
-            <legend>Teachers Login Form</legend>
-            <label for="teachername">Username:
-              <input type="text" name="teachername" id="teachername" value="" />
-            </label>
-            <label for="teacherpass">Password:
-              <input type="password" name="teacherpass" id="teacherpass" value="" />
-            </label>
-            <label for="teacherremember">
-              <input class="checkbox" type="checkbox" name="teacherremember" id="teacherremember" checked="checked" />
-              Remember me</label>
-            <p>
-              <input type="submit" name="teacherlogin" id="teacherlogin" value="Login" />
-              &nbsp;
-              <input type="reset" name="teacherreset" id="teacherreset" value="Reset" />
-            </p>
-          </fieldset>
-        </form>
-      </div>
-      <div class="topbox last">
-        <h2>Pupils Login Here</h2>
-        <form action="#" method="post">
-          <fieldset>
-            <legend>Pupils Login Form</legend>
-            <label for="pupilname">Username:
-              <input type="text" name="pupilname" id="pupilname" value="" />
-            </label>
-            <label for="pupilpass">Password:
-              <input type="password" name="pupilpass" id="pupilpass" value="" />
-            </label>
-            <label for="pupilremember">
-              <input class="checkbox" type="checkbox" name="pupilremember" id="pupilremember" checked="checked" />
-              Remember me</label>
-            <p>
-              <input type="submit" name="pupillogin" id="pupillogin" value="Login" />
-              &nbsp;
-              <input type="reset" name="pupilreset" id="pupilreset" value="Reset" />
-            </p>
-          </fieldset>
-        </form>
-      </div>
-      <br class="clear" />
-    </div>
-    <div id="loginpanel">
-      <ul>
-        <li class="left">Log In Here &raquo;</li>
-        <li class="right" id="toggle"><a id="slideit" href="#slidepanel">Administration</a><a id="closeit" style="display:none;" href="#slidepanel">Close Panel</a></li>
-      </ul>
-    </div>
-    <br class="clear" />
-  </div>
-</div>
-
--->
-
-
-<!-- ####################################################################################################### -->
-<table width="100%" style="border-width: 0px"> 
-
-<tr>
-
-<td style="border-style: none; border-width: medium">
-<div class="wrapper col0">
-  <div id="topbar">
-    <div id="loginpanel">
-      <ul>
-        <li class="left">Welcome <?php echo $_SESSION['StudentName'];?></li>
-        <li class="right" id="toggle"><a id="slideit" href="#slidepanel"></a></li>
-      </ul>
-    </div>
-    <br class="clear" />
-  </div>
-</div>
-
-<div class="wrapper col1">
-  <div id="header">
-    <div id="logo">
-      <h1><img src="../../Admin/images/logo.png" height="76" width="300" ></img></h1>
-    
-    </div>
-    
-    <div id="topnav">
-      <ul>
-        <li class="active"><a href="Notices.php">Home</a></li>
-        <li><a href="Notices.php">Events and Notices</a></li>
-        <li><a href="News.php">News</a></li>
-		<li><a href="logoff.php">Logout</li>
-        <li class="last"></li>
-      </ul>
-    </div>
-    <br class="clear" />
-  </div>
-</div>
-</div>
-
-
-    
-<!-- ####################################################################################################### -->
-
-<div class="wrapper col2">
-  <div id="breadcrumb">
-    <ul>
-      <li class="first">You Are Here</li>
-      <li>»</li>
-      <li><a href="index.php">Home</a></li>
-      <li>»</li>
-		<li class="current"><a href="#">School News</a></li>
-    </ul>
-  </div>
-</div>
-
-
-<!-- ######################################Div for News ################################################################# -->
-
-<!--<div class="wrapper col6">
-  <div id="breadcrumb">
-   
-    <font size="3" face="cambria"><b><marquee> Welcome to School Information System ! </b></marquee></font>
-    
-  </div>
-</div>-->
-
-</td>
-
-</tr>
-
-</table>
-
-<table width="100%" border="0">
-			<tr>
-				<td>
-				
-	  <div id="column"><?php include 'SideMenu.php'; ?></div>
-    </td>
-    
-    
-<!-- #########################################Navigation TD Close ############################################################## -->    
-
-<!-- #########################################Content TD Open ############################################################## -->    
-
-
-				<td>
-			
-    
-<div>
-  <div>
-    <div>
-     
-
-
-<table border="1" width="100%" cellspacing="1" style="border-width:0px; border-collapse: collapse" height="80" bordercolor="#000000" id="table1">
-	<tr>
-		<td bgcolor="#F45A5A" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium">
-		<p style="margin-left: 10px">
-		<span style="font-family: Cambria; font-weight: 700; font-size: 18px; color: #FFFFFF">
-		School Holidays</span></td>
-	</tr>
-	<tr>
-		<td style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium">
-		<table border="1" width="100%" style="border-collapse: collapse" bordercolor="#000000" id="table3">
-			<tr>
-				<td height="35" width="120" bgcolor="#FFFFFF" align="center">
-				<span style="font-family: Cambria; font-weight: 700; font-size: 15px; ">
-				SrNo</span></td>
-				<td height="35" width="423" bgcolor="#FFFFFF" align="center">
-				<span style="font-family: Cambria; font-weight: 700; font-size: 15px; ">
-				Holiday</span></td>
-				<td height="35" width="423" bgcolor="#FFFFFF" align="center">
-				<span style="font-family: Cambria; font-weight: 700; font-size: 15px; ">
-				Date</span></td>
-				<td height="35" width="424" bgcolor="#FFFFFF" align="center">
-				<span style="font-family: Cambria; font-weight: 700; font-size: 15px; ">
-				Class</span></td>
-			</tr>
-			<?php
-				while($row = mysql_fetch_row($rs))
-				{
-					$srno=$row[0];
-					$holiday=$row[1];
-					$date=$row[2];
-					$class=$row[3];
-					
-					$num_rows=$num_rows+1;
-			?>
-			<tr>
-				<td height="35" width="120" align="center">
-				<span style="font-family: Cambria; font-size: 15px; font-weight: normal; font-style: normal; text-decoration: none; ">
-				<?php echo $srno; ?></span></td>
-				<td height="35" width="423" align="center">
-				<span style="font-family: Cambria; font-size: 15px; font-weight: normal; font-style: normal; text-decoration: none; ">
-				<?php echo $holiday; ?></span></td>
-				<td height="35" width="423" align="center">
-				<span style="font-family: Cambria; font-size: 15px; font-weight: normal; font-style: normal; text-decoration: none; ">
-				<?php echo $date; ?></span></td>
-				<td height="35" width="424" align="center">
-				<span style="font-family: Cambria; font-size: 15px; font-weight: normal; font-style: normal; text-decoration: none; ">
-				<?php echo $class; ?></span></td>
-			</tr>
-			<?php
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+		<meta name="description" content="Admin, Dashboard, Bootstrap" />
+		<link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
+		<title>barrel-edu :: Student</title>
+		
+		<link rel="stylesheet" href="../libs/bower/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../libs/bower/material-design-iconic-font/dist/css/material-design-iconic-font.css">
+		<!-- build:css ../assets/css/app.min.css -->
+		<link rel="stylesheet" href="../libs/bower/animate.css/animate.min.css">
+		<link rel="stylesheet" href="../libs/bower/fullcalendar/dist/fullcalendar.min.css">
+		<link rel="stylesheet" href="../libs/bower/perfect-scrollbar/css/perfect-scrollbar.css">
+		<link rel="stylesheet" href="../assets/css/bootstrap.css">
+		<link rel="stylesheet" href="../assets/css/core.css">
+		<link rel="stylesheet" href="../assets/css/app.css">
+		<!-- endbuild -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
+		<script src="../libs/bower/breakpoints.js/dist/breakpoints.min.js"></script>
+		<script language="javascript">
+			Breakpoints();
+			function showNews(id) {
+				var myWindow = window.open("ShowNews.php?srno=" + id ,"","width=500,height=500");
 			}
-			?>
-			<tr>
-				<td height="35" width="120" align="center">&nbsp;</td>
-				<td height="35" width="423" align="center">&nbsp;</td>
-				<td height="35" width="423" align="center">&nbsp;</td>
-				<td height="35" width="424" align="center">&nbsp;</td>
-			</tr>
-		</table>
-		</td>
-	</tr>
-</table>
+		</script>
+	</head>
+	<body class="menubar-left menubar-unfold menubar-light theme-primary">
+	<!--============= start main area -->
 
-		</td>
+	<!-- APP NAVBAR ==========-->
+	<nav id="app-navbar" class="navbar navbar-inverse navbar-fixed-top primary">
+	  
+	  <!-- navbar header -->
+	  <div class="navbar-header">
+		<button type="button" id="menubar-toggle-btn" class="navbar-toggle visible-xs-inline-block navbar-toggle-left hamburger hamburger--collapse js-hamburger">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+		</button>
 
-<!--####################################Content TD close ################################################### -->
-    
-</tr>
+		<button type="button" class="navbar-toggle navbar-toggle-right collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="zmdi zmdi-hc-lg zmdi-more"></span>
+		</button>
 
-</table>
+		<button type="button" class="navbar-toggle navbar-toggle-right collapsed" data-toggle="collapse" data-target="#navbar-search" aria-expanded="false">
+		  <span class="sr-only">Toggle navigation</span>
+		  <span class="zmdi zmdi-hc-lg zmdi-search"></span>
+		</button>
 
-<div class="wrapper col5">
-  <div id="copyright" style="width: 100%; height: 58px">
-    
-    <p align="center">Powered By Online School Planet |   <a target="_blank" href="http://www.onlineschoolplanet.com" title="Online School Planet">
-	Education ERP Platform</a></p>
-    <br class="clear" />
-  </div>
-</div>
+		<a href="javascript:window.reload();" onclick="" class="navbar-brand">
+		  <span class="brand-icon"><i class="fa fa-users"></i></span>
+		  <span class="brand-name">barrel-edu</span>
+		</a>
+	  </div><!-- .navbar-header -->
+	  
+	  <div class="navbar-container container-fluid">
+		<div class="collapse navbar-collapse" id="app-navbar-collapse">
+		  <ul class="nav navbar-toolbar navbar-toolbar-left navbar-left">
+			<li class="hidden-float hidden-menubar-top">
+			  <a href="javascript:void(0)" role="button" id="menubar-fold-btn" class="hamburger hamburger--arrowalt is-active js-hamburger">
+				<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+			  </a>
+			</li>
+			<li>
+			  <h5 class="page-title hidden-menubar-top hidden-float">Holidays</h5>
+			</li>
+		  </ul>
+		</div>
+	  </div><!-- navbar-container -->
+	</nav>
+	<!--========== END app navbar -->
+
+	<?php include (__DIR__.'/SideMenu.php')?>
+	<!-- APP MAIN ==========-->
+	<main id="app-main" class="app-main">
+	  <div class="wrap">
+		<section class="app-content">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="widget p-lg">
+						<header class="widget-header">
+							<h4 class="widget-title">School Holidays</h4>
+						</header><!-- .widget-header -->
+						<hr class="widget-separator">
+						<div class="widget-body">
+							<br>
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<th>S. No.</th>
+										<th>Holiday</th>
+										<th>Date</th>
+										<th>Class</th>
+									</tr>
+									<?php 
+										$SNo = 1;
+										foreach ($holidays as $item) {  ?>
+										<tr>
+											<td><?php echo $SNo; ?></td>
+											<td><?php echo $item['holiday']; ?></td>
+											<td><?php echo date('M d,Y', strtotime($item['holiday_date'])); ?></td>
+											<td><?php echo $item['class']; ?></td>
+										</tr>
+									<?php 
+										$SNo++;
+									} ?>
+								</tbody>
+							</table>
+						</div><!-- .widget-body -->
+					</div>
+				</div><!-- END column -->
+			</div><!-- .row -->
+		</section><!-- .app-content -->
+	</div><!-- .wrap -->
+
+	  <!-- APP FOOTER -->
+	  <div class="wrap p-t-0">
+		<?php include (__DIR__.'/Footer.php')?>
+	  </div>
+	  <!-- /#app-footer -->
+	</main>
+	<!--========== END app main -->
+
+		
+
+	<!-- build:js ../assets/js/core.min.js -->
+	<script src="../libs/bower/jquery/dist/jquery.js"></script>
+	<script src="../libs/bower/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../libs/bower/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+	<script src="../libs/bower/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+	<script src="../libs/bower/jquery-slimscroll/jquery.slimscroll.js"></script>
+	<script src="../libs/bower/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+	<script src="../libs/bower/PACE/pace.min.js"></script>
+	<!-- endbuild -->
+
+	<!-- build:js ../assets/js/app.min.js -->
+	<script src="../assets/js/library.js"></script>
+	<script src="../assets/js/plugins.js"></script>
+	<script src="../assets/js/app.js"></script>
+	<!-- endbuild -->
+	<script src="../libs/bower/moment/moment.js"></script>
+	<script src="../libs/bower/fullcalendar/dist/fullcalendar.min.js"></script>
+	<script src="../assets/js/fullcalendar.js"></script>
 </body>
 </html>

@@ -60,6 +60,12 @@ class QueryManager {
 		$this->query['AttendanceAbsentCountByMonthYearAndRollNoAndClass'] = "select count(distinct attendancedate) as count from attendance where attendance='L' and DATE_FORMAT( attendancedate , '%M-%Y' )=? and srollno=? AND sclass=?";
 		$this->query['AttendanceWorkingDaysCountByMonthYearAndClass'] = "select count(distinct attendancedate) as count from attendance where DATE_FORMAT( attendancedate , '%M-%Y' )=? AND sclass=?";
 		$this->query['LatecomersByClassAndRollNo'] ="SELECT Date, Reason, Time FROM late_comers where (Class=? and Rollno=?) order by Date desc";
+
+		$this->query['StudentLeaveTypes'] = "SELECT * FROM student_leave_type WHERE Status=1";
+		$this->query['StudentLeaveRecordByAdmissionId'] = "SELECT * FROM student_leave_transaction WHERE sadmission=?";
+		$this->query['SchoolHolidaysByClassOrWithoutClass'] = "SELECT srno , holiday , DATE_FORMAT(holiday_date,'%d-%M-%Y') as holiday_date, class FROM school_holidays where class=? or class='All' order by holiday_date";
+		
 	}
+	
 }
 ?>
