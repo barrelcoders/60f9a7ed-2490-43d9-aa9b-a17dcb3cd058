@@ -64,7 +64,9 @@ class QueryManager {
 		$this->query['StudentLeaveTypes'] = "SELECT * FROM student_leave_type WHERE Status=1";
 		$this->query['StudentLeaveRecordByAdmissionId'] = "SELECT * FROM student_leave_transaction WHERE sadmission=?";
 		$this->query['SchoolHolidaysByClassOrWithoutClass'] = "SELECT srno , holiday , DATE_FORMAT(holiday_date,'%d-%M-%Y') as holiday_date, class FROM school_holidays where class=? or class='All' order by holiday_date";
-		
+		$this->query['MasterClassByClassName'] = "SELECT distinct MasterClass FROM class_master where class=?";
+		$this->query['DigitalVideoUrlSubjectsByMasterClass'] = "select distinct Subject from digitalvideo_url where Class=?";
+		$this->query['DigitalVideoListByMasterClassAndSubject'] = "SELECT srno, VideoId, Class, Subject, ChapterId, ChapterName, TopicId, Topic, SubTopicId, SubTopic, URL, Rating, Credit, Status, ViewershipCount, EntryDateTime,RelatedQuestion FROM digitalvideo_url where Class=? and Subject=? order by EntryDateTime desc";
 	}
 	
 }
