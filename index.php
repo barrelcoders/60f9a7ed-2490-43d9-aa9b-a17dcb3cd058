@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>barrel-edu :: Home</title>
+	<title>edu-barrel :: Home</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 	<meta name="description" content="Admin, Dashboard, Bootstrap" />
@@ -22,7 +22,7 @@
 		<div class="simple-page-logo animated swing">
 			<a href="index.html">
 				<span><i class="fa fa-users"></i></span>
-				<span>barrel-edu</span>
+				<span>edu-barrel</span>
 			</a>
 		</div><!-- logo -->
 		<div class="simple-page-form animated flipInY" id="login-form">

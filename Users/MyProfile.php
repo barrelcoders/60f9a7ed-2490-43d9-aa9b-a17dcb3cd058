@@ -34,7 +34,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 	<meta name="description" content="Admin, Dashboard, Bootstrap" />
 	<link rel="shortcut icon" sizes="196x196" href="../assets/images/logo.png">
-	<title>barrel-edu :: Student</title>
+	<title>edu-barrel :: Student</title>
 	
 	<link rel="stylesheet" href="../libs/bower/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../libs/bower/material-design-iconic-font/dist/css/material-design-iconic-font.css">
@@ -94,7 +94,7 @@
 
     <a href="javascript:window.reload();" onclick="" class="navbar-brand">
       <span class="brand-icon"><i class="fa fa-users"></i></span>
-      <span class="brand-name">barrel-edu</span>
+      <span class="brand-name">edu-barrel</span>
     </a>
   </div><!-- .navbar-header -->
   

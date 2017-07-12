@@ -5,6 +5,6 @@
 	  <li><a href="javascript:void(0)">Privacy Policy</a></li>
 	  <li><a href="javascript:void(0)">Feedback <i class="fa fa-angle-up m-l-md"></i></a></li>
 	</ul>
-	<div class="copyright pull-left">Copyright barrel-edu &copy; 2017</div>
+	<div class="copyright pull-left">Copyright edu-barrel &copy; 2017</div>
   </div>
 </footer>
